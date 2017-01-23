@@ -296,9 +296,7 @@ a:hover{
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
     padding-bottom: 20px;
 }
-.container>.navbar-collapse{
-        border-bottom: 1px solid #fff;
-}
+
 
 .navbar-default .navbar-nav>li>a {
     color: #fff;
