@@ -21,6 +21,10 @@ a:hover{
 	text-decoration: underline;
 }
 
+p{
+	line-height: 1.9em;
+}
+
 .navbar {
     min-height: 70px;
     margin-bottom: 0px;
@@ -249,16 +253,16 @@ a:hover{
     padding-bottom: 8px;
 }
 
-.register-form, .login-form{
+.register-form, .login-form, .dg-about-title, .dg-about-content, .dg-pricing-content, .dg-contact-content{
 	padding-top: 40px;
     padding-bottom: 40px;
 }
 
-.register-form img, .login-form img{
+.register-form img, .login-form img, .dg-about-content img{
 	width: 100%;
 }
 
-.register-form h2, .login-form h2{
+.register-form h2, .login-form h2, .dg-contact-content h2{
 	font-family: 'Open-Sans-Bold';
 }
 
@@ -269,6 +273,134 @@ a:hover{
     border-radius: 4px;
     width: 100%;
     border-color: #49c2c2;
+}
+
+.dg-about-container h2{
+	font-family: 'Open-Sans-Bold';
+}
+
+.dg-about-content .row{
+	margin-bottom: 50px;
+}
+
+.dg-about-container p, .dg-contact-content p{
+	color: #757575;
+}
+
+.dg-about-title{
+	background-color: #f7f7f7;
+}
+
+.dg-about-title h2{
+	margin-bottom: 0px;
+}
+
+.dg-services-items {
+	border: 1px solid #d0d0d0;
+}
+
+.dg-services-items .content{
+	border-top: 5px solid #49c2c2;
+	padding: 10px 20px;
+}
+
+.dg-services-items .content h4{
+	font-family: 'Open-Sans-Bold';
+	color: #49c2c2;
+}
+
+.dg-pricing-free, .dg-pricing-professional, .dg-pricing-business{
+	text-align: center;
+	border: 1px solid #d0d0d0;
+	margin-bottom: 25px;
+}
+.pricing-head{
+	padding: 1px;
+}
+
+.pricing-head p{
+	margin-top: 50px;
+	font-size: 18px;
+}
+
+.pricing-head .currency{
+	font-size: 50px;
+}
+
+.pricing-head .price{
+	font-size: 150px;
+}
+
+/*Edited*/
+.dg-pricing-free .pricing-head, .dg-pricing-free .pricing-btn{
+	background-color: #49c2c2;	
+}
+
+.dg-pricing-professional .pricing-head, .dg-pricing-professional .pricing-btn{
+	background-color: #9abd2b;	
+}
+
+.dg-pricing-business .pricing-head, .dg-pricing-business .pricing-btn{
+	background-color: #d00041;	
+}
+
+.pricing-content h3{
+	color: #757575;
+	line-height: 1.4em;
+}
+
+.pricing-content{
+	padding: 1px 37px 20px 37px;
+}
+
+.pricing-content p{
+	margin-bottom: 30px;
+}
+
+.pricing-head h2,.pricing-head p{
+	font-family: 'Open-Sans-Bold';
+	color: #ffffff;
+}
+
+.pricing-btn{
+	color: #ffffff !important;
+    text-decoration: none;
+    padding: 11px 60px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.pricing-btn:hover{
+	color: #ffffff !important;
+}
+
+.dg-pricing-content h3{
+	font-family: 'Open-Sans-Bold';
+}
+
+.dg-pricing-content .icon{
+	width: 16%;
+    font-size: 80px;
+    float: left;
+    color: #49c2c2;
+}
+    
+.pricing-feauted-content{
+	padding-left: 17%
+}
+
+.dashboard{
+	padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.icon i{
+	font-size: 21px;
+    background-color: #49c2c2;
+    width: 38px;
+    padding: 8px 10px;
+    color: #ffffff;
+    border-radius: 25px;
 }
 
 @media (min-width: 768px){
@@ -300,4 +432,16 @@ a:hover{
 
 .navbar-default .navbar-nav>li>a {
     color: #fff;
+}
+
+.dropdown-menu {
+    border-radius: 1px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #3fb7b7;
+}
+
+.dropdown-menu>li>a {
+    padding: 10px 20px;
 }
