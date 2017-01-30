@@ -14,6 +14,13 @@
 
 Route::auth();
 
+Route::get('/admin/login', 'Admin\AuthController@showLoginForm');
+Route::post('/admin/login', 'Admin\AuthController@login');
+Route::get('/admin/login', 'Admin\AuthController@logout');
+Route::get('/admin/register', 'Admin\AuthController@showRegistration');
+Route::post('/admin/register', 'Admin\AuthController@register');
+
+
 Route::get('/', 'HomeController@index');
 Route::get('/about', 'HomeController@about');
 Route::get('/services', 'HomeController@services');
@@ -21,3 +28,6 @@ Route::get('/pricing', 'HomeController@pricing');
 Route::get('/contact', 'HomeController@contact');
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard/create', 'DashboardController@create');
+
+Route::get('/profile', 'ProfileController@index');

@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    @if( Request::path() == '/')
+        <title>Durian Graphics | Home </title>
+    @else
+        <title>Durian Graphics | {{ ucfirst(Request::path()) }} </title>
+    @endif
+    
+    <link href="{{ asset('assets/images/favicon.ico') }}" rel="shortcut icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -64,9 +70,9 @@
                         <li><a href="{{ url('/register') }}" {{{ ( Request::is('register') ? 'class=active' : '') }}} >Register</a></li>
 
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                        <li class="dropdown pad-10">
+                            <a href="#" class="dropdown-toggle user-login" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }}&nbsp;&nbsp; $0.00 &nbsp;&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/dashboard') }}"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
@@ -78,34 +84,36 @@
             </div>
         </div>
     </nav>
+    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'services' || Request::path() == 'contact' || Request::path() == 'pricing' )
     <div class="dg-banner-background">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="dg-banner-h2">Over 100,000, Infographics, Themes, Vectors, Logos, and Artworks</h2>
-                <p class="dg-banner-p">Discover our huge collection of hand-reviewed graphic assets from our community of designers.</p>
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="input-group dg-banner-input-group">
-                                <input type="text" class="form-control input-lg dg-banner-input" placeholder="Find logo, banner, artworks, etc....">
-                                <span class="input-group-btn gd-banner-button">
-                                    <button class="btn btn-default btn-lg dg-banner-btn" type="button">SEARCH</button>
-                               </span>
-                                <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="dg-banner-h2">Over 100,000, Infographics, Themes, Vectors, Logos, and Artworks</h2>
+                    <p class="dg-banner-p">Discover our huge collection of hand-reviewed graphic assets from our community of designers.</p>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="input-group dg-banner-input-group">
+                                    <input type="text" class="form-control input-lg dg-banner-input" placeholder="Find logo, banner, artworks, etc....">
+                                    <span class="input-group-btn gd-banner-button">
+                                        <button class="btn btn-default btn-lg dg-banner-btn" type="button">SEARCH</button>
+                                   </span>
+                                    <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-                @if( Request::path() == '/')
-                <center>
-                    <img class="dg-banner-image" src="{{ asset('assets/images/dg-banner-image.png') }}">
-                </center>
-                @endif
+                    </form>
+                    @if( Request::path() == '/')
+                    <center>
+                        <img class="dg-banner-image" src="{{ asset('assets/images/dg-banner-image.png') }}">
+                    </center>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
-</div>
+    @endif
 
     @yield('content')
     <div class="dg-footer-background">

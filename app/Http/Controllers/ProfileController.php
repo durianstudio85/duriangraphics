@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class DashboardController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
 
+
     public function index()
     {
-        return view('dashboard.index');
+        return view('profile.index');
     }
 
     /**
@@ -30,7 +31,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('dashboard.create');
+        //
     }
 
     /**
