@@ -6,22 +6,26 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Image_item;
+use App\Category;
 
-class DashboardController extends Controller
+class DownloadController extends Controller
 {
+
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        return view('dashboard.index');
+        $category = New Category;
+
+        $allImage = Image_item::get();
+        return view('download.index', compact('allImage','category'));
     }
 
     /**
@@ -31,9 +35,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        
-        
-        return view('dashboard.create');
+        //
     }
 
     /**
@@ -53,9 +55,13 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($cat, $id)
     {
-        //
+
+        $category = New Category;
+
+        $showItem = Image_item::findOrFail($id);
+        return view('download.show', compact('showItem', 'category'));
     }
 
     /**

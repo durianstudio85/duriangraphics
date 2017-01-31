@@ -22,7 +22,7 @@
             <li>
                 <a href="{{ url('/profile') }}" {{{ ( Request::is('profile') ? 'class=active' : '') }}}><p><i class="fa fa-user" aria-hidden="true"></i>Profile</p></a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#"><p><i class="fa fa-users" aria-hidden="true"></i>Followers</p></a>
             </li>
             <li>
@@ -30,16 +30,16 @@
             </li>
             <li>
                 <a href="#"><p><i class="fa fa-cog" aria-hidden="true"></i>Setting</p></a>
-            </li>
+            </li> -->
             <li>
-                <a href="#"><p><i class="fa fa-download" aria-hidden="true"></i>Downloads</p></a>
+                <a href="{{ url('/downloads') }}" {{{ ( Request::is('downloads') ? 'class=active' : '') }}}><p><i class="fa fa-download" aria-hidden="true"></i>Downloads</p></a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#"><p><i class="fa fa-star" aria-hidden="true"></i>Reviews</p></a>
             </li>
             <li>
                 <a href="#"><p><i class="fa fa-money" aria-hidden="true"></i>Earnings</p></a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>
