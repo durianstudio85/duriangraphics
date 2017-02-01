@@ -583,9 +583,15 @@ p{
 	padding: 20px 0px;
 }
 
+.single-prod-content h2, .single-prod-content h3, .single-prod-content h4, .single-prod-content h5, .single-prod-content h6{
+	font-family: 'Open-Sans-Bold';
+	margin-top: 0px;
+}
+
 .single-prod-section{
 	border: 1px solid #eaeaea;
     padding: 15px;
+    margin-top: 20px;
 }
 
 .breadcrumbs-custom a{
@@ -598,6 +604,52 @@ p{
 	margin-right: 5px;
 	margin-left: 5px;
 }
+
+.product-details-btn{
+	text-align: center;
+}
+
+.colored-btn, .colored-btn:hover{
+	color: #ffffff;
+	background-color: #49c2c2;
+}
+
+.download-btn, .download-btn:hover{
+	background-color: #49c2c2;
+    color: #ffffff;
+    width: 100%;
+    font-size: 27px;
+}
+
+.download-section i{
+	font-size: 23px;
+    padding: 14px;
+    background-color: #49c2c2;
+    color: #fff;
+    border-radius: 25px;	
+}
+
+.download-section .count{
+	margin-left: 5px;
+    font-size: 35px;
+    font-family: 'Open-sans-bold';
+    color: #49c2c2;
+}
+
+.prod-detail-description{
+	color: #757575;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.main-featured{
+	padding-top: 15px;
+}
+
+.main-featured h3{
+    color: #414141;
+}
+
 
 @media (min-width: 768px){
 	.navbar-nav>li>a {

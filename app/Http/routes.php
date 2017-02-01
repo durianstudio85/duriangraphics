@@ -35,3 +35,6 @@ Route::get('/profile', 'ProfileController@index');
 
 Route::get('/downloads', 'DownloadController@index');
 Route::get('/downloads/{cat}/{id}', 'DownloadController@show');
+
+
+Route::get('/getdownloads', 'DownloadController@getDownload');

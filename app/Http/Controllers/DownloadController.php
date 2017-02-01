@@ -97,4 +97,15 @@ class DownloadController extends Controller
     {
         //
     }
+
+    public function getDownload()
+    {
+        //PDF file is stored under project/public/download/info.pdf
+        $myFile= public_path(). "/assets/images/prod-details-web.png";
+        $headers = array(
+                  'Content-Type: application/png',
+                );
+        $newName = 'sample.png';
+
+        return response()->download($myFile, $newName, $headers);    }
 }

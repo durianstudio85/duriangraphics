@@ -15,9 +15,10 @@ class CreateImageItemsTable extends Migration
         Schema::create('image_items', function (Blueprint $table) {
             $table->increments('id');
             $table->text('watermark_img');
-            $table->string('download_img');
+            $table->text('download_img');
             $table->string('title');
             $table->string('description');
+            $table->string('main_features');
             $table->integer('category');
             $table->timestamps();
         });

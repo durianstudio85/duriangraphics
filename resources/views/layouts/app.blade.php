@@ -11,7 +11,7 @@
         <title>Durian Graphics | {{ ucfirst(Request::path()) }} </title>
     @endif
     
-    <link href="{{ asset('assets/images/favicon.ico') }}" rel="shortcut icon">
+    <link href="{{ asset('assets/images/favicon2.ico') }}" rel="shortcut icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -174,7 +174,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>© 2016 Durian Graphics. Trademarks and brands are the property of Durian Graphics</p>
+                    <p>© 2017 Durian Graphics. Trademarks and brands are the property of Durian Graphics</p>
                 </div>
             </div>
         </div>
