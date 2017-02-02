@@ -17,8 +17,8 @@ class CreateImageItemsTable extends Migration
             $table->text('watermark_img');
             $table->text('download_img');
             $table->string('title');
-            $table->string('description');
-            $table->string('main_features');
+            $table->text('description');
+            $table->text('main_features');
             $table->integer('category');
             $table->timestamps();
         });

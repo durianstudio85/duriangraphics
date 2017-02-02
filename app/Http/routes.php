@@ -34,7 +34,9 @@ Route::get('/profile', 'ProfileController@index');
 
 
 Route::get('/downloads', 'DownloadController@index');
+Route::get('/downloads/create', 'DownloadController@create');
+Route::post('/downloads/create', 'DownloadController@store');
 Route::get('/downloads/{cat}/{id}', 'DownloadController@show');
 
 
-Route::get('/getdownloads', 'DownloadController@getDownload');
+Route::get('/getdownloads/{id}', 'DownloadController@getDownload');

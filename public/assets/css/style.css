@@ -471,7 +471,8 @@ p{
 .section{
 	background-color: #ffffff;
     padding: 13px;
-    margin-top: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .section h1, .section h2, .section h3, .section h4 {
@@ -650,6 +651,9 @@ p{
     color: #414141;
 }
 
+.form-custom .form-control{
+	padding: 5px;
+}
 
 @media (min-width: 768px){
 	.navbar-nav>li>a {

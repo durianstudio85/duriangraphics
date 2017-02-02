@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="single-prod-section">
-					<img src="{{ asset('assets/images/prod-details-web.png') }}" width="100%">
+					<img src="{{ asset('images/'.$showItem->watermark_img) }}" width="100%">
 					<div class="product-details-btn">
 						<a class="btn follow-btn colored-btn" href="#">LIVE PREVIEW</a>
 					</div>
@@ -36,7 +36,7 @@
 			<div class="col-md-4">
 				<div class="single-prod-section">
 					<h3>Download</h3>
-					<a href="{{ url('/getdownloads') }}"><button class="btn download-btn"> Download </button></a>
+					<a href="{{ url('/getdownloads/'.$showItem->id) }}"><button class="btn download-btn"> Download </button></a>
 				</div>
 
 				<div class="single-prod-section">
@@ -62,14 +62,14 @@
 			<div class="col-md-8">
 				<div class="prod-detail-description">
 					<p>
-						Hexapro – Corporate Responsive WordPress Theme is a clean and elegant design – suitable for agency, blog, business, company, corporate, creative, portfolio, professional etc . It has a fully responsive width adjusts automatically to any screen size or resolution.
-						We have included 5 defined layouts for the homepage to give you best selections in customization. You can mix between all home page layouts to get a different layout for your own website.
+						{!! nl2br($showItem->description)	 !!}
+						
 					</p>
 					<div class="main-featured">
 						<h3>Main Features</h3>
 						<p>
-							Responsive Layout<br>
-							Wordpress Latest Version<br>
+							{!! nl2br($showItem->main_features) !!}
+							
 						</p>	
 					</div>
 					
