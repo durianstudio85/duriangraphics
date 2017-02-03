@@ -654,6 +654,10 @@ p{
 .form-custom .form-control{
 	padding: 5px;
 }
+.latest-prod{
+	padding: 0px !important;
+}
+    
 
 @media (min-width: 768px){
 	.navbar-nav>li>a {
@@ -685,7 +689,7 @@ p{
 }
 
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 
 

@@ -22,7 +22,6 @@ class CreateImageItemsTable extends Migration
             $table->integer('category');
             $table->timestamps();
         });
-
     }
 
     /**

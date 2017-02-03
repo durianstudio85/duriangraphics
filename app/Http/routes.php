@@ -27,6 +27,9 @@ Route::get('/services', 'HomeController@services');
 Route::get('/pricing', 'HomeController@pricing');
 Route::get('/contact', 'HomeController@contact');
 
+Route::get('/categories', 'HomeController@categories');
+
+
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/create', 'DashboardController@create');
 
@@ -36,7 +39,9 @@ Route::get('/profile', 'ProfileController@index');
 Route::get('/downloads', 'DownloadController@index');
 Route::get('/downloads/create', 'DownloadController@create');
 Route::post('/downloads/create', 'DownloadController@store');
-Route::get('/downloads/{cat}/{id}', 'DownloadController@show');
+
+
+Route::get('/products/{cat}/{id}', 'ProductController@show');
 
 
 Route::get('/getdownloads/{id}', 'DownloadController@getDownload');

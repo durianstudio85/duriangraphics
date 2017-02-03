@@ -73,8 +73,6 @@ class DownloadController extends Controller
 
         // $filename = str_random(20).$watermark_img->getClientOriginalName();
 
-
-
          // DurianGraphics000001
 
 
@@ -142,7 +140,7 @@ class DownloadController extends Controller
         $headers = array(
                   'Content-Type: application/zip',
                 );
-        $newName = 'DurianGraphics'.$downloadId.'.zip';
+        $newName = 'DurianGraphics'.$id.'.zip';
 
         return response()->download($myFile, $newName, $headers);    }
 }

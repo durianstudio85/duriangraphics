@@ -32,7 +32,7 @@
                 <a href="#"><p><i class="fa fa-cog" aria-hidden="true"></i>Setting</p></a>
             </li> -->
             <li>
-                <a href="{{ url('/downloads') }}" {{{ ( Request::is('downloads') ? 'class=active' : '') }}}><p><i class="fa fa-download" aria-hidden="true"></i>Downloads</p></a>
+                <a href="{{ url('/products') }}" {{{ ( Request::is('products') ? 'class=active' : '') }}}><p><i class="fa fa-download" aria-hidden="true"></i>Downloads</p></a>
             </li>
             <!-- <li>
                 <a href="#"><p><i class="fa fa-star" aria-hidden="true"></i>Reviews</p></a>

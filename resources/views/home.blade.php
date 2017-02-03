@@ -57,7 +57,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            @foreach( $getLatestUpdate as $getLatest)
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="{{ url('/products/'.$category->getCatName($getLatest->category).'/'.$getLatest->id) }}" class="latest-prod">
+                        <img src="{{ asset('images/'.$products->changeSizeImage($getLatest->watermark_img, 'm')) }}">
+                    </a>
+                </div>
+            @endforeach
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <img src="{{ asset('assets/images/latest1.png') }}">
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -80,13 +87,13 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <img src="{{ asset('assets/images/latest8.png') }}">
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <a href="#">ALL NEW ITEMS</a>
                 <a href="#">POPULAR FILES</a>
-                <a href="#">BROWSE CATEGORIES</a>
+                <a href="{{ url('/categories') }}">BROWSE CATEGORIES</a>
             </div>
         </div>
     </div>
