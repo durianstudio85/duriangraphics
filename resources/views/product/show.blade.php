@@ -41,7 +41,7 @@
 
 				<div class="single-prod-section">
 					<div class="download-section">
-						<i class="fa fa-download" aria-hidden="true"></i><span class="count">0</span>Downloads
+						<i class="fa fa-download" aria-hidden="true"></i><span class="count">{{ $download->countImageDownloads($showItem->id) }}</span>Downloads
 					</div>
 				</div>
 

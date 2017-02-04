@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Image_item;
 use App\Category;
+use App\Download;
 
 class ProductController extends Controller
 {
@@ -22,8 +23,9 @@ class ProductController extends Controller
 
     public function show($cat, $id)
     {
+        $download = New Download;
     	$category = New Category;
         $showItem = Image_item::findOrFail($id);
-        return view('product.show', compact('showItem', 'category'));
+        return view('product.show', compact('showItem', 'category', 'download'));
     }
 }
