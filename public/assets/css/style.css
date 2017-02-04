@@ -543,8 +543,8 @@ p{
 
 
 .download-list img{
-	max-width: 110px;
-    max-height: 110px;
+	max-width: 165px;
+    max-height: 165px;
 }
 
 .single-prod-header{
@@ -654,9 +654,36 @@ p{
 .form-custom .form-control{
 	padding: 5px;
 }
+
 .latest-prod{
-	padding: 0px !important;
+	height: 90%;
+	width: 90%;
+    position: absolute;
+    margin-left: 0;
+    left: 12px;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    top: -4px;
+    background-color: rgba(0, 0, 0, 0.38) !important;
+    border-radius: 0px !important;
+    opacity: 0;
 }
+
+.latest-prod i{
+	    margin-top: 40%;
+    padding: 14px;
+    font-size: 20px;
+    background-color: #49c2c2;
+    border-radius: 25px;
+}
+
+.latest-prod:hover{
+	background-color: rgba(0, 0, 0, 0.38) !important;
+	opacity: 1;
+	transition: all 0.5s;
+}
+
+
     
 
 @media (min-width: 768px){

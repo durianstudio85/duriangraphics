@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Image_item;
 use App\Category;
+use App\Download;
+use Auth;
 
 class DownloadController extends Controller
 {
@@ -23,9 +25,12 @@ class DownloadController extends Controller
     public function index()
     {
         $category = New Category;
+        $imageItem = new Image_item;
+        $user_id = Auth::user()->id;
+        $getDownload = Download::where('user_id','=', $user_id)->get();
 
         $allImage = Image_item::get();
-        return view('download.index', compact('allImage','category'));
+        return view('download.index', compact('allImage','category', 'getDownload','imageItem'));
     }
 
     /**
@@ -89,7 +94,6 @@ class DownloadController extends Controller
     {
 
         $category = New Category;
-
         $showItem = Image_item::findOrFail($id);
         return view('download.show', compact('showItem', 'category'));
     }
@@ -131,6 +135,8 @@ class DownloadController extends Controller
     public function getDownload($id)
     {
 
+        $user_id = Auth::user()->id;
+
         $zero = 1000000;
         $downloadId = $zero + $id;
 
@@ -142,5 +148,16 @@ class DownloadController extends Controller
                 );
         $newName = 'DurianGraphics'.$id.'.zip';
 
-        return response()->download($myFile, $newName, $headers);    }
+        $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
+
+        if ( $downloadCount == 0) {
+            $data = [
+                'img_id' => $id,
+                'user_id' => $user_id,
+            ];
+            Download::Create($data);
+        }
+
+        return response()->download($myFile, $newName, $headers);    
+    }
 }

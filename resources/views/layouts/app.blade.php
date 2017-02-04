@@ -68,7 +68,6 @@
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" {{{ ( Request::is('home') ? 'class=active' : '') }}} >Login</a></li>
                         <li><a href="{{ url('/register') }}" {{{ ( Request::is('register') ? 'class=active' : '') }}} >Register</a></li>
-
                     @else
                         <li class="dropdown pad-10">
                             <a href="#" class="dropdown-toggle user-login" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -84,7 +83,7 @@
             </div>
         </div>
     </nav>
-    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'services' || Request::path() == 'contact' || Request::path() == 'pricing' )
+    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'services' || Request::path() == 'contact' || Request::path() == 'pricing' || Request::path() == 'categories' )
     <div class="dg-banner-background">
         <div class="container">
             <div class="row">

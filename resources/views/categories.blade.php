@@ -19,7 +19,7 @@
 				@foreach( $getCategoryList as $items )
 					@if( $category->countCategoryContent($items->id) > 0 )
 						<div class="col-md-3">
-							<img src="{{ asset('images/'.$products->getFirstItemByCategory($items->id)) }}" width="100%">
+							<img src="{{ asset('images/'.$products->changeSizeImage($products->getFirstItemByCategory($items->id), 'm')) }}" width="100%">
 							<h2>{{ $items->name }}</h2>
 						</div>
 					@endif

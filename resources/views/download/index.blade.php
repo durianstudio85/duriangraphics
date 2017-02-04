@@ -17,20 +17,32 @@
 								</div>
 								<div class="col-md-12">
 									<table class="table">
-										@foreach( $allImage as $items )
+										@foreach( $getDownload as $download )
+											
 											<tr class="download-list">
-												<td width="130px"><img src="{{ asset('assets/images/profile-blank-image.png') }}"></td>
+												
+												<td width="130px">
+													<a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}">
+														<img src="{{ asset('images/'.$imageItem->changeSizeImage($imageItem->getOneImageDetail($download->img_id)->watermark_img, 's')) }}">
+													</a>
+												</td>
+
 												<td>
 													<div class="download-decription">
-														<h4>{{ $items->title }}</h4>
-														<p>{{ $items->description }}</p>
+														<h3>{{ $imageItem->getOneImageDetail($download->img_id)->title }}</h3>
+
+														<p>{{ $imageItem->getOneImageDetail($download->img_id)->description }}</p>
 													</div>
 												</td>
-												<td>
-													<center>
-														<button class="btn follow-btn">Download</button>
-														<a href="{{ url('/downloads/'.$category->getCatName($items->category).'/'.$items->id) }}"><button class="btn follow-btn">Details</button>
-													</center>
+												<td width="130px">
+													
+														<a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}">
+															<button class="btn follow-btn">Details</button>		
+														</a><br>
+														<a href="{{ url('/getdownloads/'. $imageItem->getOneImageDetail($download->img_id)->id) }}">
+															<button class="btn follow-btn">Download</button>									
+														</a>			
+													
 												</td>
 											</tr>
 										@endforeach

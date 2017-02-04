@@ -22,10 +22,16 @@ class Image_item extends Model
         $explodedFilename = explode('.', $fileName);
         if ($size == 'm') {
 			$newFilename = $explodedFilename[0].'_m.'.$explodedFilename[1];        	
-        }elseif ($size == 'l') {
-        	$newFilename = $explodedFilename[0].'_l.'.$explodedFilename[1];        	
+        }elseif ($size == 's') {
+        	$newFilename = $explodedFilename[0].'_s.'.$explodedFilename[1];        	
         }
         return $newFilename;
-	}	
+	}
+
+    public function getOneImageDetail($id ='')
+    {
+        $oneImage = Image_item::findOrFail($id);
+        return $oneImage;
+    }
 
 }
