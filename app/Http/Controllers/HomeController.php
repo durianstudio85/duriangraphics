@@ -27,6 +27,7 @@ class HomeController extends Controller
         $getLatestUpdate = Image_item::skip(0)->take(8)->orderBy('id','desc')->get();
         $category = New Category;
 
+        
         return view('home', compact('products', 'getLatestUpdate','category'));
     }
 
@@ -50,11 +51,21 @@ class HomeController extends Controller
         return view('contact');
     }
 
-    public function categories()
+    public function categories($cat = '')
     {
         $getCategoryList = Category::get();
         $products = new Image_item;
         $category = new Category;
-        return view('categories', compact('getCategoryList', 'products', 'category'));
+        $getCategoryAll = Category::get();
+
+        if (!empty($cat)) {
+            $getCatID = Category::where('name', '=', $cat)->first();
+            $getProdAll = Image_item::where('category', '=', $getCatID->id)->get();
+        }else{
+            $getProdAll = Image_item::get();
+        }
+        return view('categories', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));    
+
+        
     }
 }

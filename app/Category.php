@@ -24,6 +24,12 @@ class Category extends Model
 		return $itemCount;
 	}
 
+	public function countAll()
+	{
+		$itemCount = Image_item::count();
+		return $itemCount;
+	}
+
 
 
 
