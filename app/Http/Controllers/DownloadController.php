@@ -150,13 +150,11 @@ class DownloadController extends Controller
 
         $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
 
-        if ( $downloadCount == 0) {
-            $data = [
-                'img_id' => $id,
-                'user_id' => $user_id,
-            ];
-            Download::Create($data);
-        }
+        $data = [
+            'img_id' => $id,
+            'user_id' => $user_id,
+        ];
+        Download::Create($data);
 
         return response()->download($myFile, $newName, $headers);    
     }

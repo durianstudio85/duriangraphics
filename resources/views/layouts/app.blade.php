@@ -83,7 +83,7 @@
             </div>
         </div>
     </nav>
-    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'services' || Request::path() == 'contact' || Request::path() == 'pricing' )
+    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'services' || Request::path() == 'contact' || Request::path() == 'pricing' || Request::path() == 'login' || Request::path() == 'admin/login' || Request::path() == 'admin/register' || Request::path() == 'register' )
     <div class="dg-banner-background">
         <div class="container">
             <div class="row">

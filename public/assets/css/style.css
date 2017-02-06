@@ -729,6 +729,11 @@ p{
     color: #fff;	
 }
 
+.side-nav-categories hr{
+	margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .dg-categories-content h2{
 	margin-top: 0px;
 }
@@ -741,8 +746,11 @@ p{
 	margin-top: 20px;
 }
 
-
-
+.admin-section{
+    background-color: #f7f7f7;
+    padding: 13px;
+    margin-top: 0px;
+}
     
 
 @media (min-width: 768px){
