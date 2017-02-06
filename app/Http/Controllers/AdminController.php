@@ -39,8 +39,6 @@ class AdminController extends Controller
             'description' => $request->get('description'),
             'main_features' => $request->get('main_features'),
             'category' => $request->get('category'),
-            'download_img' => $download_img_name,
-            'watermark_img' => $watermark_img_name,
         ];
 
         $getItems = Image_item::Create($data);
