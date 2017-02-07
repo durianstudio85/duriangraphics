@@ -9,6 +9,8 @@
 		<li><a href="{{ url('/admin/categories/create') }}" {{{ ( Request::is('admin/categories/create') ? 'class=active' : '') }}} ><p>Add Category <span></span></p></a></li>
 		<li><a href="{{ url('/admin/categories') }}" {{{ ( Request::is('admin/categories') ? 'class=active' : '') }}} ><p>Categories <span>( {{ App\Category::count() }} )</span></p></a></li>
 		<hr>
+		<li><a href="{{ url('/admin/options') }}" {{{ ( Request::is('admin/options') ? 'class=active' : '') }}} ><p>Options</p></a></li>
+		<hr>
 		<li><a href="{{ url('/admin/logout') }}"><p>Logout</p></a></li>
 	</ul>						
 </div>

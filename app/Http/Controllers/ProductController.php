@@ -28,10 +28,20 @@ class ProductController extends Controller
         $showItem = Image_item::findOrFail($id);
 
         $created = $showItem->created_at;
-        $dateCreate = $created->toFormattedDateString();
+        if (!empty($created)) {
+            $dateCreate = $created->toFormattedDateString();
+        }else{
+            $dateCreate = "";
+        }
+        
 
         $updated = $showItem->updated_at;
-        $dateUpdate = $updated->toFormattedDateString();
+        if (!empty($updated)) {
+            $dateUpdate = $updated->toFormattedDateString();
+        }else{
+            $dateUpdate = "";
+        }
+        
 
         return view('product.show', compact('showItem', 'category', 'download','dateCreate', 'dateUpdate'));
     }

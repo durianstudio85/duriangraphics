@@ -59,9 +59,9 @@ class HomeController extends Controller
 
         if (!empty($cat)) {
             $getCatID = Category::where('name', '=', $cat)->first();
-            $getProdAll = Image_item::where('category', '=', $getCatID->id)->get();
+            $getProdAll = Image_item::where('category', '=', $getCatID->id)->orderBy('title','asc')->get();
         }else{
-            $getProdAll = Image_item::get();
+            $getProdAll = Image_item::orderBy('title','asc')->get();
         }
         return view('categories', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));    
 
