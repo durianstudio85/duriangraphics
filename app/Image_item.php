@@ -34,4 +34,6 @@ class Image_item extends Model
         return $oneImage;
     }
 
+
+
 }

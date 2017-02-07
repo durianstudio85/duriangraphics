@@ -48,7 +48,7 @@
 							<div class="section form-custom admin-section">
 								<div class="row">
 									<div class="col-md-12">
-										<h2>Add Products</h2>
+										<h2>Edit Product</h2>
 									</div>
 									<div class="col-md-12">
 										{!! Form::open(['url'=>'admin/products/create','files'=>'true']) !!}

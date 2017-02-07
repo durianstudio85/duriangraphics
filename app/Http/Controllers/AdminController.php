@@ -33,16 +33,13 @@ class AdminController extends Controller
 
     public function storeProducts(Request $request)
     {
-
     	$data = [
             'title' => $request->get('title'),
             'description' => $request->get('description'),
             'main_features' => $request->get('main_features'),
             'category' => $request->get('category'),
         ];
-
         $getItems = Image_item::Create($data);
-
         //Fow Download Image
 	        $download_img = $request->file('download_img');
 	        $download_img_extension = $download_img->getClientOriginalExtension();      
@@ -64,18 +61,26 @@ class AdminController extends Controller
 	        $small_size_name = 'DurianGraphics_'.$getItems->id.'_s.'.$small_size_extension;
 	        $small_size->move(public_path().'/images',$small_size_name);
 	    // Download Image End
-
 	    $fileData = [
 	    	'download_img' => $download_img_name,
             'watermark_img' => $watermark_img_name,	
 	    ];
-
         $getItems->update($fileData);
-
-        return redirect('/downloads');
-
+        return redirect('/admin/products/create');
         // $filename = str_random(20).$watermark_img->getClientOriginalName();
-
          // DurianGraphics000001
+    }
+
+    public function products()
+    {
+        $products = new Image_item;
+        return view('admin.product', compact('products'));    
+    }
+
+    public function showProducts($id)
+    {
+        $image = Image_item::findOrFail($id);
+        $categoryList = Category::get();
+        return view('admin.productshow', compact('image', 'categoryList'));   
     }
 }

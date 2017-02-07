@@ -11,15 +11,27 @@
 |
 */
 
+Route::group(['middleware' => ['web']], function () {
+    //Login Routes...
+    Route::get('/admin/login','Admin\AuthController@showLoginForm');
+    Route::post('/admin/login','Admin\AuthController@login');
+    Route::get('/admin/logout','Admin\AuthController@logout');
+
+    // Registration Routes...
+    Route::get('admin/register', 'Admin\AuthController@showRegistrationForm');
+    Route::post('admin/register', 'Admin\AuthController@register');
+
+    Route::get('/admin', 'AdminController@index');
+
+    Route::get('/admin/products', 'AdminController@products');
+    Route::get('/admin/products/create', 'AdminController@createProducts');
+    Route::post('/admin/products/create', 'AdminController@storeProducts');
+    Route::get('/admin/products/{id}/edit', 'AdminController@showProducts');
+
+});  
 
 
 Route::auth();
-
-Route::get('/admin/login', 'Admin\AuthController@showLoginForm');
-Route::post('/admin/login', 'Admin\AuthController@login');
-Route::get('/admin/login', 'Admin\AuthController@logout');
-Route::get('/admin/register', 'Admin\AuthController@showRegistration');
-Route::post('/admin/register', 'Admin\AuthController@register');
 
 
 Route::get('/', 'HomeController@index');
@@ -50,18 +62,3 @@ Route::get('/categories', 'HomeController@categories');
 Route::get('/categories/{cat}', 'HomeController@categories');
 
 
-Route::group(['middleware' => ['web']], function () {
-    //Login Routes...
-    Route::get('/admin/login','Admin\AuthController@showLoginForm');
-    Route::post('/admin/login','Admin\AuthController@login');
-    Route::get('/admin/logout','Admin\AuthController@logout');
-
-    // Registration Routes...
-    Route::get('admin/register', 'Admin\AuthController@showRegistrationForm');
-    Route::post('admin/register', 'Admin\AuthController@register');
-
-    Route::get('/admin', 'AdminController@index');
-    Route::get('/admin/products/create', 'AdminController@createProducts');
-    Route::post('/admin/products/create', 'AdminController@storeProducts');
-
-});  
