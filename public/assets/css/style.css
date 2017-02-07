@@ -622,9 +622,14 @@ p{
     font-size: 27px;
 }
 
+.download-section{
+	font-size: 25px;
+	color: #979595;
+}
+
 .download-section i{
 	font-size: 23px;
-    padding: 14px;
+    padding: 13px;
     background-color: #49c2c2;
     color: #fff;
     border-radius: 25px;	
@@ -632,7 +637,7 @@ p{
 
 .download-section .count{
 	margin-left: 5px;
-    font-size: 35px;
+    font-size: 26px;
     font-family: 'Open-sans-bold';
     color: #49c2c2;
 }
@@ -759,6 +764,8 @@ p{
 	    padding-bottom: 25px;
 	    color: #ffffff !important;
 	    font-family: 'Open-Sans';
+	    padding-left: 20px;
+	    padding-right: 20px;
 	}
 
 	.navbar-nav>li>a.user-login {

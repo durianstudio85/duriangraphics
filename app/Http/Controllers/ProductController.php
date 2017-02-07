@@ -26,6 +26,13 @@ class ProductController extends Controller
         $download = New Download;
     	$category = New Category;
         $showItem = Image_item::findOrFail($id);
-        return view('product.show', compact('showItem', 'category', 'download'));
+
+        $created = $showItem->created_at;
+        $dateCreate = $created->toFormattedDateString();
+
+        $updated = $showItem->updated_at;
+        $dateUpdate = $updated->toFormattedDateString();
+
+        return view('product.show', compact('showItem', 'category', 'download','dateCreate', 'dateUpdate'));
     }
 }

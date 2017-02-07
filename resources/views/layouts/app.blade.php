@@ -61,10 +61,22 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <li><a href="{{ url('/') }}" {{{ ( Request::is('/') ? 'class=active' : '') }}} >Home</a></li>
-                    <li><a href="{{ url('/about') }}" {{{ ( Request::is('about') ? 'class=active' : '') }}} >About</a></li>
-                    <li><a href="{{ url('/services') }}" {{{ ( Request::is('services') ? 'class=active' : '') }}} >Services</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Categories <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/categories') }}">All</a></li>
+                            @foreach ( App\Category::get() as $items )
+                                <li><a href="{{ url('/categories/'.$items->name) }}">{{ ucfirst($items->name) }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+
+                    <!-- <li><a href="{{ url('/about') }}" {{{ ( Request::is('about') ? 'class=active' : '') }}} >About</a></li> -->
+                    <!-- <li><a href="{{ url('/services') }}" {{{ ( Request::is('services') ? 'class=active' : '') }}} >Services</a></li> -->
                     <li><a href="{{ url('/pricing') }}" {{{ ( Request::is('pricing') ? 'class=active' : '') }}} >Pricing</a></li>
-                    <li><a href="{{ url('/contact') }}" {{{ ( Request::is('contact') ? 'class=active' : '') }}} >Contact</a></li>
+                    <!-- <li><a href="{{ url('/contact') }}" {{{ ( Request::is('contact') ? 'class=active' : '') }}} >Contact</a></li> -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" {{{ ( Request::is('home') ? 'class=active' : '') }}} >Login</a></li>
                         <li><a href="{{ url('/register') }}" {{{ ( Request::is('register') ? 'class=active' : '') }}} >Register</a></li>

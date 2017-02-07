@@ -51,7 +51,7 @@
 										<h2>Edit Product</h2>
 									</div>
 									<div class="col-md-12">
-										{!! Form::open(['url'=>'admin/products/create','files'=>'true']) !!}
+										{!! Form::model($image, ['method'=>'patch', 'action'=>['AdminController@updateProducts', $image->id], 'files'=>'true']) !!}
 					                            <div class="col-md-4">
 					                                <div class="form-group">
 					                                	{!! Form::label('image_watermark', 'Image(Normal)'); !!}
@@ -79,13 +79,14 @@
 					                            <div class="col-md-12">
 					                                <div class="form-group">
 					                                	{!! Form::label('title', 'File Name'); !!}
-					                                    {!! Form::text('title', null,['class'=>'form-control', 'placeholder'=>'e.g. Image']) !!}
+					                                    {!! Form::text('title', $image->title,['class'=>'form-control', 'placeholder'=>'e.g. Image']) !!}
 					                                </div>
 					                            </div>
 					                            <div class="col-md-12">
 					                            	<div class="form-group">
 					                            		{!! Form::label('category', 'Category'); !!}
-					                            		<select name="category" class="form-control">
+					                            		<select name="category" class="form-control" required>
+					                            			<option value="{{ $image->category }}">{{ ucfirst($category->getCatName($image->category)) }}</option>
 					                            			@foreach( $categoryList as $category )
 					                            				<option value="{{ $category->id }}">{{ ucfirst($category->name) }}</option>
 						                            		@endforeach
@@ -96,13 +97,13 @@
 					                            <div class="col-md-12">
 					                                <div class="form-group">
 					                                	{!! Form::label('description', 'Description'); !!}
-					                                    {!! Form::textarea('description', null,['class'=>'form-control', 'placeholder'=>'Description']) !!}
+					                                    {!! Form::textarea('description', $image->description,['class'=>'form-control', 'placeholder'=>'Description']) !!}
 					                                </div>
 					                            </div>
 					                            <div class="col-md-12">
 					                                <div class="form-group">
 					                                	{!! Form::label('main_features', 'Main Features'); !!}
-					                                    {!! Form::textarea('main_features', null,['class'=>'form-control', 'placeholder'=>'']) !!}
+					                                    {!! Form::textarea('main_features', $image->main_features,['class'=>'form-control', 'placeholder'=>'']) !!}
 					                                </div>
 					                            </div>
 					                            <div class="col-md-12">

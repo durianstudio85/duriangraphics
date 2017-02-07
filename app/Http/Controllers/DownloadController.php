@@ -9,6 +9,7 @@ use App\Image_item;
 use App\Category;
 use App\Download;
 use Auth;
+use Carbon\Carbon;
 
 class DownloadController extends Controller
 {
@@ -95,7 +96,11 @@ class DownloadController extends Controller
 
         $category = New Category;
         $showItem = Image_item::findOrFail($id);
-        return view('download.show', compact('showItem', 'category'));
+
+        $dateCreate = $showItem->created_at;
+
+        
+        return view('download.show', compact('showItem', 'category', 'dateCreate'));
     }
 
     /**

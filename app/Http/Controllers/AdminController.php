@@ -43,7 +43,7 @@ class AdminController extends Controller
         //Fow Download Image
 	        $download_img = $request->file('download_img');
 	        $download_img_extension = $download_img->getClientOriginalExtension();      
-	        $download_img_name = str_random(20).'.'.$download_img_extension;
+	        $download_img_name = 'DurianGraphics_'.$getItems->id.'.'.$download_img_extension;
 	        $download_img->move(public_path().'/upload/zip',$download_img_name);
 
 	        $watermark_img = $request->file('watermark_img');
@@ -80,7 +80,58 @@ class AdminController extends Controller
     public function showProducts($id)
     {
         $image = Image_item::findOrFail($id);
+        $category = new Category;
         $categoryList = Category::get();
-        return view('admin.productshow', compact('image', 'categoryList'));   
+        return view('admin.productshow', compact('image', 'categoryList', 'category'));   
+    }
+
+    public function updateProducts(Request $request, $id)
+    {
+        $image = Image_item::findOrFail($id);
+        $small_size = $request->file('small_size');
+        $watermark_img = $request->file('watermark_img');
+        $medium_size = $request->file('medium_size');
+        $download_img = $request->file('download_img');
+
+        if (!empty($watermark_img)) {
+            $watermark_img_extension = $watermark_img->getClientOriginalExtension();      
+            $watermark_img_name = 'DurianGraphics_'.$image->id.'.'.$watermark_img_extension;
+            $watermark_img->move(public_path().'/images',$watermark_img_name);
+        }else{
+            $watermark_img_name = $image->watermark_img;
+        }
+
+        if (!empty($medium_size)) {
+            $medium_size_extension = $medium_size->getClientOriginalExtension();      
+            $medium_size_name = 'DurianGraphics_'.$image->id.'_m.'.$medium_size_extension;
+            $medium_size->move(public_path().'/images',$medium_size_name);
+        }
+
+        if (!empty($small_size)) {
+            $small_size_extension = $small_size->getClientOriginalExtension();      
+            $small_size_name = 'DurianGraphics_'.$image->id.'_s.'.$small_size_extension;
+            $small_size->move(public_path().'/images',$small_size_name);
+        }        
+
+        if (!empty($download_img)) {
+            $download_img_extension = $download_img->getClientOriginalExtension();      
+            $download_img_name = 'DurianGraphics_'.$image->id.'.'.$download_img_extension;
+            $download_img->move(public_path().'/upload/zip',$download_img_name);
+        }else{
+            $download_img_name = $image->download_img;
+        }
+
+        $data = [
+            'download_img' => $download_img_name,
+            'watermark_img' => $watermark_img_name, 
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'main_features' => $request->get('main_features'),
+            'category' => $request->get('category'),
+        ];
+
+        $image->update($data);
+        return redirect('/admin/products/'.$image->id.'/edit');
+
     }
 }

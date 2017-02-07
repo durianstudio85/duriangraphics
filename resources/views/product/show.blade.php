@@ -41,7 +41,7 @@
 
 				<div class="single-prod-section">
 					<div class="download-section">
-						<i class="fa fa-download" aria-hidden="true"></i><span class="count">{{ $download->countImageDownloads($showItem->id) }}</span>Downloads
+						<i class="fa fa-download" aria-hidden="true"></i><span class="count">{{ $download->countImageDownloads($showItem->id) }}&nbsp;</span>Downloads
 					</div>
 				</div>
 
@@ -49,11 +49,11 @@
 					<table class="table">
 						<tr>
 							<td><h5>Last Update</h5></td>
-							<td>28 January 2017</td>
+							<td>{{ $dateUpdate }}</td>
 						</tr>
 						<tr>
 							<td><h5>Created</h5></td>
-							<td>28 January 2017</td>
+							<td>{{ $dateCreate }}</td>
 						</tr>
 
 					</table>
