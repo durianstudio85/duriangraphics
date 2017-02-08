@@ -758,6 +758,32 @@ p{
 }
     
 
+
+.categories-hover-item{
+	background-color: rgba(0, 0, 0, 0.38);
+    width: 252px;
+    height: 252px;
+    display: block;
+    margin-top: -252px;
+    position: absolute;
+    padding-top: 34%;
+    padding-left: 35%;
+    opacity: 0;
+}
+
+.categories-hover-item i{
+	padding: 14px;
+    font-size: 20px;
+    background-color: #49c2c2;
+    border-radius: 25px;
+    color: #ffffff;
+}
+
+.categories-hover-item:hover{
+	opacity: 1;
+    transition: all 0.5s;
+}
+
 @media (min-width: 768px){
 	.navbar-nav>li>a {
 	    padding-top: 25px;

@@ -56,7 +56,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-6 prod-margin">
 						<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
 						<div>
-                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}">
+                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}" class="categories-hover-item">
                                 <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
                             </a>
 						</div>
