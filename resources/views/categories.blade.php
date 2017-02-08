@@ -54,9 +54,12 @@
 					<!-- <h2>Print Templates</h2> -->
 					@foreach( $getProdAll as $images)
 					<div class="col-md-4 col-sm-4 col-xs-6 prod-margin">
-						<a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}">
-							<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
-						</a>
+						<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
+						<div>
+                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}">
+                                <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
+                            </a>
+						</div>
 					</div>
 					@endforeach
 				</div>

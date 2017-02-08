@@ -28,7 +28,7 @@ class DownloadController extends Controller
         $category = New Category;
         $imageItem = new Image_item;
         $user_id = Auth::user()->id;
-        $getDownload = Download::where('user_id','=', $user_id)->get();
+        $getDownload = Download::where('user_id','=', $user_id)->where('type','=', 'first')->get();
 
         $allImage = Image_item::get();
         return view('download.index', compact('allImage','category', 'getDownload','imageItem'));
@@ -96,10 +96,7 @@ class DownloadController extends Controller
 
         $category = New Category;
         $showItem = Image_item::findOrFail($id);
-
         $dateCreate = $showItem->created_at;
-
-        
         return view('download.show', compact('showItem', 'category', 'dateCreate'));
     }
 
@@ -144,7 +141,6 @@ class DownloadController extends Controller
 
         $zero = 1000000;
         $downloadId = $zero + $id;
-
         $item = Image_item::findOrFail($id);
         //PDF file is stored under project/public/download/info.pdf
         $myFile= public_path(). "/upload/zip/".$item->download_img;
@@ -154,13 +150,17 @@ class DownloadController extends Controller
         $newName = 'DurianGraphics'.$id.'.zip';
 
         $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
-
+        if ($downloadCount > 0) {
+            $type = 'repeat';
+        }else{
+            $type = 'first';
+        }
         $data = [
             'img_id' => $id,
             'user_id' => $user_id,
+            'type' => $type,
         ];
         Download::Create($data);
-
         return response()->download($myFile, $newName, $headers);    
     }
 }

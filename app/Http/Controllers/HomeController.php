@@ -23,10 +23,8 @@ class HomeController extends Controller
     public function index()
     {
         $products = new Image_item;
-        $getLatestUpdate = Image_item::skip(0)->take(8)->orderBy('id','desc')->get();
+        $getLatestUpdate = Image_item::skip(0)->take(16)->orderBy('id','desc')->get();
         $category = New Category;
-
-        
         return view('home', compact('products', 'getLatestUpdate','category'));
     }
 
@@ -55,13 +53,13 @@ class HomeController extends Controller
         $getCategoryList = Category::get();
         $products = new Image_item;
         $category = new Category;
-        $getCategoryAll = Category::get();
+        $getCategoryAll = Category::orderBy('name')->get();
 
         if (!empty($cat)) {
             $getCatID = Category::where('name', '=', $cat)->first();
-            $getProdAll = Image_item::where('category', '=', $getCatID->id)->orderBy('title','asc')->get();
+            $getProdAll = Image_item::where('category', '=', $getCatID->id)->orderBy('id','desc')->get();
         }else{
-            $getProdAll = Image_item::orderBy('title','asc')->get();
+            $getProdAll = Image_item::orderBy('id','desc')->get();
         }
         return view('categories', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));    
 

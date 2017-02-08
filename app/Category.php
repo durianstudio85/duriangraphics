@@ -12,7 +12,6 @@ class Category extends Model
         'name', 'cat',
     ];
 
-
     public function getCatName($id = '') {
     	$item = Category::findOrFail($id);
     	return $item->name;

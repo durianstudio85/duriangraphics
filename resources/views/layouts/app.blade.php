@@ -67,7 +67,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/categories') }}">All</a></li>
-                            @foreach ( App\Category::get() as $items )
+                            @foreach ( App\Category::orderBy('name')->get() as $items )
                                 <li><a href="{{ url('/categories/'.$items->name) }}">{{ ucfirst($items->name) }}</a></li>
                             @endforeach
                         </ul>

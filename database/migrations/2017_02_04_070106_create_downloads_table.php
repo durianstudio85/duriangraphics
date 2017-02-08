@@ -16,6 +16,7 @@ class CreateDownloadsTable extends Migration
             $table->increments('id');
             $table->integer('img_id');
             $table->integer('user_id');
+            $table->string('type');
             $table->timestamps();
         });
     }
