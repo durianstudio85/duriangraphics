@@ -30,6 +30,7 @@
             <div class="col-md-2 col-sm-4 col-xs-6">
                 <img src="{{ asset('assets/images/thumb1.png') }}">
             </div>
+            
             <div class="col-md-2 col-sm-4 col-xs-6">
                 <img src="{{ asset('assets/images/thumb2.png') }}">
             </div>

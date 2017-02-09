@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Image_item;
+use App\Download;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,16 @@ class HomeController extends Controller
         $products = new Image_item;
         $getLatestUpdate = Image_item::skip(0)->take(16)->orderBy('id','desc')->get();
         $category = New Category;
-        return view('home', compact('products', 'getLatestUpdate','category'));
+
+        $download = Download::where('type', '=', 'first')->get();
+        $items = array();
+        foreach($download as $list) {
+            $items[] = $list->img_id;
+        }
+        $featuredImage = Image_item::whereIn('id', $items)->skip(0)->take(6)->orderBy('id','desc')->get();
+        // $featuredImage = Download::distinct()->get();
+
+        return view('home', compact('products', 'getLatestUpdate','category', 'featuredImage'));
     }
 
     public function about()
