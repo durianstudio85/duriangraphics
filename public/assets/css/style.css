@@ -328,7 +328,8 @@ p{
 }
 
 .pricing-head .price{
-	font-size: 150px;
+	/*font-size: 150px;*/
+	font-size: 90px;
 }
 
 /*Edited*/
@@ -524,11 +525,11 @@ p{
 }
 
 .icon i{
-	font-size: 21px;
-    background-color: #49c2c2;
-    width: 38px;
+	    font-size: 75px;
+    /* background-color: #49c2c2; */
+    width: 87px;
     padding: 8px 10px;
-    color: #ffffff;
+    color: #49c2c2;
     border-radius: 25px;
 }
 

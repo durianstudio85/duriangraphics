@@ -23,7 +23,7 @@
 							<p><span class="currency">$</span><span class="price">0</span>/month</p>
 						</div>
 						<div class="pricing-content">
-							<h3>Limited<br>No Source File</h3>
+							<h3>10 Downloads / month<br>Limited Royalty</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p>
 							<div><a href="#" class="pricing-btn">SELECT</a></div>
 						</div>
@@ -32,11 +32,11 @@
 				<div class="col-md-4">
 					<div class="dg-pricing-professional">
 						<div class="pricing-head">
-							<h2>FREE</h2>
-							<p><span class="currency">$</span><span class="price">5</span>/month</p>
+							<h2>Professional</h2>
+							<p><span class="currency">$</span><span class="price">4.99</span>/month</p>
 						</div>
 						<div class="pricing-content">
-							<h3>Limited<br>No Source File</h3>
+							<h3>1000 Downloads / month<br>Free Royalty</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p>
 							<div><a href="#" class="pricing-btn">SELECT</a></div>
 						</div>
@@ -45,11 +45,11 @@
 				<div class="col-md-4">
 					<div class="dg-pricing-business">
 						<div class="pricing-head">
-							<h2>FREE</h2>
-							<p><span class="currency">$</span><span class="price">50</span>/month</p>
+							<h2>Business</h2>
+							<p><span class="currency">$</span><span class="price">9.99</span>/month</p>
 						</div>
 						<div class="pricing-content">
-							<h3>Limited<br>No Source File</h3>
+							<h3>Unlimited Downloads<br>Free Royalty<br>Free Support</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p>
 							<div><a href="#" class="pricing-btn">SELECT</a></div>
 						</div>
