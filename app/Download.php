@@ -17,4 +17,11 @@ class Download extends Model
     	$download = Download::where('img_id', '=', $id)->count();
     	return $download;
     }
+
+    public function getDate($date='')
+    {
+        return $date->toFormattedDateString();
+    }
+
+    
 }

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Category;
 use App\Image_item;
+use App\Download;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -22,7 +24,11 @@ class AdminController extends Controller
 
 	public function index()
 	{
-        return view('admin.dashboard');
+        $user = new User;
+        $image = new Image_item;
+        $download = new Download;
+        $recentDownloads = Download::where('type','=','first')->skip(0)->take(5)->get();
+        return view('admin.dashboard',compact('recentDownloads', 'user', 'image','download'));
     }
 
     public function createProducts()
