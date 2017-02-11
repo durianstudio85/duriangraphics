@@ -1,18 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="dg-about-container">
-	<div class="dg-about-title">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>Administrator</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="dg-about-content dg-categories-content">
+<div class="dg-administrator-container">
+	
+	<div class="dg-categories-content">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
@@ -21,7 +12,7 @@
 				<div class="col-md-9">
 					<div class="row">
 					<div class="col-md-12">
-						<div class="section form-custom admin-section">
+						<div class="section form-custom admin-section admin-dashboard-section-first">
 							<div class="row">
 								<div class="col-md-12">
 									<h2>Products</h2>

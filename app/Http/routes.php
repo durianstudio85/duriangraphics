@@ -29,6 +29,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/admin/products/{id}/edit', 'AdminController@showProducts');
     Route::patch('/admin/products/{id}/edit', 'AdminController@updateProducts');
 
+    Route::get('/admin/categories', 'Admin\CategoryController@index');
+    Route::get('/admin/categories/create', 'Admin\CategoryController@create');
+    Route::post('/admin/categories/create', 'Admin\CategoryController@store');
+
 });  
 
 

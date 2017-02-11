@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <h3 class="footer-header">About Us</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut.</p>
+                    <p>From our huge collection of hand-reviewed graphic design, we provide all you need to complete your project. Our collection gives you the best design of logo, icon, artwork, infographics, invitations, presentations, t-shirt, themes, ads, abstract and alphabets.</p>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h3 class="footer-header">Need Help?</h3>

@@ -351,7 +351,8 @@ p{
 }
 
 .pricing-content{
-	padding: 1px 37px 20px 37px;
+	padding: 1px 25px 20px 25px;
+	min-height: 250px;
 }
 
 .pricing-content p{
@@ -369,6 +370,10 @@ p{
     padding: 11px 60px;
     border-radius: 8px;
     font-size: 20px;
+}
+
+.pricing-btn:hover{
+	text-decoration: none;
 }
 
 .pricing-btn:hover{
@@ -755,7 +760,7 @@ p{
 
 /*Administator*/
 .admin-section{
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     padding: 13px;
     margin-top: 0px;
 }
@@ -765,9 +770,15 @@ p{
 }
 
 .admin-dashboard-section{
-	margin-top: 30px;
-	margin-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 30px;
 }
+
+.admin-dashboard-section-first{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 
 .admin-dashboard-section p{
 	font-size: 15px;
@@ -778,6 +789,28 @@ p{
 	margin-bottom: 5px;
     margin-top: 5px;
 }
+
+
+.category-table tr{
+	border: 1px solid #ddd;
+}
+.category-table td{
+	color: #7c7c7c;
+}
+
+.dg-categories-content .table-responsive{
+	
+	width: 100%;
+}
+
+.add-cat-btn{
+	background-color: #49c2c2;
+    border: 1px solid #49c2c2;
+    font-size: 24px;
+    color: #ffffff;
+    padding: 4px 20px;
+}
+
 
 /*End Administator*/
     

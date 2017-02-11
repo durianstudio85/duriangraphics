@@ -24,8 +24,8 @@
 						</div>
 						<div class="pricing-content">
 							<h3>10 Downloads / month<br>Limited Royalty</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p>
-							<div><a href="#" class="pricing-btn">SELECT</a></div>
+							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p> -->
+							<div style="margin-top: 110px;"><a href="#" class="pricing-btn">SELECT</a></div>
 						</div>
 					</div>
 				</div>
@@ -37,8 +37,8 @@
 						</div>
 						<div class="pricing-content">
 							<h3>1000 Downloads / month<br>Free Royalty</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p>
-							<div><a href="#" class="pricing-btn">SELECT</a></div>
+							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p> -->
+							<div style="margin-top: 110px;"><a href="#" class="pricing-btn">SELECT</a></div>
 						</div>
 					</div>
 				</div>
@@ -50,8 +50,10 @@
 						</div>
 						<div class="pricing-content">
 							<h3>Unlimited Downloads<br>Free Royalty<br>Free Support</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p>
-							<div><a href="#" class="pricing-btn">SELECT</a></div>
+							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. Nulla magna felis, mollis ut lobortis et, pretium vel quam. Nulla facilisi.</p> -->
+							<div style="margin-top: 78px;">
+								<a href="#" class="pricing-btn">SELECT</a>
+							</div>
 						</div>
 					</div>
 				</div>
