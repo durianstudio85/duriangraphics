@@ -27,7 +27,7 @@ class AdminController extends Controller
         $user = new User;
         $image = new Image_item;
         $download = new Download;
-        $recentDownloads = Download::where('type','=','first')->skip(0)->take(5)->get();
+        $recentDownloads = Download::where('type','=','first')->orderBy('id','desc')->skip(0)->take(5)->get();
         return view('admin.dashboard',compact('recentDownloads', 'user', 'image','download'));
     }
 

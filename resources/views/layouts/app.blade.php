@@ -141,7 +141,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Subscription</h2>
-                    <p>Subscriptions in demand forn only $4.99/month</p>
+                    <p>Subscriptions in demand for only $4.99/month</p>
                 </div>
             </div>
             <div class="row dg-subscription-form">

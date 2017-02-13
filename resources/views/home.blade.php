@@ -9,7 +9,7 @@
                 <p>
                     Subscriptions and Images On Demand for only 
                     <span>4.99 /month</span> 
-                    <a href="#">SUBSCRIBE NOW!</a>
+                    <a href="#">Free Signup Now!</a>
                 </p>
             </div>
             <div class="col-md-1">
