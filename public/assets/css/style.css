@@ -407,10 +407,9 @@ p{
 
 .dashboard-nav img{
 	width: 125px;
-    border-radius: 25px;
-    padding-top: 35px;
-
-
+    height: 125px;
+    border-radius: 50%;
+    margin-top: 35px;
 }
 
 .dashboard-nav h2{
@@ -839,6 +838,12 @@ p{
 .categories-hover-item:hover{
 	opacity: 1;
     transition: all 0.5s;
+}
+
+.acc-img{
+	border-radius: 50%;
+    width: 60px;
+    height: 60px;
 }
 
 @media (min-width: 768px){

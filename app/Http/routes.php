@@ -33,6 +33,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/admin/categories/create', 'Admin\CategoryController@create');
     Route::post('/admin/categories/create', 'Admin\CategoryController@store');
 
+    Route::get('/admin/users', 'Admin\UserController@index');
+
 });  
 
 

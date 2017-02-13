@@ -52,22 +52,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="dg-subscribe-footer-background">
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-md-12">
-	                <h2>Subscription</h2>
-	                <p>Subscriptions in demand forn only $4.99/month</p>
-	            </div>
-	        </div>
-	        <div class="row dg-subscription-form">
-	            <div class="col-md-12">
-	                <p>Start using our professionally done graphics for only <span>$4.99/month</span> inlcuding source files.</p>
-	                <button>SUBSCRIBE NOW!</button>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+	
 </div>
 
 @endsection
