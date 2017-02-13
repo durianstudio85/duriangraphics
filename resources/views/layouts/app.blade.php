@@ -147,7 +147,7 @@
             <div class="row dg-subscription-form">
                 <div class="col-md-12">
                     <p>Start using our professionally done graphics for only <span>$4.99/month</span> inlcuding source files.</p>
-                    <button>Free Signup Now!</button>
+                    <a href="{{ url('/register') }}"><button>Free Signup Now!</button></a>
                 </div>
             </div>
         </div>

@@ -35,6 +35,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/admin/users', 'Admin\UserController@index');
 
+    Route::get('/admin/options', 'Admin\OptionController@index');
+
 });  
 
 
