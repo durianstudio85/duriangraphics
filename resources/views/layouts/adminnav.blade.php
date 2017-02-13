@@ -32,10 +32,10 @@
             <li><a href="{{ url('/admin/categories') }}" {{{ ( Request::is('admin/categories') ? 'class=active' : '') }}} ><p>Categories <span>( {{ App\Category::count() }} )</span></p></a></li>
             <li><a href="{{ url('/admin/categories/create') }}" {{{ ( Request::is('admin/categories/create') ? 'class=active' : '') }}} ><p>Add Category <span></span></p></a></li>
 
-            <li><a href="{{ url('/admin/users') }}" {{{ ( Request::is('admin/options') ? 'class=active' : '') }}} ><p>Users</p></a></li>
+            <li><a href="{{ url('/admin/users') }}" {{{ ( Request::is('admin/users') ? 'class=active' : '') }}} ><p>Users</p></a></li>
             
             <li><a href="{{ url('/admin/options') }}" {{{ ( Request::is('admin/options') ? 'class=active' : '') }}} ><p>Option</p></a></li>
-            <li><a href="{{ url('/admin/options') }}" {{{ ( Request::is('admin/options') ? 'class=active' : '') }}} ><p>Account Setting</p></a></li>
+            <li><a href="{{ url('/admin/settings') }}" {{{ ( Request::is('admin/settins') ? 'class=active' : '') }}} ><p>Account Setting</p></a></li>
 
             
 
