@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2>Pricing</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+					<p>Select your pricing and get your free 10 donwloads now!!</p>
 				</div>
 			</div>
 		</div>

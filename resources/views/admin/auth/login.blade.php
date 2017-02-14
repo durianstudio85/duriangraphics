@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-6">
                 <h2>Administrator Login</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. </p>
+                <p>We create professional graphic designs that work for everyone.</p>
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/login') }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

@@ -31,7 +31,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2>Categories</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+					<p>From our huge collection of hand-reviewed graphic design, we provide all you need to complete your project. Our collection gives you the best design of logo, icon, artwork, infographics, invitations, presentations, t-shirt, themes, ads, abstract and alphabets</p>
 				</div>
 			</div>
 		</div>

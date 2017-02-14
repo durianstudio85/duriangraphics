@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-6">
                 <h2>Login</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique lectus et augue consequat volutpat. </p>
+                <p>We create professional graphic designs that work for everyone.</p>
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

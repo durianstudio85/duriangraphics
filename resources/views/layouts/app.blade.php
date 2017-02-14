@@ -200,7 +200,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h3 class="footer-header">Email Newsletters</h3>
-                    <p>Sign up for new Envato content, updates, surveys & offers.</p>
+                    <p>Sign up for new Durian Graphics design, updates, surveys & offers.</p>
                     <form class="form-group ">
                         <input type="text" class="form-control" placeholder="Email Address">
                         <button type="submit" class="btn dg-footer-submit">SUBSCRIBE</button>
