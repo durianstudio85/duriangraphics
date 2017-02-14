@@ -810,6 +810,10 @@ p{
     padding: 4px 20px;
 }
 
+.add-cat-btn:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
 
 /*End Administator*/
     

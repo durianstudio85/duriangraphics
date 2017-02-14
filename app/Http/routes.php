@@ -36,6 +36,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/admin/users', 'Admin\UserController@index');
 
     Route::get('/admin/options', 'Admin\OptionController@index');
+    Route::post('/admin/options', 'Admin\OptionController@store');
+    Route::delete('/admin/options', 'Admin\OptionController@destroy');
 
 });  
 

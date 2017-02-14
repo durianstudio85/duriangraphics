@@ -27,7 +27,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 col-sm-4 col-xs-6">
+
+            @foreach( $option->where('category','=','featured')->skip(0)->take(6)->inRandomOrder()->get() as $optionList)
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <a href="{{ url('/products/'.$category->getCatName($products->find($optionList->img_id)->category).'/'.$products->find($optionList->img_id)->id) }}">
+                        <img src="{{ asset('images/'.$products->changeSizeImage( $products->find($optionList->img_id)->watermark_img,'s') ) }}" width="100%">
+                    </a>
+                </div>
+            @endforeach
+
+            <!-- <div class="col-md-2 col-sm-4 col-xs-6">
                 <img src="{{ asset('assets/images/thumb1.png') }}">
             </div>
             
@@ -45,7 +54,7 @@
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6">
                 <img src="{{ asset('assets/images/thumb6.png') }}">
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

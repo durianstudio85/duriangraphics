@@ -32,7 +32,6 @@
 							</table>
 						</div>
 					</div>
-
 					<div class="col-md-6">
 						<div class="section admin-dashboard-section">
 							<h3>Recent Products</h3>

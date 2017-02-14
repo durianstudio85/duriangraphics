@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Option;
+use App\Image_item;
+use App\Category;
+
 class OptionController extends Controller
 {
     /**
@@ -16,7 +20,10 @@ class OptionController extends Controller
      */
     public function index()
     {
-        return view('admin.option.index');
+        $category = new Category;
+        $image = new Image_item;
+        $option = new Option;
+        return view('admin.option.index', compact('option', 'image', 'category'));
     }
 
     /**
@@ -37,7 +44,9 @@ class OptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Option::Create($data);
+        return redirect('/admin/options');
     }
 
     /**
@@ -82,6 +91,7 @@ class OptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Option::destroy($id);
+        return redirect('/admin/options');
     }
 }
