@@ -108,7 +108,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <a href="{{ url('/categories') }}">ALL NEW ITEMS</a>
+                <a href="{{ url('/categories/newitems') }}">ALL NEW ITEMS</a>
                 <a href="{{ url('/categories/popular') }}">POPULAR FILES</a>
                 <a href="{{ url('/categories') }}">BROWSE CATEGORIES</a>
             </div>
