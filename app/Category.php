@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Image_item;
+use App\Download;
 
 class Category extends Model
 {
@@ -29,6 +30,11 @@ class Category extends Model
 		return $itemCount;
 	}
 
+	public function getNoOfDownloads()
+    {
+        $download = Download::where('type', '=', 'first')->count();
+        return $download;
+    }
 
 
 

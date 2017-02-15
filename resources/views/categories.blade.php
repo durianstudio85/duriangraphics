@@ -44,6 +44,7 @@
 						<h4>Your Filters</h4>
 						<ul>
 							<li><a href="{{ url('/categories') }}" {{{ ( Request::is('categories') ? 'class=active' : '') }}} ><p>All <span>({{ $category->countAll()}})</span></p></a></li>
+							<li><a href="{{ url('/categories/popular') }}" {{{ ( Request::is('categories/popular') ? 'class=active' : '') }}} ><p>Popular <span>({{ $category->getNoOfDownloads() }})</span></p></a></li>
 							@foreach( $getCategoryAll as $items )
 								<li><a href="{{ url('/categories/'.$items->name) }}" {{{ ( Request::is('categories/'.$items->name.'') ? 'class=active' : '') }}}><p>{{ ucfirst($items->name) }} <span>({{ $category->countCategoryContent($items->id)}})</span></p></a></li>
 							@endforeach
@@ -52,16 +53,30 @@
 				</div>
 				<div class="col-md-9">
 					<!-- <h2>Print Templates</h2> -->
-					@foreach( $getProdAll as $images)
-					<div class="col-md-4 col-sm-4 col-xs-6 prod-margin">
-						<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
-						<div>
-                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}" class="categories-hover-item">
-                                <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
-                            </a>
-						</div>
-					</div>
-					@endforeach
+					@if (Request::path() == 'categories/popular')
+						@foreach( $getProdAll as $images )
+							<div class="col-md-4 col-sm-4 col-xs-6 prod-margin">
+								<img src="{{ asset('images/'.$products->changeSizeImage($products->find($images->img_id)->watermark_img, 'm')) }}">
+								<div>
+		                            <a href="{{ url('/products/'.$category->getCatName($products->find($images->img_id)->category).'/'.$images->img_id) }}" class="categories-hover-item">
+		                                <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
+		                            </a>
+								</div>
+							</div>
+						@endforeach
+					@else
+						@foreach( $getProdAll as $images)
+							<div class="col-md-4 col-sm-4 col-xs-6 prod-margin">
+								<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
+								<div>
+		                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}" class="categories-hover-item">
+		                                <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
+		                            </a>
+								</div>
+							</div>
+						@endforeach
+					@endif
+					
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<hr>
 						<center>

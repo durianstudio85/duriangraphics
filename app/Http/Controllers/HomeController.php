@@ -8,6 +8,7 @@ use App\Category;
 use App\Image_item;
 use App\Download;
 use App\Option;
+use DB;
 
 class HomeController extends Controller
 {
@@ -68,8 +69,21 @@ class HomeController extends Controller
         $getCategoryAll = Category::orderBy('name')->get();
 
         if (!empty($cat)) {
-            $getCatID = Category::where('name', '=', $cat)->first();
-            $getProdAll = Image_item::where('category', '=', $getCatID->id)->orderBy('id','desc')->paginate(15);
+
+            if ($cat == 'popular') {
+                $getProdAll = DB::table('downloads')->select('img_id', DB::raw('count(*) as total'))->groupBy('img_id')->orderBy('total','desc')->paginate(15);
+
+                // $items = array();
+                // foreach($download as $list) {
+                //     $items[] = $list->img_id;
+                // }
+
+                // $getProdAll = Image_item::whereIn('id', $items)->paginate(15);
+                
+            }else{
+                $getCatID = Category::where('name', '=', $cat)->first();    
+                $getProdAll = Image_item::where('category', '=', $getCatID->id)->orderBy('id','desc')->paginate(15);    
+            }
         }else{
             // $getProdAll = Image_item::orderBy('id','desc')->get();
             $getProdAll = Image_item::orderBy('id','desc')->paginate(15);
