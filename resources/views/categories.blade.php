@@ -44,7 +44,7 @@
 						<h4>Your Filters</h4>
 						<ul>
 							<li><a href="{{ url('/categories') }}" {{{ ( Request::is('categories') ? 'class=active' : '') }}} ><p>All <span>({{ $category->countAll()}})</span></p></a></li>
-							<li><a href="{{ url('/categories/newitems') }}" {{{ ( Request::is('categories/newitems') ? 'class=active' : '') }}} ><p>New Items <span>({{ $category->getNewCount()}})</span></p></a></li>
+							<!-- <li><a href="{{ url('/categories/newitems') }}" {{{ ( Request::is('categories/newitems') ? 'class=active' : '') }}} ><p>New Items <span>({{ $category->getNewCount()}})</span></p></a></li> -->
 							<li><a href="{{ url('/categories/popular') }}" {{{ ( Request::is('categories/popular') ? 'class=active' : '') }}} ><p>Popular <span>({{ $category->getNoOfDownloads() }})</span></p></a></li>
 							@foreach( $getCategoryAll as $items )
 								<li><a href="{{ url('/categories/'.$items->name) }}" {{{ ( Request::is('categories/'.$items->name.'') ? 'class=active' : '') }}}><p>{{ ucfirst($items->name) }} <span>({{ $category->countCategoryContent($items->id)}})</span></p></a></li>

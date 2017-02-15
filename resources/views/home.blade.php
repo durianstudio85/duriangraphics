@@ -62,7 +62,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Latest Updates</h2>
+                <h2>New Items</h2>
                 <p>Recent launches from our global community</p>
             </div>
         </div>
@@ -108,7 +108,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <a href="{{ url('/categories/newitems') }}">ALL NEW ITEMS</a>
+                <!-- <a href="{{ url('/categories/newitems') }}">ALL NEW ITEMS</a> -->
                 <a href="{{ url('/categories/popular') }}">POPULAR FILES</a>
                 <a href="{{ url('/categories') }}">BROWSE CATEGORIES</a>
             </div>
