@@ -112,7 +112,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="dg-banner-h2">Over 100,000, Infographics, Themes, Vectors, Logos, and Artworks</h2>
+                    <h2 class="dg-banner-h2"><!-- Over 100,000,  -->Infographics, Themes, Vectors, Logos, Artworks and many more</h2>
                     <p class="dg-banner-p">Discover our huge collection of hand-reviewed graphic assets from our community of designers.</p>
                     <form class="form-horizontal">
                         <div class="form-group">

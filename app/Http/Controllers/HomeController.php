@@ -72,14 +72,8 @@ class HomeController extends Controller
 
             if ($cat == 'popular') {
                 $getProdAll = DB::table('downloads')->select('img_id', DB::raw('count(*) as total'))->groupBy('img_id')->orderBy('total','desc')->paginate(15);
-
-                // $items = array();
-                // foreach($download as $list) {
-                //     $items[] = $list->img_id;
-                // }
-
-                // $getProdAll = Image_item::whereIn('id', $items)->paginate(15);
-                
+            }elseif($cat == 'newitems'){
+                $getProdAll = Image_item::whereIn('id', $products->getAllNew() )->orderBy('id','desc')->paginate(15);    
             }else{
                 $getCatID = Category::where('name', '=', $cat)->first();    
                 $getProdAll = Image_item::where('category', '=', $getCatID->id)->orderBy('id','desc')->paginate(15);    

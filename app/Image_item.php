@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Image_item extends Model
 {
     protected $fillable = [
@@ -34,6 +36,24 @@ class Image_item extends Model
         return $oneImage;
     }
 
+    public function getAllNew()
+    {
+        $getProdAll = Image_item::get();    
+        $items = array();
+        foreach($getProdAll as $list) {
+            $dt = $list->created_at;
+            $endDate = $dt->addMonths(1); 
+            $startDate = Carbon::now();
+
+            $outputDate = $startDate->diffInDays($endDate);
+            if ($outputDate > 1 ) {
+                $items[] = $list->id;
+            }
+        }
+        return $items;
+    }
+
+    
 
 
 }

@@ -37,6 +37,15 @@ class Category extends Model
     }
 
 
+    public function getNewCount()
+    {
+    	$image = new Image_item;
+
+        $getProdAll = Image_item::whereIn('id', $image->getAllNew() )->count(); 
+        return $getProdAll;
+    }
+
+
 
 
 }
