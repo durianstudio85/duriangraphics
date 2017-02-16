@@ -52,8 +52,6 @@ Route::get('/pricing', 'HomeController@pricing');
 Route::get('/contact', 'HomeController@contact');
 
 
-
-
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard/create', 'DashboardController@create');
 
@@ -72,4 +70,6 @@ Route::get('/getdownloads/{id}', 'DownloadController@getDownload');
 Route::get('/categories', 'HomeController@categories');
 Route::get('/categories/{cat}', 'HomeController@categories');
 
+Route::get('/search/{val}','HomeController@search');
+Route::post('/search','HomeController@searchRedirect');
 

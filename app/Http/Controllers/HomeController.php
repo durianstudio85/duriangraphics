@@ -69,7 +69,6 @@ class HomeController extends Controller
         $getCategoryAll = Category::orderBy('name')->get();
 
         if (!empty($cat)) {
-
             if ($cat == 'popular') {
                 $getProdAll = DB::table('downloads')->select('img_id', DB::raw('count(*) as total'))->groupBy('img_id')->orderBy('total','desc')->paginate(15);
             }elseif($cat == 'newitems'){
@@ -83,7 +82,22 @@ class HomeController extends Controller
             $getProdAll = Image_item::orderBy('id','desc')->paginate(15);
         }
         return view('categories', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));    
+    }
 
-        
+    public function search($val='')
+    {
+        $getCategoryList = Category::get();
+        $products = new Image_item;
+        $category = new Category;
+        $getCategoryAll = Category::orderBy('name')->get();
+
+        $getProdAll = Image_item::where('title', 'LIKE', '%' . $val . '%')->orderBy('id','desc')->paginate(15);
+
+        return view('search', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));   
+    }
+
+    public function searchRedirect(Request $request)
+    {
+        return redirect('/search/'.$request->get('search'));
     }
 }

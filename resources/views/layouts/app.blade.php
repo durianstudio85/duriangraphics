@@ -114,19 +114,23 @@
                 <div class="col-md-12">
                     <h2 class="dg-banner-h2"><!-- Over 100,000,  -->Infographics, Themes, Vectors, Logos, Artworks and many more</h2>
                     <p class="dg-banner-p">Discover our huge collection of hand-reviewed graphic assets from our community of designers.</p>
-                    <form class="form-horizontal">
+                    <!-- <form class="form-horizontal"> -->
+                    {!! Form::open(['url'=>'/search', 'class'=>'form-horizontal']) !!}
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-2">
+                                
                                 <div class="input-group dg-banner-input-group">
-                                    <input type="text" class="form-control input-lg dg-banner-input" placeholder="Find logo, banner, artworks, etc....">
+                                    {!! Form::text('search', old('search'), array('required', 'class'=>'form-control input-lg dg-banner-input', 'placeholder'=>'Find logo, banner, artworks, etc....')) !!}
+                                    <!-- <input type="text" class="form-control input-lg dg-banner-input" placeholder="Find logo, banner, artworks, etc...."> -->
                                     <span class="input-group-btn gd-banner-button">
-                                        <button class="btn btn-default btn-lg dg-banner-btn" type="button">SEARCH</button>
+                                        <button class="btn btn-default btn-lg dg-banner-btn" type="submit">SEARCH</button>
                                    </span>
                                     <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
                                 </div>
+                    
                             </div>
                         </div>
-                    </form>
+                    {!! Form::close() !!}
                     @if( Request::path() == '/')
                     <center>
                         <img class="dg-banner-image" src="{{ asset('assets/images/dg-banner-image.png') }}">
