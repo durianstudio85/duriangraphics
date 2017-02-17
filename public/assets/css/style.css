@@ -549,8 +549,8 @@ p{
 
 
 .download-list img{
-	max-width: 165px;
-    max-height: 165px;
+	max-width: 90px;
+    max-height: 90px;
 }
 
 .single-prod-header{
@@ -937,5 +937,20 @@ p{
 
 .table-custom-upgrade td, .table-custom-upgrade th{
 	border: 1px solid #ddd !important;	
+}
+
+
+.table-custom-upgrade a, .table-custom-upgrade a:hover{
+	background-color: #49c2c2;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.table-custom-upgrade .selected, .table-custom-upgrade .selected:hover{
+	color: #74c249;
+    font-weight: bold;
+    background-color: rgba(73, 194, 194, 0);
 }
 

@@ -21,7 +21,7 @@
 											
 											<tr class="download-list">
 												
-												<td width="130px">
+												<td width="90px">
 													<a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}">
 														<img src="{{ asset('images/'.$imageItem->changeSizeImage($imageItem->getOneImageDetail($download->img_id)->watermark_img, 's')) }}">
 													</a>
@@ -30,7 +30,6 @@
 												<td>
 													<div class="download-decription">
 														<h3>{{ $imageItem->getOneImageDetail($download->img_id)->title }}</h3>
-
 														<p>{{ $imageItem->getOneImageDetail($download->img_id)->description }}</p>
 													</div>
 												</td>

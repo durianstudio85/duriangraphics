@@ -28,7 +28,9 @@ class DashboardController extends Controller
         $category = new Category;
         $user = Auth::user()->id;
         $recentDownload = Download::where('type', '=', 'first')->where('user_id', '=', $user)->skip(0)->take(4)->orderBy('id', 'desc')->get();
-        return view('dashboard.index', compact('recentDownload', 'images', 'category'));
+        $recentDesignFirst = Image_item::orderBy('id', 'desc')->first();
+        $recentDesign = Image_item::skip(1)->take(2)->orderBy('id', 'desc')->get();
+        return view('dashboard.index', compact('recentDownload', 'images', 'category', 'recentDesignFirst', 'recentDesign'));
     }
 
     /**

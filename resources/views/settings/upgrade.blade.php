@@ -41,12 +41,17 @@
 												<tr>
 													<td>FREE</td>
 													<td>$0 per month</td>
-													<td><a href="#">DOWNGRADE</td>
+													@if ( Auth::user()->account_type == 'free' )
+														<td><a href="#" class="selected">Selected</td>	
+													@else
+														<td><a href="#">DOWNGRADE</td>	
+													@endif
+													
 												</tr>
 												<tr>
 													<td>PROFESSIONAL</td>
 													<td>$4.99 per month</td>
-													<td><a href="#">Selected</td>
+													<td><a href="#">UPGRADE</td>
 												</tr>
 												<tr>
 													<td>BUSINESS</td>

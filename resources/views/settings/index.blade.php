@@ -34,19 +34,19 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												{{ Form::label('email', 'Email') }}
-												{{ Form::email('email', null, ['class'=>'form-control']) }}
+												{{ Form::email('email', null, ['class'=>'form-control', 'placeholder' => 'Email']) }}
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												{{ Form::label('password', 'Password') }}
-												{{ Form::password('password', ['class' => 'form-control']) }}
+												{{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												{{ Form::label('confirm_password', 'Confirm Password') }}
-												{{ Form::password('confirm_password', ['class' => 'form-control']) }}
+												{{ Form::password('confirm_password', ['class' => 'form-control', 'placeholder' => 'Confirm Password']) }}
 											</div>
 										</div>
 									{!! Form::close() !!}
