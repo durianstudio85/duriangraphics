@@ -5,30 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Image_item;
-use App\Download;
-use App\Category;
-use Auth;
 
-class DashboardController extends Controller
+class AccountController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        $images = new Image_item;
-        $category = new Category;
-        $user = Auth::user()->id;
-        $recentDownload = Download::where('type', '=', 'first')->where('user_id', '=', $user)->skip(0)->take(4)->orderBy('id', 'desc')->get();
-        return view('dashboard.index', compact('recentDownload', 'images', 'category'));
+        return view('settings.index');
+    }
+
+
+    public function upgrade()
+    {
+        return view('settings.upgrade');
     }
 
     /**
@@ -38,9 +37,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        
-        
-        return view('dashboard.create');
+        //
     }
 
     /**

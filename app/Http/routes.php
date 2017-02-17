@@ -73,3 +73,7 @@ Route::get('/categories/{cat}', 'HomeController@categories');
 Route::get('/search/{val}','HomeController@search');
 Route::post('/search','HomeController@searchRedirect');
 
+
+Route::get('/settings', 'AccountController@index');
+Route::get('/settings/upgrade', 'AccountController@upgrade');
+

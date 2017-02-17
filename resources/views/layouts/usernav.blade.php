@@ -6,12 +6,12 @@
     </center>
 
     <div class="row follow-section">
-        <div class="col-sm-6 followers">
+        <!-- <div class="col-sm-6 followers">
         Followers <span>1121</span>
         </div>
         <div class="col-sm-6 following">
             Following <span>1118</span>
-        </div>
+        </div> -->
     </div>
 
     <div class="user-navigation">
@@ -33,6 +33,9 @@
             </li> -->
             <li>
                 <a href="{{ url('/downloads') }}" {{{ ( Request::is('products') ? 'class=active' : '') }}}><p><i class="fa fa-download" aria-hidden="true"></i>Downloads</p></a>
+            </li>
+            <li>
+                <a href="{{ url('/settings') }}" {{{ ( Request::is('settings') ? 'class=active' : '') }}}><p><i class="fa fa-cog" aria-hidden="true"></i>Account Settings</p></a>
             </li>
             <!-- <li>
                 <a href="#"><p><i class="fa fa-star" aria-hidden="true"></i>Reviews</p></a>

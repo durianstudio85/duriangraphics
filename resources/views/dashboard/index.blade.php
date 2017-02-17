@@ -24,11 +24,25 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<div class="section">
-							<h4 class="text-center">Non-Exclusive Authors</h4>
-							<p class="text-center">
+						<div class="section" style="padding: 30px;">
+							<h3>Recent Downloads</h3>
+							<!-- <p class="text-center">
 								Our author fee to non-exclusive authors is 55% of the item price. So for example when an item sells for $100 the breakdown of fees looks like this:
-							</p>
+							</p> -->
+							<table class="table">
+								@foreach ( $recentDownload as $list )
+								<tr>
+									<td width="30%">
+										<img src="{{ asset('/images/'.$images->changeSizeImage($images->getOneImageDetail($list->img_id)->watermark_img, 's' )) }}" width="100%">
+									</td>
+									<td>
+										<h4 style="margin-bottom: 0px;margin-top: 7px;">{{  $images->getOneImageDetail($list->img_id)->title  }}</h4>
+										<a href="{{ url('/products/'.$category->getCatName($images->getOneImageDetail($list->img_id)->category).'/'.$list->img_id ) }}" target="__blank">View Template</a><br>
+										<a href="{{ url('/getdownloads/'.$list->img_id) }}" target="__blank"><button class="btn follow-btn"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
+									</td>
+								</tr>
+								@endforeach
+							</table>
 						</div>
 					</div>
 					<div class="col-md-6">

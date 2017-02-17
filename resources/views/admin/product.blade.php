@@ -21,26 +21,28 @@
 									<div class="row">
 										<div class="col-md-12">
 											<table class="table">
-												<thead>
-													<th width="135px">Images</th>
-													<th>Details</th>
-													<th>Action</th>
-												</thead>
 												<tbody>
-													@foreach( $products->get() as $image )
+													@foreach( $prodList as $image )
 													<tr>
-														<td><a href="{{ url('/admin/products/'.$image->id.'/edit') }}"><img src="{{ asset('images/'.$products->changeSizeImage($image->watermark_img, 's')) }}" width="100%"></a></td>
+														<td width="90px"><a href="{{ url('/admin/products/'.$image->id.'/edit') }}"><img src="{{ asset('images/'.$products->changeSizeImage($image->watermark_img, 's')) }}" width="100%"></a></td>
 														<td>
-															<h3>{{ $image->title }}</h3>
-															<p>{{ $image->description }}</p>
+															<h3 style="margin-bottom: 0px;margin-top: 5px;">{{ $image->title }}</h3>
+															<p><a href="{{ url('/products/'.$category->getCatName($image->category).'/'.$image->id)}}">Preview</a></p>
 														</td>
 														<td>
-															<a href="{{ url('/admin/products/'.$image->id.'/edit') }}"><button class="btn follow-btn">View</button></a>
+															<p>20 Downloads</p>
+														</td>
+														<td>
+															<a href="{{ url('/admin/products/'.$image->id.'/edit') }}"><button class="btn follow-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
 														</td>
 													</tr>
 													@endforeach
 												</tbody>
 											</table>
+											<hr>
+											<center>
+											{!! $prodList->links() !!}
+										</center>
 										</div>
 									</div>
 								</div>

@@ -28,7 +28,11 @@ class AdminController extends Controller
         $image = new Image_item;
         $download = new Download;
         $recentDownloads = Download::where('type','=','first')->orderBy('id','desc')->skip(0)->take(5)->get();
-        return view('admin.dashboard',compact('recentDownloads', 'user', 'image','download'));
+
+        $recentProductsFirst = Image_item::orderBy('id', 'desc')->first();
+        $recentProductsThumb = Image_item::orderBy('id', 'desc')->skip(1)->take(1)->first();
+
+        return view('admin.dashboard',compact('recentDownloads', 'user', 'image','download', 'recentProductsFirst', 'recentProductsThumb'));
     }
 
     public function createProducts()
@@ -80,7 +84,9 @@ class AdminController extends Controller
     public function products()
     {
         $products = new Image_item;
-        return view('admin.product', compact('products'));    
+        $category = new Category;
+        $prodList = Image_item::paginate(30);
+        return view('admin.product', compact('products', 'category', 'prodList'));    
     }
 
     public function showProducts($id)

@@ -910,3 +910,32 @@ p{
 .dropdown-menu>li>a {
     padding: 10px 20px;
 }
+
+.nav-tabs{
+	margin-bottom: 20px;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 1px;
+    color: #7c7c7c;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    border-radius: 1px;
+    color: #49c2c2;
+    font-weight: bold;
+}
+
+
+.table-custom-upgrade td, .table-custom-upgrade th{
+	border: 1px solid #ddd !important;	
+}
+
