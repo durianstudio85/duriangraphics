@@ -36,7 +36,7 @@
 										<img src="{{ asset('/images/'.$images->changeSizeImage($images->getOneImageDetail($list->img_id)->watermark_img, 's' )) }}" width="100%">
 									</td>
 									<td>
-										<h4 style="margin-bottom: 0px;margin-top: 7px;">{{  str_limit($images->getOneImageDetail($list->img_id)->title, $limit = 25, $end = '...')  }}</h4>
+										<h4 style="margin-bottom: 0px;margin-top: 7px;">{{  str_limit($images->getOneImageDetail($list->img_id)->title, $limit = 20, $end = '...')  }}</h4>
 										<a href="{{ url('/products/'.$category->getCatName($images->getOneImageDetail($list->img_id)->category).'/'.$list->img_id ) }}" target="__blank">View Template</a><br>
 										<a href="{{ url('/getdownloads/'.$list->img_id) }}" target="__blank"><button class="btn follow-btn"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
 									</td>
