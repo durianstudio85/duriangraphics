@@ -954,3 +954,11 @@ p{
     background-color: rgba(73, 194, 194, 0);
 }
 
+.btn-profile-submit{
+	background-color: #49c2c2;
+    color: #ffffff;
+    padding: 9px 13px;
+    border-radius: 4px;
+    margin: 4px;
+    text-decoration: none;
+}

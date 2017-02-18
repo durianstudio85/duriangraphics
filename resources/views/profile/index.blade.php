@@ -26,47 +26,101 @@
 									<p class="profile-name">{{ Auth::user()->first_name.'  '.Auth::user()->last_name }}</p>
 									<p class="profile-status">Member since January 2017  &nbsp;&nbsp;|&nbsp;&nbsp; 20 Items Collection</p>
 									<table class="follow-status-profile">
-										<tr>
+										<!-- <tr>
 											<td>Followers <span>21</span></td>
 											<td>Following <span>8</span></td>
-										</tr>
+										</tr> -->
 									</table>
-									{!! Form::button('FOLLOW', ['class' => 'btn follow-btn']) !!}
+									{!! Form::button('CHANGE PROFILE PIC', ['class' => 'btn follow-btn']) !!}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<p>We do not sell or share your details without our permission. Find out more in our <a href="#">Privacy Policy</a></p>
+								</div>
+								<div class="col-md-12">
+									<br>
+									<h3>Personal Information</h3>
+									<br>
+								</div>
+								<div class="col-md-12">
+									{!! Form::open(['url'=>'settings/create','files'=>'true', 'class'=>'']) !!}
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('first_name', 'First Name') }}
+												{{ Form::text('first_name', null, ['class'=>'form-control', 'placeholder' => 'Enter First Name']) }}
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('last_name', 'Last Name') }}
+												{{ Form::text('last_name', null, ['class'=>'form-control', 'placeholder' => 'Enter Last Name']) }}
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('last_name', 'Company Name') }}
+												{{ Form::text('last_name', null, ['class'=>'form-control', 'placeholder' => 'Enter name of your company']) }}
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('password', 'Country') }}
+												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="form-group">
+												{{ Form::label('password', 'Address Line 1') }}
+												{{ Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												{{ Form::label('password', 'Address Line 1') }}
+												{{ Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('password', 'City') }}
+												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter name of your city']) }}
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('password', 'State | Province | Region') }}
+												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter your state, province, or region']) }}
+											</div>
+										</div>
+
+
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('password', 'Postal Code') }}
+												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter zipcode']) }}
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												{{ Form::label('password', 'Company No.') }}
+												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter company number']) }}
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											{!! Form::submit('SAVE', ['class' => 'btn btn-profile-submit']) !!}
+										</div>
+									{!! Form::close() !!}
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section">
-								<h3>Featured Item</h3>
-								<p>We hope you enjoy browsing through our Music tracks & Designs, We add new files every few days so be sure to check back to see what’s new!
-
-								If you need help with our files feel free to contact us through contact form and We will help you to fit the pieces together!</p>	
-							
-						</div>
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div class="col-md-6">
-						<div class="section">
-							<p>asdsd</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="section">
-							<p>asdsd</p>
-						</div>
-					</div>
-
-				</div>
-				
-
-
-
+				</div>	
 			</div>
 		</div>
 	</div>
