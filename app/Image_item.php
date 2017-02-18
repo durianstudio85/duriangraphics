@@ -21,13 +21,15 @@ class Image_item extends Model
 
 	public function changeSizeImage($fileName = '', $size = '')
 	{
-        $explodedFilename = explode('.', $fileName);
-        if ($size == 'm') {
-			$newFilename = $explodedFilename[0].'_m.'.$explodedFilename[1];        	
-        }elseif ($size == 's') {
-        	$newFilename = $explodedFilename[0].'_s.'.$explodedFilename[1];        	
+        if ( $fileName == '') {
+            $explodedFilename = explode('.', $fileName);
+            if ($size == 'm') {
+                $newFilename = $explodedFilename[0].'_m.'.$explodedFilename[1];         
+            }elseif ($size == 's') {
+                $newFilename = $explodedFilename[0].'_s.'.$explodedFilename[1];         
+            }
+            return $newFilename;
         }
-        return $newFilename;
 	}
 
     public function getOneImageDetail($id ='')
