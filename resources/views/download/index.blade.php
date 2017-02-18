@@ -26,7 +26,7 @@
 												</td>
 												<td>
 													<div class="download-decription">
-														<h3 style="margin-bottom: 0px;padding-top: 6px;">{{ $imageItem->getOneImageDetail($download->img_id)->title }}</h3>
+														<h3 style="padding-top: 6px;">{{ $imageItem->getOneImageDetail($download->img_id)->title }}</h3>
 														<a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}" target="__blank">Print Templates</a>
 													</div>
 												</td>

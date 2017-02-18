@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\User;
+use Auth;
+
 class ProfileController extends Controller
 {
     /**
@@ -21,7 +24,9 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile.index');
+        $user_id = Auth::user()->id;
+        $user = User::findOrFail($user_id);
+        return view('profile.index', compact('user'));
     }
 
     /**
@@ -76,7 +81,12 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $data = $request->all();
+        $user->update($data);
+        
+        return redirect('/profile/');
+
     }
 
     /**

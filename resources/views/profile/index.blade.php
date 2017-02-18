@@ -52,7 +52,7 @@
 									</div>
 								</div>
 								<div class="col-md-12">
-									{!! Form::open(['url'=>'profile','files'=>'true', 'class'=>'']) !!}
+									{!! Form::model($user, ['method'=>'patch', 'action'=>['ProfileController@update', $user->id], 'files'=>'true']) !!}
 										<div class="col-md-6">
 											<div class="form-group">
 												{{ Form::label('first_name', 'First Name') }}
@@ -67,56 +67,56 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												{{ Form::label('last_name', 'Company Name') }}
-												{{ Form::text('last_name', null, ['class'=>'form-control', 'placeholder' => 'Enter name of your company']) }}
+												{{ Form::label('company_name', 'Company Name') }}
+												{{ Form::text('company_name', null, ['class'=>'form-control', 'placeholder' => 'Enter name of your company']) }}
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												{{ Form::label('password', 'Country') }}
-												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
+												{{ Form::label('country', 'Country') }}
+												{{ Form::text('country', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
 											</div>
 										</div>
 
 										<div class="col-md-12">
 											<div class="form-group">
-												{{ Form::label('password', 'Address Line 1') }}
-												{{ Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
+												{{ Form::label('address1', 'Address Line 1') }}
+												{{ Form::text('address1', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
 											</div>
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
-												{{ Form::label('password', 'Address Line 1') }}
-												{{ Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
+												{{ Form::label('address2', 'Address Line 1') }}
+												{{ Form::text('address2', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
 											</div>
 										</div>
 
 										<div class="col-md-6">
 											<div class="form-group">
-												{{ Form::label('password', 'City') }}
-												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter name of your city']) }}
+												{{ Form::label('city', 'City') }}
+												{{ Form::text('city', null, ['class' => 'form-control', 'placeholder' => 'Enter name of your city']) }}
 											</div>
 										</div>
 
 										<div class="col-md-6">
 											<div class="form-group">
-												{{ Form::label('password', 'State | Province | Region') }}
-												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter your state, province, or region']) }}
+												{{ Form::label('state', 'State | Province | Region') }}
+												{{ Form::text('state', null, ['class' => 'form-control', 'placeholder' => 'Enter your state, province, or region']) }}
 											</div>
 										</div>
 
 
 										<div class="col-md-6">
 											<div class="form-group">
-												{{ Form::label('password', 'Postal Code') }}
-												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter zipcode']) }}
+												{{ Form::label('zipcode', 'Postal Code') }}
+												{{ Form::text('zipcode', null, ['class' => 'form-control', 'placeholder' => 'Enter zipcode']) }}
 											</div>
 										</div>
 
 										<div class="col-md-6">
 											<div class="form-group">
-												{{ Form::label('password', 'Company No.') }}
-												{{ Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Enter company number']) }}
+												{{ Form::label('company_no', 'Company No.') }}
+												{{ Form::text('company_no', null, ['class' => 'form-control', 'placeholder' => 'Enter company number']) }}
 											</div>
 										</div>
 
