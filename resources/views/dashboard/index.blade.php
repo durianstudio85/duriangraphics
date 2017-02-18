@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<div class="section" style="padding: 30px;">
+						<div class="section" style="padding: 30px; min-height: 717px;">
 							<h3>Latest Designs</h3>
 							<img src="{{ asset('/images/'.$recentDesignFirst->watermark_img ) }}" width="100%" >
 							<br><br>

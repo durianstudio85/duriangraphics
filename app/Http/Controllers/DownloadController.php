@@ -149,6 +149,7 @@ class DownloadController extends Controller
 
         
         if ($downloadCount > 0) {
+            
             $type = 'repeat';
         }else{
             $type = 'first';
