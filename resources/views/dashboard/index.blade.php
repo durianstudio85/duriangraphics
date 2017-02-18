@@ -43,6 +43,7 @@
 								</tr>
 								@endforeach
 							</table>
+							<hr>
 						</div>
 					</div>
 					<div class="col-md-6">
