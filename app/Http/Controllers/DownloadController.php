@@ -93,7 +93,6 @@ class DownloadController extends Controller
      */
     public function show($cat, $id)
     {
-
         $category = New Category;
         $showItem = Image_item::findOrFail($id);
         $dateCreate = $showItem->created_at;
@@ -138,9 +137,8 @@ class DownloadController extends Controller
     {
 
         $user_id = Auth::user()->id;
+        $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
 
-        $zero = 1000000;
-        $downloadId = $zero + $id;
         $item = Image_item::findOrFail($id);
         //PDF file is stored under project/public/download/info.pdf
         $myFile= public_path(). "/upload/zip/".$item->download_img;
@@ -149,7 +147,7 @@ class DownloadController extends Controller
                 );
         $newName = 'DurianGraphics'.$id.'.zip';
 
-        $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
+        
         if ($downloadCount > 0) {
             $type = 'repeat';
         }else{

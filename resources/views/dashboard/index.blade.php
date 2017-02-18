@@ -64,9 +64,7 @@
 								</tr>
 								@endforeach
 							</table>
-							<p class="text-center">
-								Our author fee to exclusive authors is between 12.5%-37.5% of the item price. So for example when an item sells for $100 the breakdown of fees looks like this:
-							</p>
+							<hr>
 						</div>
 					</div>
 				</div>

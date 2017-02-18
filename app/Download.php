@@ -10,8 +10,6 @@ class Download extends Model
         'img_id', 'user_id' , 'type',
     ];
 
-
-
     public function countImageDownloads($id='')
     {
     	$download = Download::where('img_id', '=', $id)->count();

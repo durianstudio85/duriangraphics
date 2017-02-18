@@ -143,6 +143,7 @@
     @endif
 
     @yield('content')
+    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'pricing' )
     <div class="dg-subscribe-footer-background">
         <div class="container">
             <div class="row">
@@ -159,6 +160,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="dg-footer-background">
         <div class="container">
             <div class="row">
