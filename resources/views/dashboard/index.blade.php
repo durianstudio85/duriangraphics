@@ -24,7 +24,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<div class="section" style="padding: 30px;">
+						<div class="section" style="padding: 30px;  min-height: 717px;">
 							<h3>Recent Downloads</h3>
 							<!-- <p class="text-center">
 								Our author fee to non-exclusive authors is 55% of the item price. So for example when an item sells for $100 the breakdown of fees looks like this:
