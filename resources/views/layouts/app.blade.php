@@ -95,7 +95,7 @@
                     @else
                         <li class="dropdown pad-10">
                             <a href="#" class="dropdown-toggle user-login" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }}&nbsp;&nbsp; $0.00 &nbsp;&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="caret"></span>
+                                |&nbsp;&nbsp; <img src="{{ asset('assets/images/profile-blank-image.png') }}">    {{ Auth::user()->first_name.' '.Auth::user()->last_name }}&nbsp;&nbsp;<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/dashboard') }}"><i class="fa fa-user"></i>&nbsp;Profile</a></li>

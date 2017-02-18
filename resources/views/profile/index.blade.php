@@ -13,14 +13,18 @@
 						<div class="section">
 							<div class="row">
 								<div class="col-md-12">
-									<h2>Profile</h2>
+									<div class="col-md-12">
+										<h2>Profile</h2>
+									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-3">
-									<p class="profile-image">
-										<img src="{{ asset('assets/images/profile-blank-image.png') }}">
-									</p>
+									<div class="col-md-12">
+										<p class="profile-image">
+											<img src="{{ asset('assets/images/profile-blank-image.png') }}">
+										</p>
+									</div>
 								</div>
 								<div class="col-md-9">
 									<p class="profile-name">{{ Auth::user()->first_name.'  '.Auth::user()->last_name }}</p>
@@ -36,15 +40,19 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<p>We do not sell or share your details without our permission. Find out more in our <a href="#">Privacy Policy</a></p>
+									<div class="col-md-12">
+										<p>We do not sell or share your details without our permission. Find out more in our <a href="#">Privacy Policy</a></p>
+									</div>
 								</div>
 								<div class="col-md-12">
-									<br>
-									<h3>Personal Information</h3>
-									<br>
+									<div class="col-md-12">
+										<br>
+										<h3>Personal Information</h3>
+										<br>
+									</div>
 								</div>
 								<div class="col-md-12">
-									{!! Form::open(['url'=>'settings/create','files'=>'true', 'class'=>'']) !!}
+									{!! Form::open(['url'=>'profile','files'=>'true', 'class'=>'']) !!}
 										<div class="col-md-6">
 											<div class="form-group">
 												{{ Form::label('first_name', 'First Name') }}
