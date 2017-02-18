@@ -21,7 +21,7 @@ class Image_item extends Model
 
 	public function changeSizeImage($fileName = '', $size = '')
 	{
-        if ( $fileName == '') {
+        if ( $fileName != '') {
             $explodedFilename = explode('.', $fileName);
             if ($size == 'm') {
                 $newFilename = $explodedFilename[0].'_m.'.$explodedFilename[1];         
@@ -30,6 +30,8 @@ class Image_item extends Model
             }
             return $newFilename;
         }
+
+        
 	}
 
     public function getOneImageDetail($id ='')
