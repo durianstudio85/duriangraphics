@@ -29,9 +29,11 @@ class Image_item extends Model
                 $newFilename = $explodedFilename[0].'_s.'.$explodedFilename[1];         
             }
             return $newFilename;
+        }else{
+            return $fileName;
         }
 
-        
+
 	}
 
     public function getOneImageDetail($id ='')
