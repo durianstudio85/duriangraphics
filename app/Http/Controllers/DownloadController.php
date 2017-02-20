@@ -139,6 +139,7 @@ class DownloadController extends Controller
 
         $user_id = Auth::user()->id;
         $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
+        $noDownload = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->where('type','=','first')->count();
 
         $item = Image_item::findOrFail($id);
         //PDF file is stored under project/public/download/info.pdf

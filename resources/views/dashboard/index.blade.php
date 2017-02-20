@@ -50,7 +50,7 @@
 					<div class="col-md-6">
 						<div class="section" style="padding: 30px; min-height: 735px;">
 							<h3>Latest Designs</h3>
-							<div style="width: 350px;height: 350px;overflow: hidden;">
+							<div style="width: 350px;height: 330px;overflow: hidden;">
 								<img src="{{ asset('/images/'.$recentDesignFirst->watermark_img ) }}" width="100%" >
 							</div>
 							<br><br>

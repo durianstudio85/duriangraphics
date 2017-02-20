@@ -56,7 +56,12 @@
 												<tr>
 													<td>BUSINESS</td>
 													<td>$9.99 per month</td>
-													<td><a href="#">UPGRADE</td>
+													@if ( Auth::user()->account_type == 'business')
+														<td><a href="#" class="selected">Selected</td>	
+													@else
+														<td><a href="#">UPGRADE</td>
+													@endif
+													
 												</tr>
 											</tbody>
 										</table>
