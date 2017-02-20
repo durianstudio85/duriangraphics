@@ -98,7 +98,10 @@
                                 |&nbsp;&nbsp; <img src="{{ asset('assets/images/profile-blank-image.png') }}">    {{ Auth::user()->first_name.' '.Auth::user()->last_name }}&nbsp;&nbsp;<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/dashboard') }}"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
+                                <li><a href="{{ url('/dashboard') }}"><i class="fa fa-btn  fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                                <li><a href="{{ url('/profile') }}"><i class="fa fa-btn  fa-user"></i>Profile</a></li>
+                                <li><a href="{{ url('/downloads') }}"><i class="fa fa-btn fa-download" aria-hidden="true"></i>Downloads</a></li>
+                                <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog" aria-hidden="true"></i>Account Settings</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

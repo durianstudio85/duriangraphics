@@ -27,11 +27,12 @@ class DownloadController extends Controller
     {
         $category = New Category;
         $imageItem = new Image_item;
+        $downloadModel = New Download;
         $user_id = Auth::user()->id;
-        $getDownload = Download::where('user_id','=', $user_id)->where('type','=', 'first')->get();
+        $getDownload = Download::where('user_id','=', $user_id)->where('type','=', 'first')->paginate(10);
 
         $allImage = Image_item::get();
-        return view('download.index', compact('allImage','category', 'getDownload','imageItem'));
+        return view('download.index', compact('allImage','category', 'getDownload','imageItem', 'downloadModel'));
     }
 
     /**

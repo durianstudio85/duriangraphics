@@ -911,7 +911,7 @@ p{
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-    background-color: #3fb7b7;
+    background-color: #49c2c2;
 }
 
 .dropdown-menu>li>a {
@@ -968,4 +968,14 @@ p{
     border-radius: 4px;
     margin: 4px;
     text-decoration: none;
+}
+
+
+.dropdown-menu a{
+	color: #7c7c7c !important;
+}
+
+.dropdown-menu a:hover{
+	color: #49c2c2 !important;
+	background-color: #d9f7f7 !important;
 }
