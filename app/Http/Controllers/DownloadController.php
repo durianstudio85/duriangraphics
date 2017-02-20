@@ -146,7 +146,7 @@ class DownloadController extends Controller
         $myFile= public_path(). "/upload/zip/".$item->download_img;
         $headers = array('Content-Type: application/zip');
         $newName = 'DurianGraphics'.$id.'.zip';
-        if ($downloadCount > 0) {
+        
             if ($downloadCount > 0) {
                 $type = 'repeat';
             }else{
@@ -158,11 +158,9 @@ class DownloadController extends Controller
                 'user_id' => $user_id,
                 'type' => $type,
                 ];
-                
+
             Download::Create($data);
-        }else{
-            
-        }
+
             
 
         
