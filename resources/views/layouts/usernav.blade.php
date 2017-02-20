@@ -1,6 +1,11 @@
 <div class="dashboard-nav">
     <center>
-        <img src="{{ asset('assets/images/profile-blank-image.png') }}">
+        <!-- <img src="{{ asset('assets/images/profile-blank-image.png') }}"> -->
+        @if ( Auth::user()->photo == '' )
+            <img src="{{ asset('assets/images/profile-blank-image.png') }}">
+        @else
+            <img src="{{ asset('img/'.Auth::user()->photo) }}" >
+        @endif
         <h2>{{ Auth::user()->first_name.'  '.Auth::user()->last_name }}</h2>
         <h5>Member since January 2017</h5>
     </center>

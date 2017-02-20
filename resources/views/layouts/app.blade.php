@@ -95,7 +95,18 @@
                     @else
                         <li class="dropdown pad-10">
                             <a href="#" class="dropdown-toggle user-login" data-toggle="dropdown" role="button" aria-expanded="false">
-                                |&nbsp;&nbsp; <img src="{{ asset('assets/images/profile-blank-image.png') }}">    {{ Auth::user()->first_name.' '.Auth::user()->last_name }}&nbsp;&nbsp;<span class="caret"></span>
+                                |&nbsp;&nbsp; 
+                                <!-- <img src="{{ asset('assets/images/profile-blank-image.png') }}">     -->
+                                 @if ( Auth::user()->photo == '' )
+                                    <img src="{{ asset('assets/images/profile-blank-image.png') }}">
+                                @else
+                                    <img src="{{ asset('img/'.Auth::user()->photo) }}" >
+                                @endif
+
+
+
+
+                                {{ Auth::user()->first_name.' '.Auth::user()->last_name }}&nbsp;&nbsp;<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/dashboard') }}"><i class="fa fa-btn  fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>

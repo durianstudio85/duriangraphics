@@ -84,9 +84,31 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
         $data = $request->all();
         $user->update($data);
-        
         return redirect('/profile/');
+    }
 
+
+    public function updateImg(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        if ( $user->photo == '') {
+            $photo = $request->file('photo');
+            $photo_extension = $photo->getClientOriginalExtension();
+            $photo_name = str_random(10).'.'.$photo_extension;
+            $photo->move(public_path().'/img', $photo_name);
+        }else{
+            $photo = $request->file('photo');
+            $photo_extension = $photo->getClientOriginalExtension();
+            $photo_name = $user->photo;
+            $photo->move(public_path().'/img', $photo_name);
+        }
+
+        $fileData = [
+            'photo' => $photo_name,
+        ];
+
+        $user->update($fileData);
+        return redirect('/profile/');
     }
 
     /**

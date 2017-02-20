@@ -22,7 +22,11 @@
 								<div class="col-md-3">
 									<div class="col-md-12">
 										<p class="profile-image">
-											<img src="{{ asset('assets/images/profile-blank-image.png') }}">
+											@if ( Auth::user()->photo == '' )
+												<img src="{{ asset('assets/images/profile-blank-image.png') }}">
+											@else
+												<img src="{{ asset('img/'.Auth::user()->photo) }}" >
+											@endif
 										</p>
 									</div>
 								</div>
@@ -35,7 +39,7 @@
 											<td>Following <span>8</span></td>
 										</tr> -->
 									</table>
-									{!! Form::button('CHANGE PROFILE PIC', ['class' => 'btn follow-btn']) !!}
+									{!! Form::button('CHANGE PROFILE PIC', ['class' => 'btn follow-btn','data-toggle' => 'modal', 'data-target' => '#changeImage']) !!}
 								</div>
 							</div>
 							<div class="row">
@@ -86,7 +90,7 @@
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
-												{{ Form::label('address2', 'Address Line 1') }}
+												{{ Form::label('address2', 'Address Line 2') }}
 												{{ Form::text('address2', null, ['class' => 'form-control', 'placeholder' => 'Select Country']) }}
 											</div>
 										</div>
@@ -132,5 +136,28 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- ===================================== Modal ========================================== -->
+<div class="modal fade" id="changeImage" role="dialog">
+    <div class="modal-dialog">
+      	<!-- Modal content-->
+      	<div class="modal-content">
+      		{!! Form::model($user, ['method'=>'patch', 'action'=>['ProfileController@updateImg', $user->id], 'files'=>'true']) !!}
+	        	<div class="modal-header">
+	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          		<h4 class="modal-title">Change Image (160 x 160)</h4>
+	        	</div>
+	        	<div class="modal-body">
+	        		{{ Form::file('photo') }}
+	          		<!-- <p>Some text in the modal.</p> -->
+	        	</div>
+	        	<div class="modal-footer">
+	        		{!! Form::submit('SAVE', ['class' => 'btn btn-profile-submit']) !!}
+	          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	</div>
+        	{!! Form::close() !!}
+      	</div>      
+    </div>
 </div>
 @endsection

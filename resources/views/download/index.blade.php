@@ -30,7 +30,7 @@
 														<a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}" target="__blank">Print Templates</a>
 													</div>
 												</td>
-												<td>
+												<td width="106">
 													<p>{{  $downloadModel->countImageDownloads($download->img_id) }} Downloads<br> 20 Likes</p>
 												</td>
 												<td>

@@ -57,6 +57,7 @@ Route::get('/dashboard/create', 'DashboardController@create');
 
 Route::get('/profile', 'ProfileController@index');
 Route::patch('/profile/{id}', 'ProfileController@update');
+Route::patch('/profile/{id}', 'ProfileController@updateImg');
 
 
 Route::get('/downloads', 'DownloadController@index');

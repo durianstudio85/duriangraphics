@@ -144,24 +144,28 @@ class DownloadController extends Controller
         $item = Image_item::findOrFail($id);
         //PDF file is stored under project/public/download/info.pdf
         $myFile= public_path(). "/upload/zip/".$item->download_img;
-        $headers = array(
-                  'Content-Type: application/zip',
-                );
+        $headers = array('Content-Type: application/zip');
         $newName = 'DurianGraphics'.$id.'.zip';
+        if ($downloadCount > 0) {
+            if ($downloadCount > 0) {
+                $type = 'repeat';
+            }else{
+                $type = 'first';
+            }
+
+            $data = [
+                'img_id' => $id,
+                'user_id' => $user_id,
+                'type' => $type,
+                ];
+                
+            Download::Create($data);
+        }else{
+            
+        }
+            
 
         
-        if ($downloadCount > 0) {
-            
-            $type = 'repeat';
-        }else{
-            $type = 'first';
-        }
-        $data = [
-            'img_id' => $id,
-            'user_id' => $user_id,
-            'type' => $type,
-        ];
-        Download::Create($data);
         return response()->download($myFile, $newName, $headers);    
     }
 }

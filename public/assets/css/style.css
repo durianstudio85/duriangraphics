@@ -495,12 +495,18 @@ p{
 
 .profile-image{
 	text-align: center;
+	height: 160px;
+    width: 160px;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .profile-image img{
 	border-radius: 25px;
-    width: 160px;
     height: 160px;
+    width: 160px;
+    /*margin-left: -50px;*/
+
 }
 
 .profile-name{
@@ -874,8 +880,8 @@ p{
 	}
 
 	.navbar-nav .user-login img{
-		max-height: 30px;
-	    max-width: 30px;
+		height: 30px;
+	    width: 30px;
 	    border-radius: 25px;
 	    margin-right: 6px;
 	}
@@ -964,10 +970,15 @@ p{
 .btn-profile-submit{
 	background-color: #49c2c2;
     color: #ffffff;
-    padding: 9px 13px;
+    padding: 6px 13px;
     border-radius: 4px;
     margin: 4px;
     text-decoration: none;
+}
+
+
+.btn-profile-submit:hover{
+    color: #ffffff;
 }
 
 
@@ -978,4 +989,8 @@ p{
 .dropdown-menu a:hover{
 	color: #49c2c2 !important;
 	background-color: #d9f7f7 !important;
+}
+
+.modal-content{
+	border-radius: 1px;
 }
