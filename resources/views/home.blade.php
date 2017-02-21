@@ -69,15 +69,14 @@
         <div class="row">
             @foreach( $getLatestUpdate as $getLatest)
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    
-                        
+                    <div>
                         <img src="{{ asset('images/'.$products->changeSizeImage($getLatest->watermark_img, 'm')) }}">
                         <div>
                             <a href="{{ url('/products/'.$category->getCatName($getLatest->category).'/'.$getLatest->id) }}" class="latest-prod">
                                 <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
                             </a>
                         </div>
-                        
+                    </div>
                 </div>
             @endforeach
                 <!-- transition: all 0.2s; -->
