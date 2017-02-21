@@ -26,14 +26,22 @@
 													<tr>
 														<td width="90px"><a href="{{ url('/admin/products/'.$image->id.'/edit') }}"><img src="{{ asset('images/'.$products->changeSizeImage($image->watermark_img, 's')) }}" width="100%"></a></td>
 														<td>
-															<h3 style="margin-bottom: 0px;margin-top: 5px;">{{ $image->title }}</h3>
-															<p><a href="{{ url('/products/'.$category->getCatName($image->category).'/'.$image->id)}}">Preview</a></p>
+															<h4 style="margin-bottom: 0px;margin-top: 5px;">{{ $image->title }}</h4>
+															<p><a href="{{ url('/products/'.$category->getCatName($image->category).'/'.$image->id)}}">Print Templates</a></p>
 														</td>
 														<td>
-															<p>20 Downloads</p>
+															<p>{{ $download->countImageDownloads($image->id) }} Downloads<br>
+																13 likes</p>
 														</td>
 														<td>
+															<center>
+																<img src="{{ asset('assets/images/stars-3.png') }}">
+																<p>6 Ratings</p>
+															</center>
+														</td>
+														<td width="110px">
 															<a href="{{ url('/admin/products/'.$image->id.'/edit') }}"><button class="btn follow-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+															<button class="btn follow-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
 														</td>
 													</tr>
 													@endforeach

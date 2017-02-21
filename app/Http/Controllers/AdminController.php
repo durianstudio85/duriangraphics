@@ -85,8 +85,9 @@ class AdminController extends Controller
     {
         $products = new Image_item;
         $category = new Category;
-        $prodList = Image_item::paginate(30);
-        return view('admin.product', compact('products', 'category', 'prodList'));    
+        $download = new Download;
+        $prodList = Image_item::orderBy('id', 'desc')->paginate(30);
+        return view('admin.product', compact('products', 'category', 'download', 'prodList'));    
     }
 
     public function showProducts($id)

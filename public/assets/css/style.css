@@ -994,3 +994,8 @@ p{
 .modal-content{
 	border-radius: 1px;
 }
+
+.btn-green{
+	background-color: #49c2c2 !important;
+    color: #ffffff !important;
+}

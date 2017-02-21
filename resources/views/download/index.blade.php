@@ -41,7 +41,7 @@
 												</td>
 												<td width="130px">
 													<a href="{{ url('/getdownloads/'. $imageItem->getOneImageDetail($download->img_id)->id) }}">
-														<button class="btn follow-btn"><i class="fa fa-download" aria-hidden="true"></i> &nbsp; Download</button>									
+														<button class="btn follow-btn btn-green"><i class="fa fa-download" aria-hidden="true"></i> &nbsp; Download</button>									
 													</a>			
 												</td>
 											</tr>
