@@ -21,4 +21,9 @@ class Download extends Model
         return $date->toFormattedDateString();
     }
 
+    public function changeDateFormat($date='')
+    {
+        return $date->toFormattedDateString();
+    }
+
 }

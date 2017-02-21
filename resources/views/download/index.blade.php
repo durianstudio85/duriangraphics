@@ -27,7 +27,8 @@
 												<td>
 													<div class="download-decription">
 														<h4 style="padding-top: 6px;">{{ $imageItem->getOneImageDetail($download->img_id)->title }}</h4>
-														<a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}" target="__blank">Print Templates</a>
+														<!-- <a href="{{ url('/products/'.$category->getCatName($imageItem->getOneImageDetail($download->img_id)->category).'/'.$imageItem->getOneImageDetail($download->img_id)->id) }}" target="__blank">Print Templates</a> -->
+														<a href="#">{{ $downloadModel->changeDateFormat($download->created_at) }}</a>
 													</div>
 												</td>
 												<td width="106">
