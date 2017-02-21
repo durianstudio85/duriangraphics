@@ -68,15 +68,29 @@
         </div>
         <div class="row">
             @foreach( $getLatestUpdate as $getLatest)
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div>
+                <div class="col-md-3 col-sm-6 col-xs-12" style="position:relative;height: 264px;margin-bottom: 20px;">
+                    <div class="latest-img">
                         <img src="{{ asset('images/'.$products->changeSizeImage($getLatest->watermark_img, 'm')) }}">
-                        <div>
-                            <a href="{{ url('/products/'.$category->getCatName($getLatest->category).'/'.$getLatest->id) }}" class="latest-prod">
+                    </div>
+                    <div class="latest-img-details">
+                        <h4>{{ $getLatest->title }}</h4>
+                        <p>20 Downloads</p>
+                        <button class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>&nbsp;&nbsp;
+                        <a href="{{ url('/products/'.$category->getCatName($getLatest->category).'/'.$getLatest->id) }}" >
+                            <button class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </a>
+
+                    </div>
+                    <!-- 
+                            <h2>asdasdasd</h2>
+                        </div>
+                        <div class="latest-prod">
+                            <a href="{{ url('/products/'.$category->getCatName($getLatest->category).'/'.$getLatest->id) }}" >
+                                <h5>asdasd</h5>
                                 <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             @endforeach
                 <!-- transition: all 0.2s; -->
@@ -105,13 +119,17 @@
                 <img src="{{ asset('assets/images/latest8.png') }}">
             </div> -->
         </div>
+        
+<br>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <!-- <a href="{{ url('/categories/newitems') }}">ALL NEW ITEMS</a> -->
                 <a href="{{ url('/categories/popular') }}">POPULAR FILES</a>
                 <a href="{{ url('/categories') }}">BROWSE CATEGORIES</a>
             </div>
+        
         </div>
+        
     </div>
 </div>
 
