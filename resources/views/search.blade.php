@@ -59,12 +59,19 @@
 					<!-- <h2>Print Templates</h2> -->
 					
 						@foreach( $getProdAll as $images)
-							<div class="col-md-4 col-sm-4 col-xs-6 prod-margin">
-								<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
-								<div>
-		                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}" class="categories-hover-item">
-		                                <span class="product-hover"><i class="fa fa-search" aria-hidden="true"></i></span>
-		                            </a>
+							<div class="col-md-4 col-sm-4 col-xs-6 prod-margin"  style="position:relative;height: 263px;margin-bottom: 20px;">
+								<div class="latest-img">
+									<img src="{{ asset('images/'.$products->changeSizeImage($images->watermark_img, 'm')) }}">
+								</div>
+								<div class="latest-img-details" style="width: 93%;padding: 60px 40px;height: 263px;">
+									<center>
+										<h4>{{ $images->title }}</h4>
+										<p>{{ $download->countImageDownloads($images->id) }} Downloads</p>
+										<button class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>&nbsp;&nbsp;
+			                            <a href="{{ url('/products/'.$category->getCatName($images->category).'/'.$images->id) }}">
+			                                <button class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+			                            </a>
+		                            </center>
 								</div>
 							</div>
 						@endforeach

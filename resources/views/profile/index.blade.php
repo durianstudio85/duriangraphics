@@ -39,7 +39,7 @@
 											<td>Following <span>8</span></td>
 										</tr> -->
 									</table>
-									{!! Form::button('CHANGE PROFILE PIC', ['class' => 'btn follow-btn','data-toggle' => 'modal', 'data-target' => '#changeImage']) !!}
+									{!! Form::button('CHANGE PROFILE PIC', ['class' => 'btn follow-btn btn-green','data-toggle' => 'modal', 'data-target' => '#changeImage']) !!}
 								</div>
 							</div>
 							<div class="row">

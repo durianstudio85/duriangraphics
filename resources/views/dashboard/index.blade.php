@@ -16,7 +16,7 @@
 									<h2>Dashboard</h2>
 								</div>
 								<div class="col-md-12">
-									<p>When you sell an item on Durian Graphics the total purchase price is made up of your item price plus Durian’s fee to the buyer. Buyer fees are either calculated as a % of the item price or are set at a fixed amount. Fixed buyer fee amounts apply to categories where authors set the price themselves. </p>
+									<p>It seems that your account is free version with limited functionality, upgrade now to remove this limitations.</p>
 								</div>
 							</div>
 						</div>

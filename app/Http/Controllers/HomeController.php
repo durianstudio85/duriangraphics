@@ -68,6 +68,7 @@ class HomeController extends Controller
         $getCategoryList = Category::get();
         $products = new Image_item;
         $category = new Category;
+        $download = new Download;
         $getCategoryAll = Category::orderBy('name')->get();
 
         if (!empty($cat)) {
@@ -83,7 +84,7 @@ class HomeController extends Controller
             // $getProdAll = Image_item::orderBy('id','desc')->get();
             $getProdAll = Image_item::orderBy('id','desc')->paginate(15);
         }
-        return view('categories', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));    
+        return view('categories', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll', 'download'));    
     }
 
     public function search($val='')
@@ -91,11 +92,12 @@ class HomeController extends Controller
         $getCategoryList = Category::get();
         $products = new Image_item;
         $category = new Category;
+        $download = new Download;
         $getCategoryAll = Category::orderBy('name')->get();
 
         $getProdAll = Image_item::where('title', 'LIKE', '%' . $val . '%')->orderBy('id','desc')->paginate(15);
 
-        return view('search', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll'));   
+        return view('search', compact('getCategoryList', 'products', 'category', 'getCategoryAll', 'getProdAll','download'));   
     }
 
     public function searchRedirect(Request $request)

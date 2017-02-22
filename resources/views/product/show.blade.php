@@ -56,6 +56,10 @@
 							<td>{{ $dateCreate }}</td>
 						</tr>
 
+						<tr>
+							<td><h5>{{ $download->getLimitImg() }}</h5></td>
+						</tr>
+
 					</table>
 				</div>
 			</div>

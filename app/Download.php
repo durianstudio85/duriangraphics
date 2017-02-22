@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Download extends Model
 {
     protected $fillable = [
@@ -24,6 +26,15 @@ class Download extends Model
     public function changeDateFormat($date='')
     {
         return $date->toFormattedDateString();
+    }
+
+    public function getLimitImg($imgId='')
+    {
+        $now = Carbon::now();
+        $monthStart = $now->startOfMonth();
+        $monthEnd = $now->endOfMonth();
+
+        return $monthStart.'-.-'.$monthEnd;
     }
 
 }
