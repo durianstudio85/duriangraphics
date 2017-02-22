@@ -33,7 +33,7 @@
                     <div class="latest-img">
                         <img src="{{ asset('images/'.$products->changeSizeImage( $products->find($optionList->img_id)->watermark_img,'s') ) }}" width="100%">
                     </div>
-                    <div class="latest-img-details" style="width: 85%; padding: 60px 0px;">
+                    <div class="latest-img-details" style="width: 92%;padding: 60px 0px;height: 180px;">
                         <button class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>&nbsp;&nbsp;
                         <!-- {{ url('/products/'.$category->getCatName($products->find($optionList->img_id)->category).'/'.$products->find($optionList->img_id)->id) }} -->
                         <a href="{{ asset('images/'.$products->find($optionList->img_id)->watermark_img) }}" data-lightbox="featured-{{ $optionList->img_id }}" data-title="{{ $products->find($optionList->img_id)->title }}">
