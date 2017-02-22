@@ -38,7 +38,7 @@
 									<td>
 										<h4 style="margin-bottom: 2px;margin-top: 0px;">{{  str_limit($images->getOneImageDetail($list->img_id)->title, $limit = 20, $end = '...')  }}</h4>
 										<a href="{{ url('/products/'.$category->getCatName($images->getOneImageDetail($list->img_id)->category).'/'.$list->img_id ) }}" target="__blank">View Template</a><br>
-										<a href="{{ url('/getdownloads/'.$list->img_id) }}" target="__blank"><button class="btn follow-btn"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
+										<a href="{{ url('/getdownloads/'.$list->img_id) }}" target="__blank"><button class="btn follow-btn btn-green"><i class="fa fa-download" aria-hidden="true"></i> Download</button></a>
 									</td>
 								</tr>
 								@endforeach

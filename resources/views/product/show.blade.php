@@ -28,9 +28,9 @@
 			<div class="col-md-8">
 				<div class="single-prod-section">
 					<img src="{{ asset('images/'.$showItem->watermark_img) }}" width="100%">
-					<div class="product-details-btn">
+					<!-- <div class="product-details-btn">
 						<a class="btn follow-btn colored-btn" href="#">LIVE PREVIEW</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -62,9 +62,11 @@
 			<div class="col-md-8">
 				<div class="prod-detail-description">
 					<p>
-						{!! nl2br($showItem->description)	 !!}
-						
+						@if ( $showItem->description != '' )
+							{!! nl2br($showItem->description)	 !!}
+						@endif
 					</p>
+					@if ( $showItem->main_features != '')
 					<div class="main-featured">
 						<h3>Main Features</h3>
 						<p>
@@ -72,6 +74,7 @@
 							
 						</p>	
 					</div>
+					@endif
 					
 				</div>
 				<hr>

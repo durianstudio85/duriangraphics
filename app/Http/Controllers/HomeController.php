@@ -30,6 +30,8 @@ class HomeController extends Controller
         $getLatestUpdate = Image_item::skip(0)->take(16)->orderBy('id','desc')->get();
         $category = New Category;
 
+        $downloadModel = new Download;
+
         $download = Download::where('type', '=', 'first')->get();
         $items = array();
         foreach($download as $list) {
@@ -38,7 +40,7 @@ class HomeController extends Controller
         $featuredImage = Image_item::whereIn('id', $items)->skip(0)->take(6)->orderBy('id','desc')->get();
         // $featuredImage = Download::distinct()->get();
 
-        return view('home', compact('products', 'getLatestUpdate','category', 'featuredImage', 'option'));
+        return view('home', compact('products', 'getLatestUpdate','category', 'featuredImage', 'option', 'downloadModel'));
     }
 
     public function about()
