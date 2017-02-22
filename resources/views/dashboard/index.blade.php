@@ -70,11 +70,11 @@
 										<span style="color: #979595;font-size: 15px;">{{ $download->countImageDownloads($list->id) }} downloads</span> 
 
 										<a style="float: right; margin-top: -15px; margin-left: 10px;" href="{{ url('/getdownloads/'.$list->id) }}" target="__blank">
-											<button class="btn follow-btn"><i class="fa fa-download" aria-hidden="true"></i></button>
+											<button class="btn follow-btn btn-green"><i class="fa fa-download" aria-hidden="true"></i></button>
 										</a>
 										&nbsp;&nbsp;
 										<a style="float: right; margin-top: -15px;" href="{{ url('/getdownloads/'.$list->id) }}" target="__blank">
-											<button class="btn follow-btn"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+											<button class="btn follow-btn btn-green"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
 										</a>
 										
 									</td>

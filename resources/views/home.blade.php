@@ -9,7 +9,14 @@
                 <p>
                     Subscriptions and Images On Demand for only 
                     <span>4.99 /month</span> 
-                    <a href="{{ url('/register') }}">Free Signup Now!</a>
+                    @if (Auth::guest())
+                        <a href="{{ url('/register') }}">Free Signup Now!</a>
+                    @else
+                        @if ( Auth::user()->account_type == 'free')
+                            <a href="#">Upgrade Now!</a>
+                        @endif
+                    @endif
+                    <!-- <a href="{{ url('/register') }}">Free Signup Now!</a> -->
                 </p>
             </div>
             <div class="col-md-1">
