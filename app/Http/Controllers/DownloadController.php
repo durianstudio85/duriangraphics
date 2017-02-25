@@ -159,20 +159,34 @@ class DownloadController extends Controller
         $limitDownload = $subscription->getLimitDownload($user_id);
         $item = Image_item::findOrFail($img_id);
 
-        if ($downloadCount > 0) {
-            $myFile= public_path(). "/upload/zip/".$item->download_img;
-            $headers = array('Content-Type: application/zip');
-            $newName = 'DurianGraphics'.$item->id.'.zip';
-            $type = "repeat";
-            Download::Create(['img_id' => $item->id,'user_id' => $user_id,'type' => $type]);
 
-            return response()->download($myFile, $newName, $headers);  
-             // redirect()->back();
-        }else{
-            if ($limitDownload > $limit ) {
+        if ($limitDownload > $limit ) {
+            if ($downloadCount > 0) {
+                $myFile= public_path(). "/upload/zip/".$item->download_img;
+                $headers = array('Content-Type: application/zip');
+                $newName = 'DurianGraphics'.$item->id.'.zip';
+                $type = "repeat";
+                Download::Create(['img_id' => $item->id,'user_id' => $user_id,'type' => $type]);
+
+                return response()->download($myFile, $newName, $headers);  
+                 // redirect()->back();
+            }else{
                 session()->flash('flash_message', 'You Already in Your Limit!. Please Upgrade');
                 session()->flash('flash_message_important', 'alert-warning');
                 return redirect()->back();
+            }
+            
+        }else{
+
+            if ($downloadCount > 0) {
+                $myFile= public_path(). "/upload/zip/".$item->download_img;
+                $headers = array('Content-Type: application/zip');
+                $newName = 'DurianGraphics'.$item->id.'.zip';
+                $type = "repeat";
+                Download::Create(['img_id' => $item->id,'user_id' => $user_id,'type' => $type]);
+
+                return response()->download($myFile, $newName, $headers);  
+                 // redirect()->back();
             }else{
                 $myFile= public_path(). "/upload/zip/".$item->download_img;
                 $headers = array('Content-Type: application/zip');
@@ -182,8 +196,6 @@ class DownloadController extends Controller
 
                 return response()->download($myFile, $newName, $headers); 
             }
-
         }
-
     }
 }
