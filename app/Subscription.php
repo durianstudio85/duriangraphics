@@ -25,7 +25,7 @@ class Subscription extends Model
         if ($getSubscriptionCount > 0) {
             foreach ($getSubscription as $list ) {
                 if ($dateNow >= $list->date_start and $dateNow <= $list->date_end) {
-                    $Download = Download::whereBetween('created_at',array($list->date_start,$list->date_end))->where('type', '=', 'first')->count();
+                    $Download = Download::whereBetween('created_at',array($list->date_start,$list->date_end))->where('type', '=', 'first')->where('user_id', '=', $user_id)->count();
                 }
             }
         }else{
