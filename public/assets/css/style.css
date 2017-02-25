@@ -1009,6 +1009,7 @@ p{
 	color: #74c249;
     font-weight: bold;
     background-color: rgba(73, 194, 194, 0);
+    cursor: default;
 }
 
 .btn-profile-submit{

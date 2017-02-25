@@ -24,6 +24,14 @@
 </div>
 <div class="single-prod-content">
 	<div class="container">
+		@if(Session::has('flash_message'))
+            <div class="alert {{ Session::get('flash_message_important') ? 'alert-danger' : 'alert-success' }} ">
+                @if(Session::has('flash_message_important'))
+                    <button class="close" data-dismiss="alert" type="button" aria-hidden="true">&times;</button>
+                @endif
+                {{session('flash_message')}}
+            </div>
+        @endif
 		<div class="row">
 			<div class="col-md-8">
 				<div class="single-prod-section">
@@ -57,7 +65,7 @@
 						</tr>
 
 						<tr>
-							<td><h5>{{ $download->getLimitImg() }}</h5></td>
+							<td><h5>{{ $subscription->getLimitDownload(1) }}</h5></td>
 						</tr>
 
 					</table>

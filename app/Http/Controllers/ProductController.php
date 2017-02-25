@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Image_item;
 use App\Category;
 use App\Download;
+use App\Subscription;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,8 @@ class ProductController extends Controller
             $dateUpdate = "";
         }
         
+        $subscription = new Subscription;
 
-        return view('product.show', compact('showItem', 'category', 'download','dateCreate', 'dateUpdate'));
+        return view('product.show', compact('showItem', 'category', 'download','dateCreate', 'dateUpdate', 'subscription'));
     }
 }

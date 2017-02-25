@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Image_item;
 use App\Category;
 use App\Download;
+use App\Subscription;
 use Auth;
 use Carbon\Carbon;
 
@@ -134,36 +135,56 @@ class DownloadController extends Controller
         //
     }
 
+
     public function getDownload($id)
     {
-
-        $user_id = Auth::user()->id;
-        $downloadCount = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->count();
-        $noDownload = Download::where('img_id','=',$id)->where('user_id','=',$user_id)->where('type','=','first')->count();
-
-        $item = Image_item::findOrFail($id);
-        //PDF file is stored under project/public/download/info.pdf
-        $myFile= public_path(). "/upload/zip/".$item->download_img;
-        $headers = array('Content-Type: application/zip');
-        $newName = 'DurianGraphics'.$id.'.zip';
         
-            if ($downloadCount > 0) {
-                $type = 'repeat';
+        $user_type = Auth::user()->account_type;
+
+        if ( $user_type == 'free' ) {
+            return $this->downloadTypeUser($id, 10);
+        }elseif ( $user_type == 'bussiness' ) {
+            
+        }
+
+
+    }
+
+
+    public function downloadTypeUser($img_id='', $limit)
+    {
+        $subscription = new Subscription;
+        $user_id = Auth::user()->id;
+        $downloadCount = Download::where('img_id','=',$img_id)->where('user_id','=',$user_id)->count();
+        $limitDownload = $subscription->getLimitDownload($user_id);
+        $item = Image_item::findOrFail($img_id);
+
+        if ($downloadCount > 0) {
+            $myFile= public_path(). "/upload/zip/".$item->download_img;
+            $headers = array('Content-Type: application/zip');
+            $newName = 'DurianGraphics'.$item->id.'.zip';
+            $type = "repeat";
+            Download::Create(['img_id' => $item->id,'user_id' => $user_id,'type' => $type]);
+
+            return response()->download($myFile, $newName, $headers);  
+
+             // redirect()->back();
+        }else{
+            if ($limitDownload > $limit ) {
+                session()->flash('flash_message', 'You Already in Your Limit!. Please Upgrade');
+                session()->flash('flash_message_important', 'alert-warning');
+                return redirect()->back();
             }else{
-                $type = 'first';
+                $myFile= public_path(). "/upload/zip/".$item->download_img;
+                $headers = array('Content-Type: application/zip');
+                $newName = 'DurianGraphics'.$item->id.'.zip';
+                $type = "first";
+                Download::Create(['img_id' => $item->id,'user_id' => $user_id,'type' => $type]);
+
+                return response()->download($myFile, $newName, $headers); 
             }
 
-            $data = [
-                'img_id' => $id,
-                'user_id' => $user_id,
-                'type' => $type,
-                ];
+        }
 
-            Download::Create($data);
-
-            
-
-        
-        return response()->download($myFile, $newName, $headers);    
     }
 }

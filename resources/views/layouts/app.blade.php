@@ -156,6 +156,8 @@
     @endif
 
     @yield('content')
+
+
     @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'pricing' )
     <div class="dg-subscribe-footer-background">
         <div class="container">
@@ -168,7 +170,13 @@
             <div class="row dg-subscription-form">
                 <div class="col-md-12">
                     <p>Start using our professionally done graphics for only <span>$4.99/month</span> inlcuding source files.</p>
-                    <a href="{{ url('/register') }}"><button>Free Signup Now!</button></a>
+                    @if (Auth::guest())
+                        <a href="{{ url('/register') }}"><button>Free Signup Now!</button></a>
+                    @else
+                        @if ( Auth::user()->account_type == 'free')
+                            <a href="{{ url('#') }}"><button>Upgrade Now!</button></a>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
