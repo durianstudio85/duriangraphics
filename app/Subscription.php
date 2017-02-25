@@ -18,6 +18,7 @@ class Subscription extends Model
     {
     	$dateNow = Carbon::now();
         $dateNext = Carbon::now()->addMonths(1);
+        $user_id = Auth::user()->id;
         
         $getSubscription = Subscription::where('user_id', '=', $user_id)->where('date_start', '<=', $dateNow)->where('date_end', '>=', $dateNow)->get();
         $getSubscriptionCount = Subscription::where('user_id', '=', $user_id)->where('date_start', '<=', $dateNow)->where('date_end', '>=', $dateNow)->count();

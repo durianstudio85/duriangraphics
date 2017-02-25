@@ -167,7 +167,6 @@ class DownloadController extends Controller
             Download::Create(['img_id' => $item->id,'user_id' => $user_id,'type' => $type]);
 
             return response()->download($myFile, $newName, $headers);  
-
              // redirect()->back();
         }else{
             if ($limitDownload > $limit ) {
