@@ -63,12 +63,12 @@
 							<td><h5>Created</h5></td>
 							<td>{{ $dateCreate }}</td>
 						</tr>
-
 						<tr>
-							<td><h5>{{ $subscription->getLimitDownload(1) }}</h5></td>
+							<td></td>
+							<td></td>
 						</tr>
-
 					</table>
+
 				</div>
 			</div>
 			<div class="col-md-8">

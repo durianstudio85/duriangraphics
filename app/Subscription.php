@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
+use App\User;
 use App\Download;
 
 class Subscription extends Model
@@ -18,6 +19,7 @@ class Subscription extends Model
     {
     	$dateNow = Carbon::now();
         $dateNext = Carbon::now()->addMonths(1);
+        $loginUser = User::findOrFail($user_id);
         
         $getSubscription = Subscription::where('user_id', '=', $user_id)->where('date_start', '<=', $dateNow)->where('date_end', '>=', $dateNow)->get();
         $getSubscriptionCount = Subscription::where('user_id', '=', $user_id)->where('date_start', '<=', $dateNow)->where('date_end', '>=', $dateNow)->count();
@@ -29,6 +31,7 @@ class Subscription extends Model
             }
         }else{
     	    Subscription::Create(['user_id' => $user_id,'type' => 'free' ,'date_start' => $dateNow, 'date_end' => $dateNext]);
+            $loginUser->update(['type' => 'free']);
             $Download = 0;
         }
     	return $Download;

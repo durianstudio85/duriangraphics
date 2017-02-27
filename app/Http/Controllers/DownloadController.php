@@ -141,13 +141,14 @@ class DownloadController extends Controller
         
         $user_type = Auth::user()->account_type;
 
-        if ( $user_type == 'free' ) {
+
+        if ( $user_type == 'bussiness' ) {
+            return $this->downloadTypeUser($id, 5000);
+        }elseif ( $user_type == 'professional' ) {
+            return $this->downloadTypeUser($id, 500);
+        }else{
             return $this->downloadTypeUser($id, 10);
-        }elseif ( $user_type == 'bussiness' ) {
-            
         }
-
-
     }
 
 
@@ -159,8 +160,7 @@ class DownloadController extends Controller
         $limitDownload = $subscription->getLimitDownload($user_id);
         $item = Image_item::findOrFail($img_id);
 
-
-        if ($limitDownload > $limit ) {
+        if ($limitDownload >= $limit ) {
             if ($downloadCount > 0) {
                 $myFile= public_path(). "/upload/zip/".$item->download_img;
                 $headers = array('Content-Type: application/zip');
@@ -175,7 +175,6 @@ class DownloadController extends Controller
                 session()->flash('flash_message_important', 'alert-warning');
                 return redirect()->back();
             }
-            
         }else{
 
             if ($downloadCount > 0) {
