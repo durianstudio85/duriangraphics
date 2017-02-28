@@ -86,7 +86,7 @@
 
                     <!-- <li><a href="{{ url('/about') }}" {{{ ( Request::is('about') ? 'class=active' : '') }}} >About</a></li> -->
                     <!-- <li><a href="{{ url('/services') }}" {{{ ( Request::is('services') ? 'class=active' : '') }}} >Services</a></li> -->
-                    <li><a href="{{ url('/pricing') }}" {{{ ( Request::is('pricing') ? 'class=active' : '') }}} >Pricing</a></li>
+                    <!-- <li><a href="{{ url('/pricing') }}" {{{ ( Request::is('pricing') ? 'class=active' : '') }}} >Pricing</a></li> -->
                     <!-- <li><a href="{{ url('/contact') }}" {{{ ( Request::is('contact') ? 'class=active' : '') }}} >Contact</a></li> -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" {{{ ( Request::is('home') ? 'class=active' : '') }}} >Login</a></li>
@@ -111,7 +111,7 @@
                                 <li><a href="{{ url('/dashboard') }}"><i class="fa fa-btn  fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
                                 <li><a href="{{ url('/profile') }}"><i class="fa fa-btn  fa-user"></i>Profile</a></li>
                                 <li><a href="{{ url('/downloads') }}"><i class="fa fa-btn fa-download" aria-hidden="true"></i>Downloads</a></li>
-                                <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog" aria-hidden="true"></i>Account Settings</a></li>
+                                <!-- <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog" aria-hidden="true"></i>Account Settings</a></li> -->
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -264,20 +264,21 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                 <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="77JWUV2E9PR32">
+                <input type="hidden" name="hosted_button_id" value="GDRBUQ8P88CXE">
                 <table>
                 <tr><td><input type="hidden" name="on0" value="Name of drop-down menu">Name of drop-down menu</td></tr><tr><td><select name="os0">
                     <option value="3 Months">3 Months $14.00 USD</option>
-                    <option value="6 Months">6 Months $29.94 USD</option>
-                    <option value="12 Months">12 Months $59.88 USD</option>
+                    <option value="6 Months">6 Months $29.93 USD</option>
+                    <option value="12 Months">12 Months $50.00 USD</option>
                 </select> </td></tr>
                 </table>
                 <input type="hidden" name="currency_code" value="USD">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                 </form>
+
             </div>      
         </div>
     </div>
