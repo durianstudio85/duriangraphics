@@ -51,7 +51,9 @@
 												<tr>
 													<td>PROFESSIONAL</td>
 													<td>$4.99 per month</td>
-													<td><a href="#">UPGRADE</td>
+													<td>
+														
+<a href="#" data-toggle = "modal" data-target = "#upgradeProf">UPGRADE</a></td>
 												</tr>
 												<tr>
 													<td>BUSINESS</td>

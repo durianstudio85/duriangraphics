@@ -68,7 +68,6 @@
 							<td></td>
 						</tr>
 					</table>
-
 				</div>
 			</div>
 			<div class="col-md-8">

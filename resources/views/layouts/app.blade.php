@@ -254,11 +254,32 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     <script src="{{ asset('assets/dist/js/lightbox-plus-jquery.min.js') }}"></script>
     <script type="text/javascript">
+        $(document).ready( function () {
+            $('#dataTable').DataTable();
+        } );
+    </script>
 
-  $(document).ready( function () {
-    $('#dataTable').DataTable();
-    } );
 
-</script>
+    <div class="modal fade" id="upgradeProf" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="77JWUV2E9PR32">
+                <table>
+                <tr><td><input type="hidden" name="on0" value="Name of drop-down menu">Name of drop-down menu</td></tr><tr><td><select name="os0">
+                    <option value="3 Months">3 Months $14.00 USD</option>
+                    <option value="6 Months">6 Months $29.94 USD</option>
+                    <option value="12 Months">12 Months $59.88 USD</option>
+                </select> </td></tr>
+                </table>
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>      
+        </div>
+    </div>
 </body>
 </html>
