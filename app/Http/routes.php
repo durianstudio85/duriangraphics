@@ -42,6 +42,14 @@ Route::group(['middleware' => ['web']], function () {
 });  
 
 
+Route::group(['middleware' => ['web']], function () {
+    Route::get('payPremium', ['as'=>'payPremium','uses'=>'PaypalController@payPremium']);
+    Route::post('getCheckout', ['as'=>'getCheckout','uses'=>'PaypalController@getCheckout']);
+    Route::get('getDone', ['as'=>'getDone','uses'=>'PaypalController@getDone']);
+    Route::get('getCancel', ['as'=>'getCancel','uses'=>'PaypalController@getCancel']);
+});
+
+
 Route::auth();
 
 
@@ -78,4 +86,6 @@ Route::post('/search','HomeController@searchRedirect');
 
 Route::get('/settings', 'AccountController@index');
 Route::get('/settings/upgrade', 'AccountController@upgrade');
+
+Route::get('/paypal/sample', 'PaypalController@sample');
 

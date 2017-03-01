@@ -264,21 +264,21 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="GDRBUQ8P88CXE">
-                <table>
-                <tr><td><input type="hidden" name="on0" value="Name of drop-down menu">Name of drop-down menu</td></tr><tr><td><select name="os0">
-                    <option value="3 Months">3 Months $14.00 USD</option>
-                    <option value="6 Months">6 Months $29.93 USD</option>
-                    <option value="12 Months">12 Months $50.00 USD</option>
-                </select> </td></tr>
-                </table>
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                </form>
-
+                {!! Form::open(array('route' => 'getCheckout')) !!}
+                    {!! Form::hidden('type','professional') !!}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Professional</h4>
+                    </div>
+                    <div class="modal-body">
+                        {{ Form::select('pay', ['4.99' => '4.99 (1 Month)', '14.97' => '14.97 (3 Months)', '29.94' => '29.94 (6 Months)', '59.88' => '59.88 (12 Months)'], null, array('class' => 'form-control', 'style' => 'padding: 6px;')) }}
+                        <!-- <p>Some text in the modal.</p> -->
+                    </div>
+                    <div class="modal-footer">
+                        {!! Form::submit('Submit', ['class' => 'btn btn-profile-submit']) !!}
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                {!! Form::close() !!}
             </div>      
         </div>
     </div>

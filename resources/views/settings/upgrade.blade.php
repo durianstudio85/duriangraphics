@@ -21,9 +21,9 @@
 										<li>
 											<a href="{{ url('/settings') }}">Account</a>
 										</li>
-										<li class="active">
+										<!-- <li class="active">
 											<a href="{{ url('/settings/upgrade') }}">Upgrade Plan</a>
-										</li>
+										</li> -->
 										<li>
 											<a href="{{ url('/settings/payments') }}">Payment History</a>
 										</li>
