@@ -44,7 +44,7 @@ class PaypalController extends Controller
 	    $amount = PayPal:: Amount();
 	    $amount->setCurrency('USD');
 	    $amount->setTotal($request->input('pay'));
-	    $amount->setDetails(['type' => $request->input('type'), 'Amount' => $request->input('pay')]);
+	    // $amount->setDetails(['type' => $request->input('type'), 'Amount' => $request->input('pay')]);
 
 	    $transaction = PayPal::Transaction();
 	    $transaction->setAmount($amount);
