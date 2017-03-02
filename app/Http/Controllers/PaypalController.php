@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Paypal;
+use Auth;
 
 class PaypalController extends Controller
 {
@@ -13,6 +14,8 @@ class PaypalController extends Controller
 
     public function __construct()
     {
+ 		$this->middleware('auth');
+
         $this->_apiContext = PayPal::ApiContext(
             config('services.paypal.client_id'),
             config('services.paypal.secret'));
@@ -41,6 +44,7 @@ class PaypalController extends Controller
 	    $amount = PayPal:: Amount();
 	    $amount->setCurrency('USD');
 	    $amount->setTotal($request->input('pay'));
+	    $amount->setDetails(['type' => $request->input('type'), 'Amount' => $request->input('pay')]);
 
 	    $transaction = PayPal::Transaction();
 	    $transaction->setAmount($amount);
