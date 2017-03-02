@@ -76,6 +76,7 @@ class PaypalController extends Controller
 	    $executePayment = $payment->execute($paymentExecution, $this->_apiContext);
 
 	    
+	    return view('paypal.sample', compact('payment'));
 	    print_r($executePayment);
 	    // print_r($paymentExecution);
 	}
@@ -87,6 +88,6 @@ class PaypalController extends Controller
 
 	public function sample()
 	{
-		return view('paypal.sample');
+		
 	}
 }
