@@ -102,6 +102,12 @@ class PaypalController extends Controller
 	public function paymentHistory($payment)
 	{
 
+		foreach ($payment->transactions as $transactions) {
+			$amount_total = $transactions->amount->total;
+			$amount_currency = $transactions->amount->currency;
+			$amount_details = $transactions->amount->details;
+		}
+
 		$data = [
 			'user_id' => Auth::user()->id, 
 	        'paypal_id' => $payment->id, 
@@ -121,11 +127,11 @@ class PaypalController extends Controller
 	        'payer_shipping_postal_code'  => $payment->payer->payer_info->shipping_address->postal_code,
 	        'payer_shipping_country_code'  => $payment->payer->payer_info->shipping_address->country_code,
 
-	        foreach ($payment->transactions as $transactions) {
-	        	'transaction_amount_total' => $transactions->amount->total,
-		        'transaction_amount_currency' => $transactions->amount->currency,
-		        'transaction_amount_details' => $transactions->amount->details,
-	        }
+	        // Transaction ================================
+        	'transaction_amount_total' => $amount_total,
+	        'transaction_amount_currency' => $amount_currency,
+	        'transaction_amount_details' => $amount_details,
+	        
 	        
 
 	        // 'transaction_payee_merchant_id',
