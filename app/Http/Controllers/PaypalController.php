@@ -103,9 +103,34 @@ class PaypalController extends Controller
 	{
 
 		foreach ($payment->transactions as $transactions) {
+			// Amount ====================
 			$amount_total = $transactions->amount->total;
 			$amount_currency = $transactions->amount->currency;
 			$amount_details = $transactions->amount->details;
+
+			// Payee =====================
+			$payee_merchant_id = $transaction->payee->merchant_id;
+			$payee_email = $transaction->payee->email;
+
+			// Description ===============
+			$description = $transaction->description;
+
+			// Related Resources =========
+			$related_resources = $transaction->related_resources;
+		}
+
+		foreach ($related_resources as $resources ) {
+			$sale_id = $resources->sale->id;
+			$sale_state = $resources->sale->state;
+			$sale_payment_method = $resources->sale->payment_mode;
+			$sale_protection_eligibility = $resources->sale->protection_eligibility;
+			$sale_protection_eligibility_type = $resources->sale->protection_eligibility_type;
+			$sale_transaction_fee_value = $resources->sale->transaction_fee->value;
+			$sale_transaction_fee_currency = $resources->sale->transaction_fee->currency;
+			$sale_parent_payment = $resources->sale->parent_payment;
+			$sale_create_time = $resources->sale->create_time;
+			$sale_update_time = $resources->sale->update_time;
+			$sale_links = $resources->sale->links;
 		}
 
 		$data = [
@@ -127,44 +152,31 @@ class PaypalController extends Controller
 	        'payer_shipping_postal_code'  => $payment->payer->payer_info->shipping_address->postal_code,
 	        'payer_shipping_country_code'  => $payment->payer->payer_info->shipping_address->country_code,
 
-	        // Transaction ================================
+	        // Transaction Amount ================================
         	'transaction_amount_total' => $amount_total,
 	        'transaction_amount_currency' => $amount_currency,
 	        'transaction_amount_details' => $amount_details,
 	        
-	        
+	        // Transaction Payee ================================
+	        'transaction_payee_merchant_id' => $payee_merchant_id,
+	        'transaction_payee_email' => $payee_email,
 
-	        // 'transaction_payee_merchant_id',
-	        // 'transaction_payee_email',
+	        // Transaction Description ================================
+	        'transaction_description' => $description,
 
-	        // 'transaction_description',
+	        // Transaction Resources =======================
+	        'transaction_resources_sales' => $sale_id,
+	        'transaction_resources_states' => $sale_state,
+	        'transaction_resources_payment_mode' => $sale_payment_method,
+	        'transaction_resources_protection_eligibility' => $sale_protection_eligibility,
+	        'transaction_resources_protection_eligibility_type' => $sale_protection_eligibility_type,
+	        'transaction_resources_transaction_fee_value' => $sale_transaction_fee_value,
+	        'transaction_resources_transaction_fee_currency' => $sale_transaction_fee_currency,
+	        'transaction_resources_parent_payment' => $sale_parent_payment,
+	        'transaction_resources_create_time' => $sale_create_time,
+	        'transaction_resources_update_time' => $sale_update_time,
+	        'transaction_resources_links' => $sale_links,
 
-	        // 'transaction_resources_sales',
-	        // 'transaction_resources_states',
-	        // 'transaction_resources_payment_mode',
-	        // 'transaction_resources_protection_eligibility',
-	        // 'transaction_resources_protection_eligibility_type',
-	        // 'transaction_resources_transaction_fee_value',
-	        // 'transaction_resources_transaction_fee_currency',
-	        // 'transaction_resources_parent_payment',
-	        // 'transaction_resources_create_time',
-	        // 'transaction_resources_update_time',
-	        // 'transaction_resources_links',
-
-
-
-
-
-
-
-
-
-         //    'title' => $request->get('title'),
-         //    'description' => $request->get('description'),
-         //    'main_features' => $request->get('main_features'),
-         //    'category' => $request->get('category'),
-         //    'download_img' => $download_img_name,
-         //    'watermark_img' => $watermark_img_name,
         ];
 
         Paypalpayment::Create($data);
