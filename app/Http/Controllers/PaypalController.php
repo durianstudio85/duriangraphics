@@ -120,9 +120,13 @@ class PaypalController extends Controller
 	        'payer_shipping_state'  => $payment->payer->payer_info->shipping_address->state,
 	        'payer_shipping_postal_code'  => $payment->payer->payer_info->shipping_address->postal_code,
 	        'payer_shipping_country_code'  => $payment->payer->payer_info->shipping_address->country_code,
-	        'transaction_amount_total' => $payment->transactions->amount->total,
-	        'transaction_amount_currency' => $payment->transactions->amount->currency,
-	        'transaction_amount_details' => $payment->transactions->amount->details,
+
+	        foreach ($payment->transactions as $transactions) {
+	        	'transaction_amount_total' => $transactions->amount->total,
+		        'transaction_amount_currency' => $transactions->amount->currency,
+		        'transaction_amount_details' => $transactions->amount->details,
+	        }
+	        
 
 	        // 'transaction_payee_merchant_id',
 	        // 'transaction_payee_email',
