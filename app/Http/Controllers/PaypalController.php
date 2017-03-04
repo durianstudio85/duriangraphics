@@ -109,14 +109,14 @@ class PaypalController extends Controller
 			$amount_details = $transactions->amount->details;
 
 			// Payee =====================
-			$payee_merchant_id = $transaction->payee->merchant_id;
-			$payee_email = $transaction->payee->email;
+			$payee_merchant_id = $transactions->payee->merchant_id;
+			$payee_email = $transactions->payee->email;
 
 			// Description ===============
-			$description = $transaction->description;
+			$description = $transactions->description;
 
 			// Related Resources =========
-			$related_resources = $transaction->related_resources;
+			$related_resources = $transactions->related_resources;
 		}
 
 		foreach ($related_resources as $resources ) {
