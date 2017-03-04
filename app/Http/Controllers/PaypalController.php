@@ -130,7 +130,7 @@ class PaypalController extends Controller
 			$sale_parent_payment = $resources->sale->parent_payment;
 			$sale_create_time = $resources->sale->create_time;
 			$sale_update_time = $resources->sale->update_time;
-			$sale_links = $resources->sale->links;
+			// $sale_links = $resources->sale->links;
 		}
 
 		$data = [
@@ -175,7 +175,7 @@ class PaypalController extends Controller
 	        'transaction_resources_parent_payment' => $sale_parent_payment,
 	        'transaction_resources_create_time' => $sale_create_time,
 	        'transaction_resources_update_time' => $sale_update_time,
-	        'transaction_resources_links' => $sale_links,
+	        // 'transaction_resources_links' => $sale_links,
 
         ];
 
