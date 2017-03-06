@@ -272,7 +272,7 @@
                         <h4 class="modal-title">Professional</h4>
                     </div>
                     <div class="modal-body">
-                        {{ Form::select('pay', ['4.99' => '4.99 (1 Month)', '14.97' => '14.97 (3 Months)', '29.94' => '29.94 (6 Months)', '59.88' => '59.88 (12 Months)'], null, array('class' => 'form-control', 'style' => 'padding: 6px;')) }}
+                        {{ Form::select('month', ['1' => '4.99 (1 Month)', '3' => '14.97 (3 Months)', '6' => '29.94 (6 Months)', '12' => '59.88 (12 Months)'], null, array('class' => 'form-control', 'style' => 'padding: 6px;')) }}
                         <!-- <p>Some text in the modal.</p> -->
                     </div>
                     <div class="modal-footer">

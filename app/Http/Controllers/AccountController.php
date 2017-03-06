@@ -29,7 +29,6 @@ class AccountController extends Controller
 
     public function upgrade()
     {
-        
         return view('settings.upgrade');
     }
 

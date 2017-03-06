@@ -45,6 +45,9 @@ class Paypalpayment extends Model
         'transaction_resources_update_time',
         'transaction_resources_links',
 
+        'no_month',
+        'type',
+
     ];
 
 

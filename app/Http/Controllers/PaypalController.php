@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Paypal;
 use Auth;
 use App\Paypalpayment;
+use App\Type_subscription;
 
 class PaypalController extends Controller
 {
@@ -40,15 +41,15 @@ class PaypalController extends Controller
     public function getCheckout(Request $request)
 	{
 
-		$amountDetails =  'subscription_id';
+		
+		$price = $this->addSubscription($request->input('type'), $request->input('month'));
 
 	    $payer = PayPal::Payer();
 	    $payer->setPaymentMethod('paypal');
 
 	    $amount = PayPal:: Amount();
 	    $amount->setCurrency('USD');
-	    $amount->setTotal($request->input('pay'));
-	    // $amount->setDetails(array($amountDetails));
+	    $amount->setTotal($price);
 
 	    $transaction = PayPal::Transaction();
 	    $transaction->setAmount($amount);
@@ -96,6 +97,27 @@ class PaypalController extends Controller
 	{
 	    return redirect('settings/upgrade');
 	}
+
+	public function addSubscription($type='', $month='')
+	{
+		$user_id = Auth::user()->id;
+		$count_subscription = Type_subscription::where('subscription_name','=' , $type)->where('month','=' , $month)->count();
+		if (count($count_subscription) > 0) {
+			$subscription = Type_subscription::where('subscription_name','=' , $type)->where('month','=' , $month)->orderBy('price','desc')->first();
+			$data = [
+			    'user_id' => $user_id,
+			    'no_month' => $month,
+			    'type' => $type,
+			];
+			Paypalpayment::Create($data);
+			return $subscription->price;
+
+
+		}else{
+			return redirect('settings/upgrade');
+		}
+	}
+
 
 	public function paymentHistory($payment)
 	{
@@ -178,10 +200,5 @@ class PaypalController extends Controller
         ];
 
         Paypalpayment::Create($data);
-
-
-
-
-		
 	}
 }
