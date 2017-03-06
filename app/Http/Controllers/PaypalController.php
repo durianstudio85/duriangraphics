@@ -102,14 +102,14 @@ class PaypalController extends Controller
 	{
 		$user_id = Auth::user()->id;
 		$count_subscription = Type_subscription::where('subscription_name','=' , $type)->where('month','=' , $month)->count();
-		if (count($count_subscription) > 0) {
+		if (isset($count_subscription)) {
 			$subscription = Type_subscription::where('subscription_name','=' , $type)->where('month','=' , $month)->orderBy('price','desc')->first();
 			$data = [
 			    'user_id' => $user_id,
 			    'no_month' => $month,
 			    'type' => $type,
 			];
-			Paypalpayment::Create($data);
+			$paypal = Paypalpayment::Create($data);
 			return $subscription->price;
 
 
