@@ -39,13 +39,16 @@ class PaypalController extends Controller
 
     public function getCheckout(Request $request)
 	{
+
+		$amountDetails =  'subscription_id';
+
 	    $payer = PayPal::Payer();
 	    $payer->setPaymentMethod('paypal');
 
 	    $amount = PayPal:: Amount();
 	    $amount->setCurrency('USD');
 	    $amount->setTotal($request->input('pay'));
-	    // $amount->setDetails( 'type :'. $request->input('type') .'<br> Amount'. $request->input('pay') );
+	    // $amount->setDetails(array($amountDetails));
 
 	    $transaction = PayPal::Transaction();
 	    $transaction->setAmount($amount);
@@ -82,11 +85,6 @@ class PaypalController extends Controller
 	    
 
 	    $this->paymentHistory($payment);
-
-
-
-
-
 
 
 	    return view('paypal.sample', compact('payment'));

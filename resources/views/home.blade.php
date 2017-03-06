@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <p>
-                    Subscriptions and Images On Demand for only 
+                    Start using our professionally done graphics now.
                     <span>4.99 /month</span> 
                     @if (Auth::guest())
                         <a href="{{ url('/register') }}">Free Signup Now!</a>

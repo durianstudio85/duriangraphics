@@ -86,6 +86,7 @@ Route::post('/search','HomeController@searchRedirect');
 
 Route::get('/settings', 'AccountController@index');
 Route::get('/settings/upgrade', 'AccountController@upgrade');
+Route::get('/settings/payments', 'AccountController@payments');
 
 Route::get('/paypal/sample', 'PaypalController@sample');
 

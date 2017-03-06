@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Paypalpayment;
+use Auth;
 
 class AccountController extends Controller
 {
@@ -27,7 +29,16 @@ class AccountController extends Controller
 
     public function upgrade()
     {
+        
         return view('settings.upgrade');
+    }
+
+
+    public function payments()
+    {
+        $user_id = Auth::user()->id;
+        $payHistory = Paypalpayment::where('user_id', '=', $user_id)->get();
+        return view('settings.payments', compact('payHistory') );
     }
 
     /**
