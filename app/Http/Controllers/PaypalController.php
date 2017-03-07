@@ -10,6 +10,7 @@ use App\Paypalpayment;
 use App\Type_subscription;
 use Carbon\Carbon;
 use App\Subscription;
+use App\User;
 
 class PaypalController extends Controller
 {
@@ -236,6 +237,10 @@ class PaypalController extends Controller
         $user_id = Auth::user()->id;
         $paypalPayment = Paypalpayment::where('user_id' ,'=', $user_id)->where('paypal_id','=', '')->orderBy('id','desc')->first();
         $this->addMonthsSubscription($paypalPayment->type, $paypalPayment->no_month);
+
+        $user = User::findOrFail($user_id);
+        $user->update(['account_type'=> $paypalPayment->type]);
+
 
         $paypalPayment->update($data);
         return $paypalPayment;
