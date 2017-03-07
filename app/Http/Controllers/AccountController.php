@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Paypalpayment;
 use Auth;
+use App\Type_subscription;
+
 
 class AccountController extends Controller
 {
@@ -29,7 +31,8 @@ class AccountController extends Controller
 
     public function upgrade()
     {
-        return view('settings.upgrade');
+        $typeSubcription = new Type_subscription;
+        return view('settings.upgrade', compact('typeSubcription'));
     }
 
 

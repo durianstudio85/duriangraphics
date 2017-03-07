@@ -8,6 +8,8 @@ use Paypal;
 use Auth;
 use App\Paypalpayment;
 use App\Type_subscription;
+use Carbon\Carbon;
+use App\Subscription;
 
 class PaypalController extends Controller
 {
@@ -40,35 +42,41 @@ class PaypalController extends Controller
 
     public function getCheckout(Request $request)
 	{
+		$subs_id = $request->input('subs_id');
 
-		
-		$price = $this->addSubscription($request->input('type'), $request->input('month'));
+		$subscription = $this->addSubscription($subs_id);
+		if (!empty($subscription)) {
+			$payer = PayPal::Payer();
+		    $payer->setPaymentMethod('paypal');
 
-	    $payer = PayPal::Payer();
-	    $payer->setPaymentMethod('paypal');
+		    $amount = PayPal:: Amount();
+		    $amount->setCurrency('USD');
+		    $amount->setTotal($subscription->price);
 
-	    $amount = PayPal:: Amount();
-	    $amount->setCurrency('USD');
-	    $amount->setTotal($price);
+		    $transaction = PayPal::Transaction();
+		    $transaction->setAmount($amount);
+		    $transaction->setDescription('');
 
-	    $transaction = PayPal::Transaction();
-	    $transaction->setAmount($amount);
-	    $transaction->setDescription($request->input('type'));
+		    // ucfirst($subscription_id->subscription_name)
 
-	    $redirectUrls = PayPal:: RedirectUrls();
-	    $redirectUrls->setReturnUrl(route('getDone'));
-	    $redirectUrls->setCancelUrl(route('getCancel'));
+		    $redirectUrls = PayPal:: RedirectUrls();
+		    $redirectUrls->setReturnUrl(route('getDone'));
+		    $redirectUrls->setCancelUrl(route('getCancel'));
 
-	    $payment = PayPal::Payment();
-	    $payment->setIntent('sale');
-	    $payment->setPayer($payer);
-	    $payment->setRedirectUrls($redirectUrls);
-	    $payment->setTransactions(array($transaction));
+		    $payment = PayPal::Payment();
+		    $payment->setIntent('sale');
+		    $payment->setPayer($payer);
+		    $payment->setRedirectUrls($redirectUrls);
+		    $payment->setTransactions(array($transaction));
 
-	    $response = $payment->create($this->_apiContext);
-	    $redirectUrl = $response->links[1]->href;
+		    $response = $payment->create($this->_apiContext);
+		    $redirectUrl = $response->links[1]->href;
 
-	    return redirect()->to( $redirectUrl );
+		    return redirect()->to( $redirectUrl );
+		}else{
+			return redirect('settings/upgrade');
+		}
+	    
 	}
 
 	public function getDone(Request $request)
@@ -83,14 +91,16 @@ class PaypalController extends Controller
 
 	    $paymentExecution->setPayerId($payer_id);
 	    $executePayment = $payment->execute($paymentExecution, $this->_apiContext);
+
+	    $updateDetails = $this->paymentHistory($payment);
+
 	    
-
-	    $this->paymentHistory($payment);
-
-
-	    return view('paypal.sample', compact('payment'));
-	    print_r($executePayment);
+// $updateDetails->no_months
+	    // return view('paypal.sample', compact('payment'));
+	    // print_r($executePayment);
+	    
 	    // print_r($paymentExecution);
+	    return redirect('settings/upgrade');
 	}
 
 	public function getCancel()
@@ -98,25 +108,49 @@ class PaypalController extends Controller
 	    return redirect('settings/upgrade');
 	}
 
-	public function addSubscription($type='', $month='')
+	public function addSubscription($subs_id='')
 	{
 		$user_id = Auth::user()->id;
-		$count_subscription = Type_subscription::where('subscription_name','=' , $type)->where('month','=' , $month)->count();
-		if (isset($count_subscription)) {
-			$subscription = Type_subscription::where('subscription_name','=' , $type)->where('month','=' , $month)->orderBy('price','desc')->first();
+
+		$count_subscription = Type_subscription::where('subscription_id','=',$subs_id)->get();
+		if (empty($count_subscription)) {
+			$subscription = '';
+			return $subscription;
+		}else{
+			$subscription = Type_subscription::where('subscription_id','=',$subs_id)->first();
 			$data = [
 			    'user_id' => $user_id,
-			    'no_month' => $month,
-			    'type' => $type,
+			    'no_month' => $subscription->month,
+			    'type' => $subscription->subscription_name,
 			];
 			$paypal = Paypalpayment::Create($data);
-			return $subscription->price;
-
-
-		}else{
-			return redirect('settings/upgrade');
+			return $subscription;
 		}
 	}
+
+	public function addMonthsSubscription($type='', $noMonths = '')
+    {
+        $user_id = Auth::user()->id;
+        $dateStart= Carbon::now();
+        $minusMonths = $noMonths - 1;
+
+        // while ( $dateStart <= $dateLast) {
+        // 	Subscription::Create(['user_id' => $user_id,'type' => $type ,'date_start' => $dateStart, 'date_end' => $dateLast]);
+        // }
+        for($d = -1; $d < $minusMonths; $d++){
+            // $checkin->addDay()->toDateString()
+            $startDate = Carbon::now()->addMonths($d+1);
+            $endDate = Carbon::now()->addMonths($d+2);
+            $data = [
+            	'user_id' => $user_id,
+            	'type' => $type,
+            	'date_start' => $startDate, 
+            	'date_end' => $endDate,
+            ];
+            Subscription::Create($data);
+        }   
+
+    }
 
 
 	public function paymentHistory($payment)
@@ -199,6 +233,11 @@ class PaypalController extends Controller
 
         ];
 
-        Paypalpayment::Create($data);
+        $user_id = Auth::user()->id;
+        $paypalPayment = Paypalpayment::where('user_id' ,'=', $user_id)->where('paypal_id','=', '')->orderBy('id','desc')->first();
+        $this->addMonthsSubscription($paypalPayment->type, $paypalPayment->no_month);
+
+        $paypalPayment->update($data);
+        return $paypalPayment;
 	}
 }

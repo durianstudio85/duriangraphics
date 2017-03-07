@@ -261,27 +261,6 @@
     </script>
 
 
-    <div class="modal fade" id="upgradeProf" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                {!! Form::open(array('route' => 'getCheckout')) !!}
-                    {!! Form::hidden('type','professional') !!}
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Professional</h4>
-                    </div>
-                    <div class="modal-body">
-                        {{ Form::select('month', ['1' => '4.99 (1 Month)', '3' => '14.97 (3 Months)', '6' => '29.94 (6 Months)', '12' => '59.88 (12 Months)'], null, array('class' => 'form-control', 'style' => 'padding: 6px;')) }}
-                        <!-- <p>Some text in the modal.</p> -->
-                    </div>
-                    <div class="modal-footer">
-                        {!! Form::submit('Submit', ['class' => 'btn btn-profile-submit']) !!}
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                {!! Form::close() !!}
-            </div>      
-        </div>
-    </div>
+    
 </body>
 </html>

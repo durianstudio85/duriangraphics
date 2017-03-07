@@ -36,4 +36,5 @@ class Subscription extends Model
         }
     	return $Download;
     }
+
 }
