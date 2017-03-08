@@ -208,17 +208,17 @@
                 <div class="col-md-3 col-sm-6">
                     <h3 class="footer-header">Need Help?</h3>
                     <ul class="footer-help">
-                        <li><a href="">Help Center</a></li>
+                        <li><a href="{{ url('/help-center') }}">Help Center</a></li>
                         <li><a href="{{ url('/terms') }}">Durian Graphic Terms</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h3 class="footer-header">Meet Durian Graphics</h3>
                     <ul class="footer-help">
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Why Subscribe Us?</a></li>
-                        <li><a href="">Durian Careers</a></li>
+                        <li><a href="{{ url('/about') }}">About Us</a></li>
+                        <li><a href="{{ url('/about') }}">Why Subscribe Us?</a></li>
+                        <li><a href="{{ url('/about') }}">Durian Careers</a></li>
                     </ul>
                     <ul class="footer-icon">
                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

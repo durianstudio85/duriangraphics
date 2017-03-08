@@ -59,6 +59,7 @@ Route::get('/services', 'HomeController@services');
 Route::get('/pricing', 'HomeController@pricing');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/terms', 'HomeController@terms');
+Route::get('/help-center', 'HomeController@helpcenter');
 
 
 Route::get('/dashboard', 'DashboardController@index');

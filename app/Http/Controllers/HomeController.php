@@ -109,4 +109,9 @@ class HomeController extends Controller
     {
         return view('terms');
     }
+
+    public function helpcenter()
+    {
+        return view('helpcenter');
+    }
 }
