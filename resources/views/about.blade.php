@@ -36,7 +36,7 @@
 Build a new design that is unique and different from our competitors.<br><br>
 
 If you got all of those, this is your opportunity to join our team and to showcase your skills.</p> <br>
-					<a href="#">Be a part of Durian Graphics.</a>
+					<a href="{{ url('/login') }}">Be a part of Durian Graphics.</a>
 				</div>
 				<div class="col-md-6">
 					<img src="{{ asset('assets/images/dg_about_img2.png') }}">

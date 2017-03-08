@@ -104,4 +104,9 @@ class HomeController extends Controller
     {
         return redirect('/search/'.$request->get('search'));
     }
+
+    public function terms()
+    {
+        return view('terms');
+    }
 }

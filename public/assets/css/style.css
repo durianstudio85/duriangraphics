@@ -285,7 +285,10 @@ p{
 
 .dg-about-container p, .dg-contact-content p{
 	color: #757575;
+	font-size: 15px;
 }
+
+
 
 .dg-about-title{
 	background-color: #f7f7f7;
@@ -537,12 +540,14 @@ p{
 }
 
 .icon i{
-	    font-size: 75px;
-    /* background-color: #49c2c2; */
-    width: 87px;
-    padding: 8px 10px;
-    color: #49c2c2;
+	font-size: 18px;
+    background-color: #49c2c2;
+    width: 35px;
+    height: 35px;
+    padding: 9px 8px 8px 11px;
+    color: #ffffff;
     border-radius: 25px;
+    margin-top: -1px;
 }
 
 .image-form{
@@ -1043,4 +1048,16 @@ p{
 .btn-green{
 	background-color: #49c2c2 !important;
     color: #ffffff !important;
+}
+
+.list-terms{
+	font-size: 21px;
+}
+
+.list-terms h3{
+	font-weight: bold;
+}
+
+.list-terms-child li{
+	list-style-type: none;
 }

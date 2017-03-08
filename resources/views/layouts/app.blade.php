@@ -158,7 +158,7 @@
     @yield('content')
 
 
-    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'pricing' )
+    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'pricing' || Request::path() == 'contact' )
     <div class="dg-subscribe-footer-background">
         <div class="container">
             <div class="row">
@@ -209,7 +209,7 @@
                     <h3 class="footer-header">Need Help?</h3>
                     <ul class="footer-help">
                         <li><a href="">Help Center</a></li>
-                        <li><a href="">Durian Graphic Terms</a></li>
+                        <li><a href="{{ url('/terms') }}">Durian Graphic Terms</a></li>
                         <li><a href="">Contact Us</a></li>
                     </ul>
                 </div>
