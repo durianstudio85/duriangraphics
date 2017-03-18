@@ -39,6 +39,10 @@ Route::group(['middlewareGroups' => 'web'], function () {
     Route::get('/admin/posts/{id}/edit', 'Admin\PostController@edit');
     Route::patch('/admin/posts/{id}/edit', 'Admin\PostController@update');
 
+    // Post Image
+    Route::post('/admin/posts/images/create', 'Admin\PostController@uploadImg');
+
+
     // Post Categories
     Route::get('/admin/posts/categories', 'Admin\PostCategoryController@index');
     Route::get('/admin/posts/categories/create', 'Admin\PostCategoryController@create');

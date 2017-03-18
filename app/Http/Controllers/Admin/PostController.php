@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\User;
 use App\Admin;
+use App\Postimage;
 use Auth;
 
 class PostController extends Controller
@@ -34,7 +35,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         
-
         $slug = str_slug($request->get('title'), '-');
         $findIfExist = Post::where('slug', '=', $slug)->count();
         if ($findIfExist > 0) {
@@ -134,5 +134,28 @@ class PostController extends Controller
 
         }
         return redirect('/admin/posts/'.$post->id.'/edit');
+    }
+
+
+
+    public function uploadImg(Request $request)
+    {
+        $thumbnail = $request->file('image');
+        $thumbnail_file_name = $thumbnail->getClientOriginalName();      
+        $thumbnail_extension = $thumbnail->getClientOriginalExtension();      
+        $thumbnail_name = str_random(10).'.'.$thumbnail_extension;
+        $thumbnail->move(public_path().'/img/posts/',$thumbnail_name);
+
+        $data = [
+            'name' => $thumbnail_file_name,
+            'filename' => $thumbnail_name,
+        ];
+
+        $image = Postimage::create($data);
+
+        session()->flash('flash_message', 'Image Uploaded Successfully!');
+        session()->flash('flash_message_important', 'alert-success');
+
+        return redirect()->back();
     }
 }
