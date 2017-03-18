@@ -7,6 +7,10 @@
 
     @if( Request::path() == '/')
         <title>Durian Graphics | Home </title>
+    @elseif ( !empty($showItem->title))
+        <title>Durian Graphics | {{ ucfirst($showItem->title) }} </title>
+    @elseif ( !empty($blog->title))
+        <title>Durian Graphics | {{ ucfirst($blog->title) }} </title>
     @else
         <title>Durian Graphics | {{ ucfirst(Request::path()) }} </title>
     @endif
@@ -21,6 +25,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/dist/css/lightbox.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <script>
@@ -33,6 +40,12 @@
      ga('send', 'pageview');
 
     </script>
+     <script type="text/javascript">
+        $(document).ready(function() {
+          $('#summernote').summernote();
+        });
+    </script>
+
     <style>
         body {
             font-family: 'Lato';
@@ -158,7 +171,7 @@
     @yield('content')
 
 
-    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'pricing' || Request::path() == 'contact' )
+    @if( Request::path() == '/' || Request::path() == 'about' || Request::path() == 'pricing' || Request::path() == 'contact' || Request::path() == 'blog' )
     <div class="dg-subscribe-footer-background">
         <div class="container">
             <div class="row">
@@ -260,7 +273,7 @@
         } );
     </script>
 
-
+   
     
 </body>
 </html>

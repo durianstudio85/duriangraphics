@@ -8,6 +8,7 @@ use App\Category;
 use App\Image_item;
 use App\Download;
 use App\Option;
+use App\Post;
 use DB;
 
 class HomeController extends Controller
@@ -114,4 +115,29 @@ class HomeController extends Controller
     {
         return view('helpcenter');
     }
+
+    public function blog()
+    {
+        $option = new Option;
+        $products = new Image_item;
+        $category = new Category;
+        $blog = Post::paginate(10);
+        return view('blog',compact('option','products', 'category','blog'));
+    }
+
+    public function blogDetail($slug)
+    {
+        $option = new Option;
+        $products = new Image_item;
+        $category = new Category;
+        $blog = Post::where('slug', '=', $slug)->first();
+        if (!empty($blog)) {
+            return view('blog',compact('option','products', 'category','blog'));
+        }else{
+            return redirect('/blog');
+        }
+        
+    }
+
+
 }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middlewareGroups' => 'web'], function () {
     //Login Routes...
     Route::get('/admin/login','Admin\AuthController@showLoginForm');
     Route::post('/admin/login','Admin\AuthController@login');
@@ -32,6 +32,18 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/admin/categories', 'Admin\CategoryController@index');
     Route::get('/admin/categories/create', 'Admin\CategoryController@create');
     Route::post('/admin/categories/create', 'Admin\CategoryController@store');
+
+    Route::get('/admin/posts', 'Admin\PostController@index');
+    Route::get('/admin/posts/create', 'Admin\PostController@create');
+    Route::post('/admin/posts/create', 'Admin\PostController@store');
+    Route::get('/admin/posts/{id}/edit', 'Admin\PostController@edit');
+    Route::patch('/admin/posts/{id}/edit', 'Admin\PostController@update');
+
+    // Post Categories
+    Route::get('/admin/posts/categories', 'Admin\PostCategoryController@index');
+    Route::get('/admin/posts/categories/create', 'Admin\PostCategoryController@create');
+    Route::post('/admin/posts/categories/create', 'Admin\PostCategoryController@store');
+
 
     Route::get('/admin/users', 'Admin\UserController@index');
 
@@ -60,6 +72,12 @@ Route::get('/pricing', 'HomeController@pricing');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/terms', 'HomeController@terms');
 Route::get('/help-center', 'HomeController@helpcenter');
+
+Route::get('/blog/{slug}', 'HomeController@blogDetail');
+Route::get('/blog', 'HomeController@blog');
+
+
+// Users Pages
 
 
 Route::get('/dashboard', 'DashboardController@index');
@@ -92,3 +110,4 @@ Route::get('/settings/payments', 'AccountController@payments');
 
 Route::get('/paypal/sample', 'PaypalController@sample');
 
+// End Users Pages

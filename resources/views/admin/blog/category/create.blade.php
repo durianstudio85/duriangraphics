@@ -9,11 +9,12 @@
 					@include('layouts.adminnav')
 				</div>
 				<div class="col-md-9">
+					@include('notification.flash')
 					<div class="col-md-12">
 						<div class="section admin-dashboard-section-first form-custom">
-							<h3>Add Category</h3>
+							<h3>Add Post Category</h3>
 							<p></p>
-							{!! Form::open(['url'=>'admin/categories/create']) !!}
+							{!! Form::open(['url'=>'admin/posts/categories/create']) !!}
 								<div class="form-group">
                                 	{!! Form::label('name', 'Category Name') !!}
                                     {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Name']) !!}

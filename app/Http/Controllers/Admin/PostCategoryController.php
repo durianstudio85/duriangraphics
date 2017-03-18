@@ -7,16 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Option;
-use App\Image_item;
-use App\Category;
+use App\Postcategory;
+use App\Post;
 
-class OptionController extends Controller
+class PostCategoryController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +19,9 @@ class OptionController extends Controller
      */
     public function index()
     {
-        $category = new Category;
-        $image = new Image_item;
-        $option = new Option;
-        return view('admin.option.index', compact('option', 'image', 'category'));
+        $post = New Postcategory;
+        $PostCategoryList = Postcategory::get();
+        return view('admin.blog.category.index', compact('post','PostCategoryList'));
     }
 
     /**
@@ -37,7 +31,7 @@ class OptionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blog.category.create');
     }
 
     /**
@@ -48,9 +42,24 @@ class OptionController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        Option::Create($data);
-        return redirect('/admin/options');
+        $slug = str_slug($request->get('name'), '-');
+        $data = [
+            'name' => $request->get('name'),
+            'slug' => $slug,
+        ];
+        $findExist = Postcategory::where('slug', '=', $slug)->count();
+        if ( $findExist == 0) {
+            Postcategory::Create($data);
+            session()->flash('flash_message', 'Category Created Successfully!');
+            session()->flash('flash_message_important', 'alert-success');
+            return redirect('/admin/posts/categories');
+        }else{
+            session()->flash('flash_message', 'Category Already Exist!');
+            session()->flash('flash_message_important', 'alert-danger');
+            return redirect('/admin/posts/categories/create');
+        }
+
+        
     }
 
     /**
@@ -95,7 +104,6 @@ class OptionController extends Controller
      */
     public function destroy($id)
     {
-        Option::destroy($id);
-        return redirect('/admin/options');
+        //
     }
 }
