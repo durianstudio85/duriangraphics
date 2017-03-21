@@ -9,6 +9,7 @@ use App\Image_item;
 use App\Download;
 use App\Option;
 use App\Post;
+use App\Postcategory;
 use DB;
 
 class HomeController extends Controller
@@ -121,8 +122,14 @@ class HomeController extends Controller
         $option = new Option;
         $products = new Image_item;
         $category = new Category;
+
+        $postCategory = new Postcategory;
+
+
         $blog = Post::paginate(10);
-        return view('blog',compact('option','products', 'category','blog'));
+        $recentBlog = Post::skip(0)->take(5)->orderBy('created_at', 'desc')->get();
+
+        return view('blog',compact('option','products', 'category','blog','recentBlog', 'postCategory'));
     }
 
     public function blogDetail($slug)
@@ -130,9 +137,11 @@ class HomeController extends Controller
         $option = new Option;
         $products = new Image_item;
         $category = new Category;
+        
         $blog = Post::where('slug', '=', $slug)->first();
+        $recentBlog = Post::skip(0)->take(5)->orderBy('created_at', 'desc')->get();
         if (!empty($blog)) {
-            return view('blog',compact('option','products', 'category','blog'));
+            return view('blog',compact('option','products', 'category','blog','recentBlog', 'postCategory'));
         }else{
             return redirect('/blog');
         }

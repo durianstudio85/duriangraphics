@@ -25,8 +25,8 @@
 										@foreach ( $post as $list )
 											<tr>
 												<td>{{ $list->title }}</td>
-												<td>{{ $list->category }}</td>
-												<td>{{ $list->author_id }}</td>
+												<td>{{ $category->idToDetails($list->category)->name }}</td>
+												<td>Administrator</td>
 												<td><a href="{{ url('/admin/posts/'.$list->id.'/edit') }}">Edit</a></td>
 											</tr>	
 										@endforeach

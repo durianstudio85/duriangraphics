@@ -18,4 +18,10 @@ class Postcategory extends Model
     	return $count;
     }
 
+    public function idToDetails($id='')
+    {
+    	$name = Postcategory::find($id);
+    	return $name;
+    }
+
 }

@@ -58,8 +58,6 @@ class PostCategoryController extends Controller
             session()->flash('flash_message_important', 'alert-danger');
             return redirect('/admin/posts/categories/create');
         }
-
-        
     }
 
     /**

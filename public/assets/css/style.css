@@ -1075,8 +1075,16 @@ p{
 /*Blog */
 
 .blog-thumbnails{
-	min-height: 430px;
+	min-height: 350px;
 	margin-bottom: 20px;
+}
+
+.blog-body h1, .blog-body h2, .blog-body h3, .blog-body h4, .blog-body h5, .blog-body h6{
+	color: #333333;
+}
+
+.blog-body a:hover{
+	text-decoration: none;
 }
 
 .blog-thumbnails h4{
@@ -1098,6 +1106,10 @@ p{
 
 .blog-recent tr{
 	margin-top: 20px;
+}
+
+.blog-recent a:hover{
+	text-decoration: none;
 }
 
 .blog-recent-title{
@@ -1122,6 +1134,16 @@ p{
 .blog-categories{
 	color: #757575;
     font-size: 15px;
+}
+
+.blog-content{
+	color: #757575;
+    font-size: 15px;
+}
+
+.blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6{
+	font-weight: bold;
+	color: #333333;
 }
 
 

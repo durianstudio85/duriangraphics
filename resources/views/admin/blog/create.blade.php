@@ -17,7 +17,7 @@
 							<p></p>
 							<div class="table-responsive category-table form-custom" >								
 								{!! Form::open(['url'=>'admin/posts/create','files'=>'true']) !!}
-																		<div class="form-group">
+									<div class="form-group">
                                 		{!! Form::label('title', 'Title') !!}
                                     	{!! Form::text('title', null, ['class'=>'form-control', 'placeholder'=>'Title Name','required'=>'required']) !!}
    									</div>
@@ -28,6 +28,14 @@
    									<div class="form-group">
                                 		{!! Form::label('short_content', 'Short Content') !!}
                                     	{!! Form::textarea('short_content', null, ['class'=>'form-control', 'data-provide'=>'markdown', 'placeholder'=>'Short Content', 'rows'=>'5']) !!}
+   									</div>
+   									<div class="form-group">
+                                		{!! Form::label('category', 'Category') !!}
+                                		<select class="form-control" name="category">
+                                			@foreach ( $category as $list )
+                                				<option value="{{ $list->id }}">{{ $list->name }}</option>
+                                			@endforeach
+                                		</select>
    									</div>
    									<div class="form-group">
 	                                	{!! Form::label('thumbnail', 'Thumbnail (414 x 265)'); !!}

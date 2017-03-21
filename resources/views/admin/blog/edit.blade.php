@@ -31,6 +31,14 @@
                                     	{!! Form::textarea('short_content', null, ['class'=>'form-control', 'data-provide'=>'markdown', 'placeholder'=>'Short Content', 'rows'=>'5']) !!}
    									</div>
    									<div class="form-group">
+                                		{!! Form::label('category', 'Category') !!}
+                                		<select class="form-control" name="category">
+                                			@foreach ( $category as $list )
+                                				<option value="{{ $list->id }}">{{ $list->name }}</option>
+                                			@endforeach
+                                		</select>
+   									</div>
+   									<div class="form-group">
 	                                	{!! Form::label('thumbnail', 'Thumbnail (414 x 265)'); !!}
 	                                    {!! Form::file('thumbnail',['class'=>'form-control', 'placeholder'=>'Watermark', 'title'=>'Normal Size']) !!}
 	                                </div>

@@ -11,6 +11,7 @@ use App\Post;
 use App\User;
 use App\Admin;
 use App\Postimage;
+use App\Postcategory;
 use Auth;
 
 class PostController extends Controller
@@ -24,12 +25,14 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::get();
-    	return view('admin.blog.index', compact('post'));
+        $category = new Postcategory;
+    	return view('admin.blog.index', compact('post', 'category'));
     }
 
     public function create()
     {
-    	return view('admin.blog.create');
+        $category = Postcategory::get();
+    	return view('admin.blog.create', compact('category'));
     }
 
     public function store(Request $request)
@@ -56,7 +59,7 @@ class PostController extends Controller
                 'short_content' => $request->get('short_content'),
                 'slug' => $slug,
                 'author_id' => 1,
-                'category' => 1,
+                'category' => $request->get('category'),
                 'thumbnail' => $thumbnail_name,
             ];    
             $post = Post::create($data);
@@ -71,7 +74,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('admin.blog.edit', compact('post'));
+        $category = Postcategory::get();
+        return view('admin.blog.edit', compact('post','category'));
     }
 
      public function update(Request $request, $id)
@@ -95,7 +99,7 @@ class PostController extends Controller
                 'short_content' => $request->get('short_content'),
                 'slug' => $slug,
                 'author_id' => 1,
-                'category' => 1,
+                'category' => $request->get('category'),
             ];   
 
             $post->update($data);
