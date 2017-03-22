@@ -86,6 +86,7 @@
 				            				Name: {{ $imageList->name }}<br>
 				            				Link: <a href="{{ asset('img/posts/'.$imageList->filename) }}">{{ asset('img/posts/'.$imageList->filename) }}</a><br>
 				            				HTML: {{ '<img src="'.asset('img/posts/'.$imageList->filename).'" width="100%">' }}
+				            				OVERLAY: <textarea cols="80" rows="1">{{ '<div class="container" style="width:80%;"><img src="'.asset('img/posts/'.$imageList->filename).'" alt="Avatar" class="image"><div class="overlay"><div class="text"><a href="'.asset('img/posts/'.$imageList->filename).'" data-lightbox="blog" data-title="'.$imageList->name.'"><button class="btn"><i class="fa fa-search-plus" aria-hidden="true"></i></button></a></div></div></div>' }}</textarea>
 				            			</td>
 				            		</tr>
 			            		@endforeach

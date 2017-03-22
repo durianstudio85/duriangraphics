@@ -96,6 +96,7 @@
                             @endforeach
                         </ul>
                     </li>
+                    <li><a href="{{ url('/blog') }}" {{{ ( Request::is('blog') ? 'class=active' : '') }}} >Blog</a></li>
 
                     <!-- <li><a href="{{ url('/about') }}" {{{ ( Request::is('about') ? 'class=active' : '') }}} >About</a></li> -->
                     <!-- <li><a href="{{ url('/services') }}" {{{ ( Request::is('services') ? 'class=active' : '') }}} >Services</a></li> -->

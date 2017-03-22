@@ -85,7 +85,8 @@
 				            			<td>
 				            				Name: {{ $imageList->name }}<br>
 				            				Link: <a href="{{ asset('img/posts/'.$imageList->filename) }}">{{ asset('img/posts/'.$imageList->filename) }}</a><br>
-				            				HTML: {{ '<img src="'.asset('img/posts/'.$imageList->filename).'" width="100%">' }}
+				            				HTML: {{ '<img src="'.asset('img/posts/'.$imageList->filename).'" width="100%">' }}<br>
+				            				
 				            			</td>
 				            		</tr>
 			            		@endforeach
