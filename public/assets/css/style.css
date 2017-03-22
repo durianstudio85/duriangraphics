@@ -1146,9 +1146,66 @@ p{
 	color: #333333;
 }
 
+.blog-facebook{
+	padding: 10px 17px;
+    background-color: #5e78cc;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.blog-twitter{
+	padding: 10px 13px;
+    background-color: #3fc4ed;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.blog-google-plus{
+	padding: 10px 9px;
+    background-color: #e85549;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.blog-pinterest-p{
+	padding: 10px 14px;
+    background-color: #d43d48;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.blog-linkedin{
+	padding: 10px 14px;
+    background-color: #1988d6;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+
+.blog-author-section{
+    background-color: #f8f8f9;
+    margin-top: 50px;
+    padding: 22px;
+    float: left;
+
+}
+
+
 
 .alert-custom .alert{
 	margin-bottom: 0px;
 	margin-top: 20px;
 	border-radius: 0px;
 }
+
+

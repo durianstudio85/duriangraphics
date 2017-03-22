@@ -39,9 +39,25 @@
 								<br>
 								<div class="col-md-12">
 									<center>
-										<h3>Share This Article</h3>
-										<i class="fa fa-facebook" aria-hidden="true"></i>
+										<h3>Share This Article</h3><br>
+										<a href="#facebook" class="blog-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+										<a href="#twitter" class="blog-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+										<a href="#google-plus" class="blog-google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+										<a href="#pinterest-p" class="blog-pinterest-p"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+										<a href="#linkedin" class="blog-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 									</center>
+								</div>
+								<div class="col-md-12">
+									<div class="blog-author-section">
+										<div class="col-sm-2">
+											<img src="{{ asset('assets/images/author-img.jpg') }}" width="100%">
+										</div>
+										<div class="col-sm-9">
+											<h4>Author: Durian Graphics</h4>
+											<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam dui libero, tempor quis congue in, interdum eget tortor. </p>
+										</div>
+										
+									</div>
 								</div>
 							</div>
 						@endif
@@ -63,7 +79,7 @@
 						</table>
 						<br>
 						<br>
-						@if ( !empty($postCategory->get()))
+						@if ( $postCategory->get() != '' )
 							<h3>Blog Categories</h3>
 		                    <table class="blog-categories-table">
 		                    	@foreach ( $postCategory->get() as $postCat )
@@ -74,9 +90,7 @@
 				                    	</tr>
 			                    	@endif
 		                    	@endforeach
-		                    	
 		                    </table>	
-
 						@endif
 						
 	                    <br>
@@ -85,8 +99,9 @@
 	                    <div class="">
 	                    	@foreach ( $option->where('category','=','featured')->skip(0)->take(6)->inRandomOrder()->get() as $optionList )
 	                    		<div class="">
-	                    			<a href="{{ url('/products/'.$category->getCatName($products->find($optionList->img_id)->category).'/'.$products->find($optionList->img_id)->id) }}"></a>
+	                    			<a href="{{ url('/products/'.$category->getCatName($products->find($optionList->img_id)->category).'/'.$products->find($optionList->img_id)->id) }}">
 	                    			<img src="{{ asset('images/'.$products->changeSizeImage( $products->find($optionList->img_id)->watermark_img,'s') ) }}" style="width: 30.33333333%; margin-right: 5px; margin-bottom: 5px;float: left;">
+	                    			</a>
 	                    		</div>
 	                    	@endforeach
 	                    </div>
