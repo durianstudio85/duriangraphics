@@ -137,6 +137,8 @@ class HomeController extends Controller
         $option = new Option;
         $products = new Image_item;
         $category = new Category;
+
+        $postCategory = new Postcategory;
         
         $blog = Post::where('slug', '=', $slug)->first();
         $recentBlog = Post::skip(0)->take(5)->orderBy('created_at', 'desc')->get();
