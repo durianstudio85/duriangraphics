@@ -23,7 +23,8 @@
 												{{ $user->email }}
 											</td>
 											<td>
-												<a href="#"><button class=" btn follow-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+												<a href="#" data-toggle="modal" data-target="#userProf"><button class=" btn follow-btn"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+												<a href="#"  data-toggle="modal" data-target="#userProf{{ $user->id }}"><button class=" btn follow-btn"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
 											</td>
 										</tr>
 									@endforeach
@@ -36,4 +37,44 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal Start -->
+@foreach ( $userList as $userModal )
+<div id="userProf{{ $userModal->id }}" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">User</h4>
+      </div>
+      <div class="modal-body form-custom">
+      		<ul class="nav nav-tabs">
+		        <li class="active"><a data-toggle="tab" href="#details{{ $userModal->id }}">Details</a></li>
+		        <li><a data-toggle="tab" href="#payment{{ $userModal->id }}">Payment</a></li>
+		    </ul>
+		    <div class="tab-content">
+		        <div id="details{{ $userModal->id }}" class="tab-pane fade in active">
+		        	<strong>Name:</strong> {{ $userModal->first_name.' '.$userModal->last_name }} <br>
+		        	<strong>Email:</strong> {{ $userModal->email }} <br>
+		        	<strong>Account Type:</strong> {{ $userModal->account_type }} <br>
+		        	<strong>Created Date:</strong> {{  date('F d, Y', strtotime($userModal->created_at)) }} <br>
+		        </div>
+
+
+		        <div id="payment{{ $userModal->id }}" class="tab-pane fade">
+		            
+		        </div>
+		    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+@endforeach
+
 @endsection
