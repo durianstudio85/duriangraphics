@@ -100,6 +100,7 @@ class PostController extends Controller
                 'slug' => $slug,
                 'author_id' => 1,
                 'category' => $request->get('category'),
+                'thumbnail' => $thumbnail_name,
             ];   
 
             $post->update($data);

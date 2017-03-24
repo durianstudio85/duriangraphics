@@ -60,6 +60,8 @@
 		        	<strong>Email:</strong> {{ $userModal->email }} <br>
 		        	<strong>Account Type:</strong> {{ $userModal->account_type }} <br>
 		        	<strong>Created Date:</strong> {{  date('F d, Y', strtotime($userModal->created_at)) }} <br>
+		        	<strong>Ip Address:</strong> {{  $userModal->ipaddress }} <br>
+		        	<strong>Browser:</strong> {{  $userModal->browser }} <br>
 		        </div>
 
 

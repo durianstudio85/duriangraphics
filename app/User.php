@@ -27,6 +27,8 @@ class User extends Authenticatable
         'state' ,
         'zipcode' ,
         'company_no' ,
+        'ipaddress',
+        'browser',
     ];
 
     /**

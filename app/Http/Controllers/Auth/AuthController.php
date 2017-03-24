@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Request;
+
 
 class AuthController extends Controller
 {
@@ -64,6 +66,29 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+
+        $ExactBrowserNameUA=$_SERVER['HTTP_USER_AGENT'];
+
+        if (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "opr/")) {
+            // OPERA
+            $ExactBrowserNameBR="Opera";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "chrome/")) {
+            // CHROME
+            $ExactBrowserNameBR="Chrome";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "msie")) {
+            // INTERNET EXPLORER
+            $ExactBrowserNameBR="Internet Explorer";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "firefox/")) {
+            // FIREFOX
+            $ExactBrowserNameBR="Firefox";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "opr/")==false and strpos(strtolower($ExactBrowserNameUA), "chrome/")==false) {
+            // SAFARI
+            $ExactBrowserNameBR="Safari";
+        } else {
+            // OUT OF DATA
+            $ExactBrowserNameBR="OUT OF DATA";
+        };
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -71,6 +96,8 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'ipaddress' => Request::getClientIp(),
+            'browser' => $ExactBrowserNameBR,
         ]);
     }
 
