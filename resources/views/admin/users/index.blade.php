@@ -17,7 +17,12 @@
 								<table class="table">
 									@foreach ($userList as $user)
 										<tr>
-											<td width="8%"><img src="http://localhost/github/laravel/duriangraphics/public/assets/images/profile-blank-image.png" class="acc-img"></td>
+											@if ($user->photo != '' )
+												<td width="8%"><img src="{{ asset('img/'.$user->photo) }}" class="acc-img"></td>
+											@else
+												<td width="8%"><img src="{{ asset('assets/images/profile-blank-image.png') }}" class="acc-img"></td>
+											@endif
+											
 											<td width="72%" style="padding-top: 14px;">
 												<h4>{{ ucfirst($user->first_name) }} {{ ucfirst($user->last_name) }}</h4>
 												{{ $user->email }}

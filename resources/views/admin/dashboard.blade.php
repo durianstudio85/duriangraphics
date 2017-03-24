@@ -41,7 +41,7 @@
 							</div>
 							<table class="table">
 								<tr>
-									<td width="60px"><img src="http://localhost/github/laravel/duriangraphics/public/images/DurianStudio_10000_s.jpg" width="60px" height="60px"></td>
+									<td width="60px"><img src="{{ asset('images/'.$image->changeSizeImage($image->getOneImageDetail($recentProductsThumb->id)->watermark_img, $size = 's')) }}" width="60px" height="60px"></td>
 									<td>
 										<h4>{{ $recentProductsThumb->title }}</h4>
 										<p>{{ $download->getDate($recentProductsThumb->created_at ) }}</p>
