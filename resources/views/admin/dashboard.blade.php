@@ -20,15 +20,17 @@
 						<div class="section admin-dashboard-section">
 							<h3>Recent Downloads</h3>
 							<table class="table">
-								@foreach($recentDownloads as $items )
-								<tr>
-									<td width="60px"><img src="{{ asset('images/'.$image->changeSizeImage($image->getOneImageDetail($items->img_id)->watermark_img, $size = 's')) }}" width="60px" height="60px"></td>
-									<td>
-										<h4>{{ $image->getOneImageDetail($items->img_id)->title }}</h4>
-										<p>{{ $download->getDate($items->created_at ) }} &nbsp;&nbsp; By: {{ $user->getOneUserDetail($items->user_id)->first_name.' '.$user->getOneUserDetail($items->user_id)->last_name }}</p>
-									</td>
-								</tr>
-								@endforeach
+								@if ( count($recentDownloads ) > 0  )
+									@foreach($recentDownloads as $items )
+									<tr>
+										<td width="60px"><img src="{{ asset('images/'.$image->changeSizeImage($image->getOneImageDetail($items->img_id)->watermark_img, $size = 's')) }}" width="60px" height="60px"></td>
+										<td>
+											<h4>{{ $image->getOneImageDetail($items->img_id)->title }}</h4>
+											<p>{{ $download->getDate($items->created_at ) }} &nbsp;&nbsp; By: {{ $user->getOneUserDetail($items->user_id)->first_name.' '.$user->getOneUserDetail($items->user_id)->last_name }}</p>
+										</td>
+									</tr>
+									@endforeach
+								@endif
 							</table>
 						</div>
 					</div>
@@ -36,16 +38,19 @@
 						<div class="section admin-dashboard-section">
 							<h3>Recent Products</h3>
 							<div style="text-align:center;border: 1px solid #e5ebeb;">
-								<!-- <img src="{{  asset( 'images/'.$image->changeSizeImage($recentProductsFirst->watermark_img, 'm')) }}"> -->
-								<img src="{{  asset( 'images/'.$recentProductsFirst->watermark_img) }}" width="100%">
+								@if ( !empty($recentProductsFirst) )
+									<img src="{{  asset( 'images/'.$recentProductsFirst->watermark_img) }}" width="100%">
+								@endif
 							</div>
 							<table class="table">
 								<tr>
+									@if ( count($recentProductsThumb) > 0 )
 									<td width="60px"><img src="{{ asset('images/'.$image->changeSizeImage($image->getOneImageDetail($recentProductsThumb->id)->watermark_img, $size = 's')) }}" width="60px" height="60px"></td>
 									<td>
 										<h4>{{ $recentProductsThumb->title }}</h4>
 										<p>{{ $download->getDate($recentProductsThumb->created_at ) }}</p>
 									</td>
+									@endif
 								</tr>
 								<tr>
 									<td></td>
