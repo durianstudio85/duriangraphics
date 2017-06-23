@@ -51,7 +51,9 @@
 						<div class="section" style="padding: 30px; min-height: 735px;">
 							<h3>Latest Designs</h3>
 							<div style="width: 350px;height: 330px;overflow: hidden;">
-								<img src="{{ asset('/images/'.$recentDesignFirst->watermark_img ) }}" width="100%" >
+								@if ( !empty($recentDesignFirst) )
+									<img src="{{ asset('/images/'.$recentDesignFirst->watermark_img ) }}" width="100%" >
+								@endif
 							</div>
 							<br><br>
 							<table class="table">
